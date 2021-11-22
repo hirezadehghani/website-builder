@@ -3,8 +3,7 @@
   <bpmn:collaboration id="Collaboration_1ygfsz2">
     <bpmn:participant id="Participant_0d3uabt" name="کاربر عادی" processRef="Process_04beapa" />
     <bpmn:participant id="Participant_121l20s" name="سیستم" processRef="Process_0gn37y0" />
-    <bpmn:messageFlow id="Flow_0jkkdxa" sourceRef="Activity_0ivb9c1" targetRef="Event_0xwwpmr" />
-    <bpmn:messageFlow id="Flow_0ads6wf" sourceRef="Event_1hdg7p4" targetRef="Activity_1j9en0c" />
+    <bpmn:messageFlow id="Flow_0ads6wf" sourceRef="Event_1hdg7p4" targetRef="Event_0d199cu" />
     <bpmn:messageFlow id="Flow_0yxmov8" sourceRef="Event_0pswclh" targetRef="Event_0xwwpmr" />
     <bpmn:textAnnotation id="TextAnnotation_0rfm419">
       <bpmn:text>نموداربی پی ام ان مرتبط با یوزکیس نمایش فرم ثبت نام</bpmn:text>
@@ -21,17 +20,26 @@
     </bpmn:task>
     <bpmn:task id="Activity_0ivb9c1" name="تکمیل فرم ثبت نام">
       <bpmn:incoming>Flow_1cdtivb</bpmn:incoming>
+      <bpmn:outgoing>Flow_1slwvx9</bpmn:outgoing>
     </bpmn:task>
     <bpmn:task id="Activity_1j9en0c" name="تکمیل دوباره فرم">
-      <bpmn:outgoing>Flow_08i7cow</bpmn:outgoing>
+      <bpmn:incoming>Flow_1adisxl</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vkwt6s</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:intermediateThrowEvent id="Event_0pswclh" name="بررسی دوباره">
-      <bpmn:incoming>Flow_08i7cow</bpmn:incoming>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_089qztw" />
-    </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="Flow_1cdtivb" sourceRef="Activity_1jijkz8" targetRef="Activity_0ivb9c1" />
     <bpmn:sequenceFlow id="Flow_1dp9ebn" sourceRef="Event_1lcwzpi" targetRef="Activity_1jijkz8" />
-    <bpmn:sequenceFlow id="Flow_08i7cow" sourceRef="Activity_1j9en0c" targetRef="Event_0pswclh" />
+    <bpmn:intermediateThrowEvent id="Event_0pswclh" name="ارسال فرم">
+      <bpmn:incoming>Flow_1slwvx9</bpmn:incoming>
+      <bpmn:incoming>Flow_1vkwt6s</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_089qztw" />
+    </bpmn:intermediateThrowEvent>
+    <bpmn:sequenceFlow id="Flow_1slwvx9" sourceRef="Activity_0ivb9c1" targetRef="Event_0pswclh" />
+    <bpmn:sequenceFlow id="Flow_1vkwt6s" sourceRef="Activity_1j9en0c" targetRef="Event_0pswclh" />
+    <bpmn:intermediateCatchEvent id="Event_0d199cu" name="دریافت ارور">
+      <bpmn:outgoing>Flow_1adisxl</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0deenja" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_1adisxl" sourceRef="Event_0d199cu" targetRef="Activity_1j9en0c" />
   </bpmn:process>
   <bpmn:process id="Process_0gn37y0" isExecutable="false">
     <bpmn:task id="Activity_0natcy8" name="ثبت اطلاعات کاربر و هدایت کاربر به صفحه ورود">
@@ -64,10 +72,19 @@
       <bpmndi:BPMNShape id="Participant_0d3uabt_di" bpmnElement="Participant_0d3uabt" isHorizontal="true">
         <dc:Bounds x="160" y="210" width="920" height="250" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_08i7cow_di" bpmnElement="Flow_08i7cow">
+      <bpmndi:BPMNEdge id="Flow_1adisxl_di" bpmnElement="Flow_1adisxl">
+        <di:waypoint x="812" y="320" />
+        <di:waypoint x="760" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vkwt6s_di" bpmnElement="Flow_1vkwt6s">
         <di:waypoint x="660" y="320" />
-        <di:waypoint x="610" y="320" />
-        <di:waypoint x="610" y="422" />
+        <di:waypoint x="599" y="320" />
+        <di:waypoint x="599" y="440" />
+        <di:waypoint x="538" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1slwvx9_di" bpmnElement="Flow_1slwvx9">
+        <di:waypoint x="520" y="360" />
+        <di:waypoint x="520" y="422" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1dp9ebn_di" bpmnElement="Flow_1dp9ebn">
         <di:waypoint x="248" y="320" />
@@ -90,9 +107,15 @@
         <dc:Bounds x="660" y="280" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0u64zjg_di" bpmnElement="Event_0pswclh">
-        <dc:Bounds x="592" y="422" width="36" height="36" />
+        <dc:Bounds x="502" y="422" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="634" y="433" width="52" height="14" />
+          <dc:Bounds x="441" y="433" width="37" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0kgkjzi_di" bpmnElement="Event_0d199cu">
+        <dc:Bounds x="812" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="806" y="272" width="48" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_121l20s_di" bpmnElement="Participant_121l20s" isHorizontal="true">
@@ -142,23 +165,20 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_0rfm419_di" bpmnElement="TextAnnotation_0rfm419">
-        <dc:Bounds x="570" y="80" width="340" height="54" />
+        <dc:Bounds x="570" y="120" width="340" height="54" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_0eeucjc_di" bpmnElement="Association_0eeucjc">
         <di:waypoint x="620" y="210" />
-        <di:waypoint x="620" y="134" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0jkkdxa_di" bpmnElement="Flow_0jkkdxa">
-        <di:waypoint x="520" y="360" />
-        <di:waypoint x="520" y="612" />
+        <di:waypoint x="620" y="174" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ads6wf_di" bpmnElement="Flow_0ads6wf">
         <di:waypoint x="710" y="502" />
-        <di:waypoint x="710" y="360" />
+        <di:waypoint x="710" y="420" />
+        <di:waypoint x="830" y="420" />
+        <di:waypoint x="830" y="338" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0yxmov8_di" bpmnElement="Flow_0yxmov8">
-        <di:waypoint x="592" y="440" />
-        <di:waypoint x="520" y="440" />
+        <di:waypoint x="520" y="458" />
         <di:waypoint x="520" y="612" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>

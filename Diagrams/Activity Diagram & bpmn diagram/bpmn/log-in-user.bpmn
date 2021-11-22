@@ -3,8 +3,7 @@
   <bpmn:collaboration id="Collaboration_03mg64p">
     <bpmn:participant id="Participant_1yrgizg" name="کاربرعادی" processRef="Process_1dk6x41" />
     <bpmn:participant id="Participant_1iso0rs" name="سیستم" processRef="Process_0ge7ml4" />
-    <bpmn:messageFlow id="Flow_1eg3prp" sourceRef="Event_0pui3yf" targetRef="Activity_0kb1oys" />
-    <bpmn:messageFlow id="Flow_11ehdf8" sourceRef="Activity_0iilgok" targetRef="Event_0w81j4u" />
+    <bpmn:messageFlow id="Flow_1eg3prp" sourceRef="Event_0pui3yf" targetRef="Event_02dbsaw" />
     <bpmn:messageFlow id="Flow_093zfdw" sourceRef="Event_1ug3w3t" targetRef="Event_0w81j4u" />
     <bpmn:textAnnotation id="TextAnnotation_0r5h5ib">
       <bpmn:text>نمودار بی پی ام ان مرتبط با یوزکیس ورود</bpmn:text>
@@ -21,17 +20,26 @@
     </bpmn:task>
     <bpmn:task id="Activity_0iilgok" name="تکمیل فرم ورود">
       <bpmn:incoming>Flow_18524pb</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gqsx9k</bpmn:outgoing>
     </bpmn:task>
     <bpmn:task id="Activity_0kb1oys" name="تکمیل دوباره فرم">
-      <bpmn:outgoing>Flow_1vexv04</bpmn:outgoing>
+      <bpmn:incoming>Flow_0hd6okh</bpmn:incoming>
+      <bpmn:outgoing>Flow_086tacw</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:intermediateThrowEvent id="Event_1ug3w3t" name="بررسی دوباره">
-      <bpmn:incoming>Flow_1vexv04</bpmn:incoming>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_1vejnbf" />
-    </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="Flow_18524pb" sourceRef="Activity_1yrnnax" targetRef="Activity_0iilgok" />
     <bpmn:sequenceFlow id="Flow_1qulj3h" sourceRef="StartEvent_1" targetRef="Activity_1yrnnax" />
-    <bpmn:sequenceFlow id="Flow_1vexv04" sourceRef="Activity_0kb1oys" targetRef="Event_1ug3w3t" />
+    <bpmn:intermediateCatchEvent id="Event_02dbsaw" name="دریافت ارور">
+      <bpmn:outgoing>Flow_0hd6okh</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1s1alff" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_0hd6okh" sourceRef="Event_02dbsaw" targetRef="Activity_0kb1oys" />
+    <bpmn:intermediateThrowEvent id="Event_1ug3w3t" name="ارسال فرم">
+      <bpmn:incoming>Flow_1gqsx9k</bpmn:incoming>
+      <bpmn:incoming>Flow_086tacw</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1vejnbf" />
+    </bpmn:intermediateThrowEvent>
+    <bpmn:sequenceFlow id="Flow_1gqsx9k" sourceRef="Activity_0iilgok" targetRef="Event_1ug3w3t" />
+    <bpmn:sequenceFlow id="Flow_086tacw" sourceRef="Activity_0kb1oys" targetRef="Event_1ug3w3t" />
   </bpmn:process>
   <bpmn:process id="Process_0ge7ml4" isExecutable="false">
     <bpmn:exclusiveGateway id="Gateway_0mlvfm1" name="بررسی فرم">
@@ -64,11 +72,6 @@
       <bpmndi:BPMNShape id="Participant_1yrgizg_di" bpmnElement="Participant_1yrgizg" isHorizontal="true">
         <dc:Bounds x="129" y="222" width="861" height="250" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1vexv04_di" bpmnElement="Flow_1vexv04">
-        <di:waypoint x="620" y="340" />
-        <di:waypoint x="590" y="340" />
-        <di:waypoint x="590" y="432" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1qulj3h_di" bpmnElement="Flow_1qulj3h">
         <di:waypoint x="215" y="340" />
         <di:waypoint x="290" y="340" />
@@ -76,6 +79,20 @@
       <bpmndi:BPMNEdge id="Flow_18524pb_di" bpmnElement="Flow_18524pb">
         <di:waypoint x="390" y="340" />
         <di:waypoint x="450" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hd6okh_di" bpmnElement="Flow_0hd6okh">
+        <di:waypoint x="772" y="340" />
+        <di:waypoint x="720" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gqsx9k_di" bpmnElement="Flow_1gqsx9k">
+        <di:waypoint x="500" y="380" />
+        <di:waypoint x="500" y="432" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_086tacw_di" bpmnElement="Flow_086tacw">
+        <di:waypoint x="620" y="340" />
+        <di:waypoint x="569" y="340" />
+        <di:waypoint x="569" y="450" />
+        <di:waypoint x="518" y="450" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1" bioc:stroke="#43a047" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#43a047">
         <dc:Bounds x="179" y="322" width="36" height="36" />
@@ -89,10 +106,16 @@
       <bpmndi:BPMNShape id="Activity_0kb1oys_di" bpmnElement="Activity_0kb1oys" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
         <dc:Bounds x="620" y="300" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0695a56_di" bpmnElement="Event_1ug3w3t">
-        <dc:Bounds x="572" y="432" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_0pk35q5_di" bpmnElement="Event_02dbsaw">
+        <dc:Bounds x="772" y="322" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="564" y="475" width="52" height="14" />
+          <dc:Bounds x="766" y="303" width="48" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0695a56_di" bpmnElement="Event_1ug3w3t">
+        <dc:Bounds x="482" y="432" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="428" y="443" width="37" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1iso0rs_di" bpmnElement="Participant_1iso0rs" isHorizontal="true">
@@ -150,15 +173,12 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1eg3prp_di" bpmnElement="Flow_1eg3prp">
         <di:waypoint x="670" y="522" />
-        <di:waypoint x="670" y="380" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_11ehdf8_di" bpmnElement="Flow_11ehdf8">
-        <di:waypoint x="500" y="380" />
-        <di:waypoint x="500" y="612" />
+        <di:waypoint x="670" y="440" />
+        <di:waypoint x="790" y="440" />
+        <di:waypoint x="790" y="358" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_093zfdw_di" bpmnElement="Flow_093zfdw">
-        <di:waypoint x="572" y="450" />
-        <di:waypoint x="500" y="450" />
+        <di:waypoint x="500" y="468" />
         <di:waypoint x="500" y="612" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
