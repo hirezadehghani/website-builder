@@ -35,7 +35,7 @@
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="Flow_1slwvx9" sourceRef="Activity_0ivb9c1" targetRef="Event_0pswclh" />
     <bpmn:sequenceFlow id="Flow_1vkwt6s" sourceRef="Activity_1j9en0c" targetRef="Event_0pswclh" />
-    <bpmn:intermediateCatchEvent id="Event_0d199cu" name="دریافت ارور">
+    <bpmn:intermediateCatchEvent id="Event_0d199cu" name="دریافت خطا">
       <bpmn:outgoing>Flow_1adisxl</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0deenja" />
     </bpmn:intermediateCatchEvent>
@@ -115,7 +115,7 @@
       <bpmndi:BPMNShape id="Event_0kgkjzi_di" bpmnElement="Event_0d199cu">
         <dc:Bounds x="812" y="302" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="806" y="272" width="48" height="14" />
+          <dc:Bounds x="808" y="283" width="44" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_121l20s_di" bpmnElement="Participant_121l20s" isHorizontal="true">
