@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: Vazir;
+    src: url("../fonts/Vazir.ttf");
+}
+
+body {
+    direction: rtl;
+    font-family: Vazir;
+}
+
+.right-panel {
+    background-color: #000051;
+}
+
+.right-panel ul li:nth-child(5) {
+    background-color: #7200CA;
+}
+
+.right-panel ul li:hover {
+    background-color: #7200CA;
+}
+
+.right-panel ul li:nth-child(3) {
+    background-color: unset;
+}
+
+.right-panel ul li:nth-child(1) {
+    background-color: unset;
+}
