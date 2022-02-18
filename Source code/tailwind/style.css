@@ -476,6 +476,41 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.inset-1\/2 {
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+}
+
+.top-1\/2 {
+  top: 50%;
+}
+
+.left-auto {
+  left: auto;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.right-full {
+  right: 100%;
+}
+
+.top-3\/4 {
+  top: 75%;
+}
+
 .my-1 {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -497,16 +532,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1.25rem;
 }
 
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.mr-32 {
+  margin-right: 8rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
 .flex {
   display: flex;
 }
 
 .grid {
   display: grid;
-}
-
-.hidden {
-  display: none;
 }
 
 .h-screen {
@@ -525,6 +568,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 12rem;
 }
 
+.w-0 {
+  width: 0px;
+}
+
+.w-44 {
+  width: 11rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -539,6 +590,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .self-end {
   align-self: flex-end;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-l-sm {
+  border-top-left-radius: 0.125rem;
+  border-bottom-left-radius: 0.125rem;
 }
 
 .bg-primary {
@@ -556,8 +616,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(114 0 202 / var(--tw-bg-opacity));
 }
 
+.bg-slate-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+
+.bg-slate-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
+
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .py-2\.5 {
@@ -598,10 +676,40 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0.5;
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-75 {
+  transition-duration: 75ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
+.ease-linear {
+  transition-timing-function: linear;
 }
 
 @font-face {
@@ -629,32 +737,28 @@ body {
     visibility: hidden;
   }
 
-  .sm\:hidden {
-    display: none;
+  .sm\:w-48 {
+    width: 12rem;
   }
 
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+
+  .sm\:opacity-100 {
+    opacity: 1;
+  }
 }
 
 @media (min-width: 768px) {
-  .md\:visible {
-    visibility: visible;
-  }
-
-  .md\:hidden {
-    display: none;
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
 }
