@@ -10,60 +10,98 @@
 </head>
 
 <body>
-    <!-- right panel -->
-    <div class="h-screen w-44 grid grid-cols-1 bg-primary fixed invisible sm:visible transition-opacity duration-500 opacity-0 sm:opacity-100"
-        id="panel">
 
-        <ul class="flex flex-col h-3/4 text-slate-50 text-xs sm:text-sm relative">
-            <li class="py-2.5 cursor-pointer mt-3">
-                <i class="fa-solid fa-gauge ml-2 mr-3"></i>
-                داشبورد ادمین
-            </li>
-            <hr class="bg-slate-100 opacity-50 my-1">
-            <li class="py-2.5 cursor-pointer">
-                <i class="fa-solid fa-user ml-2 mr-3"></i>
-                حسن بهرامی
-            </li>
-            <hr class="bg-slate-100 opacity-50 my-1">
-            <li class="py-2.5 cursor-pointer bg-secondary hover:bg-secondary">
-                <i class="fa-solid fa-envelope ml-2 mr-3"></i>
-                اطلاعات شخصی
-            </li>
-            <li class="py-2.5 cursor-pointer hover:bg-secondary">
-                <i class="fa-solid fa-arrow-right-arrow-left ml-2 mr-3"></i>
-                لیست تراکنش ها
-            </li>
-            <li class="py-2.5 cursor-pointer transition-all hover:bg-secondary">
-                <i class="fa-solid fa-user ml-2 mr-3"></i>
-                لیست کاربران
-            </li>
-            <li class="py-2.5 cursor-pointer hover:bg-secondary">
-                <i class="fa-solid fa-file ml-2 mr-3"></i>
-                لیست قالب ها
-            </li>
-            <li class="py-2.5 cursor-pointer hover:bg-secondary">
-                <i class="fa-solid fa-layer-group ml-2 mr-3"></i>
-                دسته بندی ها
-            </li>
-            <li class="py-2.5 cursor-pointer hover:bg-secondary">
-                <i class="fa-solid fa-circle-question ml-2 mr-3"></i>
-                لیست سوالات متداول
-            </li>
-            <li class="py-2.5 cursor-pointer hover:bg-secondary">
-                <i class="fa-solid fa-dollar-sign ml-2 mr-3"></i>
-                لیست اشتراک ها
-            </li>
-            <div class="close-arrow-btn absolute top-3/4 right-full bg-primary p-1 rounded-l-sm invisible">
-                <i class="fa-solid fa-arrow-right-long"></i>
-            </div>
-        </ul>
-
-        <h5 class="h-1/4 text-slate-50 cursor-pointer self-end mb-5 py-2.5 text-center">
-            <i class="fa-solid fa-arrow-right-from-bracket ml-2 text-rose-500"></i>
-            خروج
-        </h5>
+    <div class="sm:hidden" id="hamburger_menu">
+        <i class="fa-solid fa-bars p-5 text-sm"></i>
     </div>
-    <i class="fa-solid fa-bars p-5 text-sm sm:invisible" id="hamburger_menu"></i>
+
+    <div class="grid grid-cols-2">
+
+        <!-- right panel -->
+        <div class="h-screen w-44 bg-primary hidden sm:inline-block transition-opacity duration-300 opacity-0 sm:opacity-100"
+            id="panel">
+
+            <div class="h-full right-panel flex flex-col">
+                <ul class="flex flex-col text-slate-50 text-xs sm:text-sm relative">
+                    <li class="py-2.5 cursor-pointer mt-3">
+                        <i class="fa-solid fa-gauge ml-2 mr-3"></i>
+                        داشبورد ادمین
+                    </li>
+                    <hr class="bg-slate-100 opacity-50 my-1">
+                    <li class="py-2.5 cursor-pointer">
+                        <i class="fa-solid fa-user ml-2 mr-3"></i>
+                        حسن بهرامی
+                    </li>
+                    <hr class="bg-slate-100 opacity-50 my-1">
+                    <li class="py-2.5 cursor-pointer hover:bg-secondary">
+                        <i class="fa-solid fa-envelope ml-2 mr-3"></i>
+                        اطلاعات شخصی
+                    </li>
+                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
+                        <i class="fa-solid fa-arrow-right-arrow-left ml-2 mr-3"></i>
+                        لیست تراکنش ها
+                    </li>
+                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
+                        <i class="fa-solid fa-user ml-2 mr-3"></i>
+                        لیست کاربران
+                    </li>
+                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
+                        <i class="fa-solid fa-file ml-2 mr-3"></i>
+                        لیست قالب ها
+                    </li>
+                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
+                        <i class="fa-solid fa-layer-group ml-2 mr-3"></i>
+                        دسته بندی ها
+                    </li>
+                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
+                        <i class="fa-solid fa-circle-question ml-2 mr-3"></i>
+                        لیست سوالات متداول
+                    </li>
+                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
+                        <i class="fa-solid fa-dollar-sign ml-2 mr-3"></i>
+                        لیست اشتراک ها
+                    </li>
+                    <div class="close-arrow-btn absolute top-3/4 right-full bg-primary p-1 rounded-l-sm hidden">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </div>
+                </ul>
+                <div class="group mb-5 py-2.5 w-full h-full self-center">
+                    <h5
+                        class="text-slate-50 cursor-pointer text-center group-hover:mr-5 transition-all ease-out duration-300">
+                        <i class="fa-solid fa-arrow-right-from-bracket ml-2 text-rose-500"></i>
+                        خروج
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- sections -->
+        <section class="col-span-1">
+            <div class="sections">
+                <div class="hidden">
+                    اطلاعات شخصی
+                </div>
+                <div class="hidden">
+                    لیست تراکنش ها
+                </div>
+                <div class="hidden">
+                    لیست کاربران
+                </div>
+                <div class="hidden">
+                    لیست قالب ها
+                </div>
+                <div class="hidden">
+                    دسته بندی ها
+                </div>
+                <div class="hidden">
+                    لیست سوالات متداول
+                </div>
+                <div class="hidden">
+                    لیست اشتراک ها
+                </div>
+            </div>
+        </section>
+    </div>
     <script src="../../js/dashboard_admin.js"></script>
 </body>
 
