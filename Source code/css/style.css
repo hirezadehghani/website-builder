@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: Vazir;
-    src: url("../fonts/Vazir.ttf");
-}
+@layer base {
+    @font-face {
+        font-family: "Vazir";
+        src: url("../fonts/Vazir.woff") format('woff'),
+            url("../fonts/Vazir.woff2") format('woff2');
+    }
 
-body {
-    direction: rtl;
-    font-family: Vazir;
+    body {
+        direction: rtl;
+        font-family: "Vazir";
+    }
 }

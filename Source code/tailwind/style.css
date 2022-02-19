@@ -423,6 +423,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
+@font-face {
+  font-family: "Vazir";
+
+  src: url("../fonts/Vazir.woff") format('woff'),
+            url("../fonts/Vazir.woff2") format('woff2');
+}
+
+body {
+  direction: rtl;
+  font-family: "Vazir";
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -600,6 +612,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1rem;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
 .text-slate-50 {
   --tw-text-opacity: 1;
   color: rgb(248 250 252 / var(--tw-text-opacity));
@@ -644,17 +660,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
-@font-face {
-  font-family: Vazir;
-
-  src: url("../fonts/Vazir.ttf");
-}
-
-body {
-  direction: rtl;
-  font-family: Vazir;
 }
 
 .hover\:bg-secondary:hover {
