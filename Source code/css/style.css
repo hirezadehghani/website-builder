@@ -14,3 +14,11 @@
         font-family: "Vazir";
     }
 }
+
+.card {
+    @apply flex flex-col justify-center items-center p-1 bg-primary text-slate-50 rounded;
+}
+
+.input-btn {
+    @apply bg-secondary bg-opacity-20 rounded-sm mt-2 p-1 focus:placeholder:bg-secondary;
+}
