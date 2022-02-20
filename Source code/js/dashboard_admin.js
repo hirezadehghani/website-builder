@@ -1,8 +1,10 @@
 let panel = document.querySelector("#panel");
 let hamburgerMenu = document.querySelector("#hamburger_menu");
 let closeArrowBtn = document.querySelector(".close-arrow-btn");
-let sections = document.querySelectorAll(".sections div");
+let sections = document.querySelectorAll(".sections > div");
 let panelListTag = document.querySelectorAll(".right-panel ul li");
+let changeInfoBtn = document.querySelector("#changeInfoButton");
+let changeInfoSection = document.querySelector("#changeInfoSection");
 
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
@@ -45,13 +47,31 @@ for (let i = 2; i < panelListTag.length; i++) {
         });
         // add hidden class to divs tag that don't have that class
         // because just one item should be displayed to user
-        document.querySelectorAll(".sections div").forEach((sec) => {
+        document.querySelectorAll(".sections > div").forEach((sec) => {
             if (!sec.classList.contains("hidden")) {
                 sec.classList.add("hidden");
             }
-        })
+        });
 
         panelListTag[i].classList.add("bg-secondary");
         sections[i - 2].classList.remove("hidden");
+        // if user first click on ' تغییر جزئیات ' and then click on
+        // other li tag this section should be disappeared
+        changeInfoSection.classList.add("hidden");
     });
 }
+
+// when user click on 'تغییر جزئیات' that section should be 
+// disappeared and change info section be displayed to user
+changeInfoBtn.addEventListener("click", () => {
+    sections[0].classList.add("hidden");
+    changeInfoSection.classList.remove("hidden");
+});
+
+/* when user click the arrow left button that section
+   should be disappeared and section admin info be
+   displayed to user */
+changeInfoSection.children[0].addEventListener("click", () => {
+    sections[0].classList.remove("hidden");
+    changeInfoSection.classList.add("remove");
+});
