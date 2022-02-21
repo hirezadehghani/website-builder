@@ -488,36 +488,12 @@ body {
   position: relative;
 }
 
-.top-3\/4 {
-  top: 75%;
-}
-
-.right-full {
-  right: 100%;
-}
-
-.left-1 {
-  left: 0.25rem;
-}
-
-.top-0 {
-  top: 0px;
-}
-
 .top-2\/4 {
   top: 50%;
 }
 
-.left-52 {
-  left: 13rem;
-}
-
-.left-3 {
-  left: 0.75rem;
-}
-
-.left-2 {
-  left: 0.5rem;
+.right-full {
+  right: 100%;
 }
 
 .col-start-1 {
@@ -530,10 +506,6 @@ body {
 
 .col-end-3 {
   grid-column-end: 3;
-}
-
-.float-left {
-  float: left;
 }
 
 .m-1 {
@@ -729,9 +701,9 @@ body {
   text-align: center;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-xs {
@@ -739,23 +711,13 @@ body {
   line-height: 1rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
@@ -809,6 +771,12 @@ body {
   opacity: 0.5;
 }
 
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .transition-opacity {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -819,12 +787,6 @@ body {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-all {
-  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -929,16 +891,6 @@ body {
     padding: 0.5rem;
   }
 
-  .sm\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-
-  .sm\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
-
   .sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -949,9 +901,14 @@ body {
     line-height: 1.5rem;
   }
 
-  .sm\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
+  .sm\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .sm\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 
   .sm\:opacity-100 {
@@ -960,14 +917,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  .md\:left-7 {
-    left: 1.75rem;
-  }
-
-  .md\:top-7 {
-    top: 1.75rem;
-  }
-
   .md\:float-left {
     float: left;
   }
@@ -1022,6 +971,11 @@ body {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1070,6 +1024,16 @@ body {
   .lg\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 

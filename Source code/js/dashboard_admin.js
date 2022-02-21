@@ -8,6 +8,7 @@ let changeInfoSection = document.querySelector("#changeInfoSection");
 let exitBtn = document.querySelector("#exitButton");
 let exitBtnMobile = document.querySelector("#exitButtonMobile");
 let deleteAccountBtn = document.querySelector("#deleteAccountButton");
+let returnBtnMobile = document.querySelector("#returnButtonMobile");
 
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
@@ -18,6 +19,7 @@ hamburgerMenu.addEventListener("click", () => {
     if (panel.classList.contains("hidden")) {
         hamburgerMenu.classList.add("hidden");
         exitBtnMobile.classList.add("hidden");
+        returnBtnMobile.classList.add("hidden");
         panel.classList.remove("hidden", "opacity-0");
         closeArrowBtn.classList.remove("hidden");
     }
@@ -30,6 +32,7 @@ closeArrowBtn.addEventListener("click", () => {
     closeArrowBtn.classList.add("hidden");
     hamburgerMenu.classList.remove("hidden");
     exitBtnMobile.classList.remove("hidden");
+    returnBtnMobile.classList.remove("hidden");
 })
 
 /* when click on one item of panel, that item should get
@@ -77,6 +80,10 @@ changeInfoBtn.addEventListener("click", () => {
    should be disappeared and section admin info be
    displayed to user */
 changeInfoSection.children[0].addEventListener("click", () => {
+    sections[0].classList.remove("hidden");
+    changeInfoSection.classList.add("hidden");
+});
+returnBtnMobile.addEventListener("click", () => {
     sections[0].classList.remove("hidden");
     changeInfoSection.classList.add("hidden");
 });

@@ -17,10 +17,15 @@
             <i class="fa-solid fa-bars p-5 text-base sm:text-lg"></i>
         </div>
 
-        <div class="p-5" id="exitButtonMobile">
-            <a class="block text-slate-50 transition-all ease-out duration-300" href="#">
-                <i class="fa-solid fa-power-off text-red-600 text-base sm:text-lg"></i>
-            </a>
+        <div class="flex items-center">
+            <div class="md:hidden" id="returnButtonMobile">
+                <i class="fa-solid fa-circle-arrow-left text-primary sm:text-lg"></i>
+            </div>
+            <div class="p-5" id="exitButtonMobile">
+                <a class="block text-slate-50 transition-all ease-out duration-300" href="#">
+                    <i class="fa-solid fa-power-off text-red-600 text-base sm:text-lg"></i>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -174,16 +179,17 @@
                     لیست اشتراک ها
                 </div>
             </div>
-            <div class="hidden relative" id="changeInfoSection">
-                <i
-                    class="fa-solid fa-circle-arrow-left text-xl sm:text-2xl md:text-4xl cursor-pointer text-primary absolute top-0 left-3 md:float-left p-2"></i>
+            <div class="hidden" id="changeInfoSection">
+                <div class="p-2 hidden md:block md:float-left cursor-pointer">
+                    <i class="fa-solid fa-circle-arrow-left md:text-2xl lg:text-3xl text-primary"></i>
+                </div>
                 <div>
                     <form action="#" class="flex flex-col mr-3 p-3">
                         <div class="flex flex-col justify-center items-center p-3">
                             <img class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 hover:scale-105"
                                 src="../../images/user_profile.png" alt="user_profile">
                             <label for="userPhoto"
-                                class="text-secondary text-opacity-80 hover:text-secondary text-center mt-2 underline cursor-pointer transition">
+                                class="text-sm sm:text-base lg:text-lg text-secondary text-opacity-80 hover:text-secondary text-center mt-2 underline cursor-pointer transition">
                                 آپلود عکس جدید
                             </label>
                             <input type="file" id="userPhoto" class="hidden">
