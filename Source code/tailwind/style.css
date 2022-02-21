@@ -496,48 +496,28 @@ body {
   right: 100%;
 }
 
-.top-3 {
-  top: 0.75rem;
-}
-
-.left-3 {
-  left: 0.75rem;
-}
-
-.left-1\/4 {
-  left: 25%;
-}
-
-.top-1\/4 {
-  top: 25%;
-}
-
-.left-7 {
-  left: 1.75rem;
-}
-
-.top-7 {
-  top: 1.75rem;
-}
-
-.left-2 {
-  left: 0.5rem;
-}
-
-.top-1 {
-  top: 0.25rem;
+.left-1 {
+  left: 0.25rem;
 }
 
 .top-0 {
   top: 0px;
 }
 
-.left-0 {
-  left: 0px;
+.top-2\/4 {
+  top: 50%;
 }
 
-.left-1 {
-  left: 0.25rem;
+.left-52 {
+  left: 13rem;
+}
+
+.left-3 {
+  left: 0.75rem;
+}
+
+.left-2 {
+  left: 0.5rem;
 }
 
 .col-start-1 {
@@ -550,6 +530,10 @@ body {
 
 .col-end-3 {
   grid-column-end: 3;
+}
+
+.float-left {
+  float: left;
 }
 
 .m-1 {
@@ -590,8 +574,8 @@ body {
   margin-top: 0.5rem;
 }
 
-.mt-1 {
-  margin-top: 0.25rem;
+.block {
+  display: block;
 }
 
 .flex {
@@ -656,15 +640,6 @@ body {
 
 .gap-y-5 {
   row-gap: 1.25rem;
-}
-
-.gap-x-6 {
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
-}
-
-.gap-y-8 {
-  row-gap: 2rem;
 }
 
 .gap-y-7 {
@@ -750,10 +725,6 @@ body {
   padding-right: 1.5rem;
 }
 
-.text-left {
-  text-align: left;
-}
-
 .text-center {
   text-align: center;
 }
@@ -773,24 +744,19 @@ body {
   line-height: 1.75rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -973,6 +939,21 @@ body {
     line-height: 1rem;
   }
 
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .sm\:opacity-100 {
     opacity: 1;
   }
@@ -987,6 +968,10 @@ body {
     top: 1.75rem;
   }
 
+  .md\:float-left {
+    float: left;
+  }
+
   .md\:mr-3 {
     margin-right: 0.75rem;
   }
@@ -997,6 +982,10 @@ body {
 
   .md\:mt-0 {
     margin-top: 0px;
+  }
+
+  .md\:block {
+    display: block;
   }
 
   .md\:inline-block {
@@ -1024,14 +1013,14 @@ body {
     line-height: 1.25rem;
   }
 
-  .md\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 

@@ -5,6 +5,9 @@ let sections = document.querySelectorAll(".sections > div");
 let panelListTag = document.querySelectorAll(".right-panel ul li");
 let changeInfoBtn = document.querySelector("#changeInfoButton");
 let changeInfoSection = document.querySelector("#changeInfoSection");
+let exitBtn = document.querySelector("#exitButton");
+let exitBtnMobile = document.querySelector("#exitButtonMobile");
+let deleteAccountBtn = document.querySelector("#deleteAccountButton");
 
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
@@ -14,6 +17,7 @@ let changeInfoSection = document.querySelector("#changeInfoSection");
 hamburgerMenu.addEventListener("click", () => {
     if (panel.classList.contains("hidden")) {
         hamburgerMenu.classList.add("hidden");
+        exitBtnMobile.classList.add("hidden");
         panel.classList.remove("hidden", "opacity-0");
         closeArrowBtn.classList.remove("hidden");
     }
@@ -25,6 +29,7 @@ closeArrowBtn.addEventListener("click", () => {
     panel.classList.add("hidden", "opacity-0");
     closeArrowBtn.classList.add("hidden");
     hamburgerMenu.classList.remove("hidden");
+    exitBtnMobile.classList.remove("hidden");
 })
 
 /* when click on one item of panel, that item should get
@@ -73,5 +78,58 @@ changeInfoBtn.addEventListener("click", () => {
    displayed to user */
 changeInfoSection.children[0].addEventListener("click", () => {
     sections[0].classList.remove("hidden");
-    changeInfoSection.classList.add("remove");
+    changeInfoSection.classList.add("hidden");
 });
+
+/* when user click on 'خروج' button an alert should
+   should be displayed to warn user that you are
+   loging out from panel */
+let exitFromPanel = () => {
+
+    Swal.fire({
+        title: 'خروج',
+        text: 'آیا برای خارج شدن از پنل کاربری مطمئن هستید؟ ',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'بله',
+        confirmButtonColor: '#66bb6a',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'خیر',
+        reverseButtons: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "../../index.html";
+        }
+    });
+};
+exitBtn.addEventListener("click", exitFromPanel);
+exitBtnMobile.addEventListener("click", exitFromPanel);
+
+/* when user click on 'حذف حساب کاربری' button an alert
+   should be displayed to warn user that you are deleting
+   your account permanently */
+let deleteAccount = () => {
+
+    Swal.fire({
+        title: 'اخطار',
+        text: 'آیا از حذف حساب کاربری خود مطمئن هستید؟ ',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'بله',
+        confirmButtonColor: '#66bb6a',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'خیر',
+        reverseButtons: true,
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: 'خروج',
+                text: 'یک درخواست به ایمیل شما ارسال شده است،روی لینک مربوطه کلیک کنید تا فرایند حذف آغاز شود!',
+                icon: 'success',
+                confirmButtonText: 'بله',
+            })
+        }
+    });
+};
+deleteAccountBtn.addEventListener("click", deleteAccount);

@@ -11,8 +11,17 @@
 
 <body>
 
-    <div class="md:hidden" id="hamburger_menu">
-        <i class="fa-solid fa-bars p-5 text-sm"></i>
+    <div class="md:hidden flex justify-between">
+
+        <div class="" id="hamburger_menu">
+            <i class="fa-solid fa-bars p-5 text-base sm:text-lg"></i>
+        </div>
+
+        <div class="p-5" id="exitButtonMobile">
+            <a class="block text-slate-50 transition-all ease-out duration-300" href="#">
+                <i class="fa-solid fa-power-off text-red-600 text-base sm:text-lg"></i>
+            </a>
+        </div>
     </div>
 
     <div class="grid grid-cols-2">
@@ -61,16 +70,16 @@
                         <i class="fa-solid fa-dollar-sign ml-2 mr-3"></i>
                         لیست اشتراک ها
                     </li>
-                    <div class="close-arrow-btn absolute top-3/4 right-full bg-primary p-1 rounded-l-sm hidden">
+                    <div class="close-arrow-btn absolute top-2/4 right-full bg-primary p-1 rounded-l-sm hidden">
                         <i class="fa-solid fa-arrow-right-long"></i>
                     </div>
                 </ul>
-                <div class="group mb-5 py-2.5 w-full self-end">
-                    <h5
-                        class="text-slate-50 cursor-pointer text-center group-hover:mr-5 transition-all ease-out duration-300">
+                <div class="group mb-5 py-2.5 w-full self-end hidden md:block">
+                    <a class="block text-slate-50 cursor-pointer text-center group-hover:mr-5 transition-all ease-out duration-300"
+                        id="exitButton" href="#">
                         <i class="fa-solid fa-arrow-right-from-bracket ml-2 text-red-600"></i>
                         خروج
-                    </h5>
+                    </a>
                 </div>
             </div>
         </div>
@@ -89,9 +98,10 @@
                         <div class="flex flex-col p-3 text-sm lg:text-base xl:text-lg">
                             <img class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 hover:scale-105"
                                 src="../../images/user_profile.png" alt="user_profile">
-                            <a class="text-secondary text-center mt-2 underline cursor-pointer" id="changeInfoButton">
-                                تغییر
-                                جزئیات</a>
+                            <a class="text-secondary text-center mt-2 underline cursor-pointer text-sm sm:text-base md:text-lg"
+                                id="changeInfoButton">
+                                تغییر جزئیات
+                            </a>
 
                         </div>
                     </div>
@@ -137,9 +147,11 @@
                                 در حذف دائمی حساب کاربری،حساب شما به همراه تمام تاریخچه کاری شما حذف خواهد شد.
                             </p>
                         </div>
-                        <a
-                            class="justify-self-end self-center transition text-red-600 hover:text-red-900 font-bold cursor-pointer mt-3 md:mt-0">
-                            حذف اکانت </a>
+                        <div class="justify-self-end self-center cursor-pointer mt-3 md:mt-0" id="deleteAccountButton">
+                            <a class="transition text-red-600 hover:text-red-900 font-bold">
+                                حذف حساب کاربری
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -164,7 +176,7 @@
             </div>
             <div class="hidden relative" id="changeInfoSection">
                 <i
-                    class="fa-solid fa-circle-arrow-left text-4xl cursor-pointer text-primary absolute md:left-7 left-1 top-0 md:top-7"></i>
+                    class="fa-solid fa-circle-arrow-left text-xl sm:text-2xl md:text-4xl cursor-pointer text-primary absolute top-0 left-3 md:float-left p-2"></i>
                 <div>
                     <form action="#" class="flex flex-col mr-3 p-3">
                         <div class="flex flex-col justify-center items-center p-3">
@@ -211,6 +223,7 @@
             </div>
         </section>
     </div>
+    <script src="../../js/sweetalert2.all.min.js"></script>
     <script src="../../js/dashboard_admin.js"></script>
 </body>
 
