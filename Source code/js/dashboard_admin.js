@@ -2,7 +2,6 @@ let panel = document.querySelector("#panel");
 let hamburgerMenu = document.querySelector("#hamburger_menu");
 let closeArrowBtn = document.querySelector(".close-arrow-btn");
 let sections = document.querySelectorAll(".sections > div");
-let panelListTag = document.querySelectorAll(".right-panel ul li");
 let changeInfoBtn = document.querySelector("#changeInfoButton");
 let changeInfoSection = document.querySelector("#changeInfoSection");
 let exitBtn = document.querySelector("#exitButton");
@@ -20,7 +19,7 @@ let showPanelMobile = () => {
         hamburgerMenu.classList.add("hidden");
         exitBtnMobile.classList.add("hidden");
         returnBtnMobile.classList.add("hidden");
-        panel.classList.remove("hidden", "opacity-0");
+        panel.classList.remove("hidden");
         closeArrowBtn.classList.remove("hidden");
     }
 };
@@ -29,11 +28,11 @@ let showPanelMobile = () => {
    and close panel and show hamburger menu
 */
 let closePanelMobile = () => {
-    panel.classList.add("hidden", "opacity-0");
-    closeArrowBtn.classList.add("hidden");
     hamburgerMenu.classList.remove("hidden");
     exitBtnMobile.classList.remove("hidden");
     returnBtnMobile.classList.remove("hidden");
+    panel.classList.add("hidden");
+    closeArrowBtn.classList.add("hidden");
 }
 
 /* when click on one item of panel, that item should get
@@ -43,23 +42,24 @@ let closePanelMobile = () => {
 */
 let showSpecialSection = () => {
 
+    let panelListTag = panel.querySelectorAll("div > ul li")
     panelListTag[2].classList.add("bg-secondary");
     sections[0].classList.remove("hidden");
     /* we start this loop from item 3 (i=2) because first two
        item have no special function and be displayed just for
-       info to user
+       more info to user
     */
     for (let i = 2; i < panelListTag.length; i++) {
 
         panelListTag[i].addEventListener("click", () => {
             // remove background color secondary class for other item
-            document.querySelectorAll(".right-panel ul li.bg-secondary").forEach((el) => {
-                el.classList.remove("bg-secondary");
+            panel.querySelectorAll("div > ul li.bg-secondary").forEach((list) => {
+                list.classList.remove("bg-secondary");
             });
             /* add hidden class to divs tag that don't have that class
                because just one item should be displayed to user
             */
-            document.querySelectorAll(".sections > div").forEach((sec) => {
+            sections.forEach((sec) => {
                 if (!sec.classList.contains("hidden")) {
                     sec.classList.add("hidden");
                 }
@@ -73,7 +73,7 @@ let showSpecialSection = () => {
             changeInfoSection.classList.add("hidden");
         });
     }
-}
+};
 
 /* when user click on 'تغییر جزئیات' that section should be 
    disappeared and change info section be displayed to user
@@ -91,6 +91,7 @@ let showDetailsInfoSection = () => {
 let returnToUserInfoSection = () => {
     sections[0].classList.remove("hidden");
     changeInfoSection.classList.add("hidden");
+    returnBtnMobile.classList.add("hidden");
 };
 
 /* when user click on 'خروج' button an alert should
@@ -111,12 +112,15 @@ let exitFromPanel = () => {
         cancelButtonText: 'خیر',
         reverseButtons: true,
     }).then((result) => {
+        /* if user click on 'بله' button page redirect 
+           to index.html page and if user click cancel
+           user remains on that page 
+        */
         if (result.isConfirmed) {
             window.location.href = "../../index.html";
         }
     });
 };
-
 
 /* when user click on 'حذف حساب کاربری' button an alert
    should be displayed to warn user that you are deleting
@@ -136,7 +140,9 @@ let deleteAccount = () => {
         cancelButtonText: 'خیر',
         reverseButtons: true,
     }).then((result) => {
-
+        /* if user click on 'بله' button another alert
+           will be displayed to user
+        */
         if (result.isConfirmed) {
             Swal.fire({
                 title: 'خروج',
@@ -150,6 +156,7 @@ let deleteAccount = () => {
 };
 
 let formValidationFromUserInfo = () => {
+    // using sweetalert2 for create a beautiful alert
     Swal.fire({
         title: 'هشدار',
         text: 'آیا از صحت اطلاعات مطمئن هستید؟ ',
@@ -161,10 +168,13 @@ let formValidationFromUserInfo = () => {
         cancelButtonText: 'خیر',
         reverseButtons: true,
     }).then((result) => {
+        /* if user click 'بله' button then we should validate
+           form and if user click on 'خیر' we should ignore it
+        */
         if (result.isConfirmed) {
-            console.log('user clicked yes');
+            console.log('form validation');
         } else {
-            console.log('user clicked no');
+            console.log('just ignore it');
         }
     })
 };
@@ -173,6 +183,7 @@ hamburgerMenu.addEventListener("click", showPanelMobile);
 closeArrowBtn.addEventListener("click", closePanelMobile);
 showSpecialSection();
 changeInfoBtn.addEventListener("click", showDetailsInfoSection);
+// first children => arrow left button for return to user info section
 changeInfoSection.children[0].addEventListener("click", returnToUserInfoSection);
 returnBtnMobile.addEventListener("click", returnToUserInfoSection);
 exitBtn.addEventListener("click", exitFromPanel);

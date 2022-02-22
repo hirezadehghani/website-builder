@@ -35,8 +35,7 @@
     <div class="grid grid-cols-2">
 
         <!-- right panel -->
-        <div class="col-end-1 h-screen w-44 bg-primary hidden md:inline-block transition-opacity duration-300 opacity-0 sm:opacity-100"
-            id="panel">
+        <div class="col-end-1 h-screen w-44 bg-primary hidden md:inline-block" id="panel">
 
             <div class="h-full right-panel grid grid-cols-1">
                 <!-- main list -->
@@ -206,7 +205,7 @@
                             </label>
                             <input type="file" id="userPhoto" class="hidden">
                         </div>
-                        <div class="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-8 p-3">
+                        <div class="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 p-3">
                             <div class="flex flex-col">
                                 <label for="firstName" class="text-md md:text-lg"> نام </label>
                                 <input type="text" id="firstName" placeholder="حسن" class="input-btn" required>
@@ -232,10 +231,13 @@
                             </div>
                         </div>
 
-                        <button type="submit"
-                            class="self-center w-24 bg-secondary bg-opacity-80 hover:bg-secondary transition duration-300 py-2 px-6 rounded text-slate-50">
+                        <button type="submit" class="btn hover:bg-purple-900">
                             تایید
                         </button>
+                        <!-- <button type="submit"
+                            class="self-center w-24 bg-secondary bg-opacity-80 hover:bg-secondary transition duration-300 py-2 px-6 rounded text-slate-50">
+                            تایید
+                        </button> -->
                     </form>
                 </div>
             </div>
