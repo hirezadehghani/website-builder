@@ -11,6 +11,7 @@
 
 <body>
 
+    <!-- mobile menu that placed in top of page -->
     <div class="md:hidden flex justify-between">
 
         <div class="" id="hamburger_menu">
@@ -18,9 +19,11 @@
         </div>
 
         <div class="flex items-center">
+
             <div class="hidden md:hidden" id="returnButtonMobile">
                 <i class="fa-solid fa-circle-arrow-left text-primary sm:text-lg"></i>
             </div>
+
             <div class="p-5" id="exitButtonMobile">
                 <a class="block text-slate-50 transition-all ease-out duration-300" href="#">
                     <i class="fa-solid fa-power-off text-red-600 text-base sm:text-lg"></i>
@@ -36,6 +39,7 @@
             id="panel">
 
             <div class="h-full right-panel grid grid-cols-1">
+                <!-- main list -->
                 <ul class="flex flex-col text-slate-50 text-xs md:text-sm lg:text-md relative">
                     <li class="py-2.5 mt-3">
                         <i class="fa-solid fa-gauge ml-2 mr-3"></i>
@@ -79,8 +83,9 @@
                         <i class="fa-solid fa-arrow-right-long"></i>
                     </div>
                 </ul>
-                <div class="group mb-5 py-2.5 w-full self-end hidden md:block">
-                    <a class="block text-slate-50 cursor-pointer text-center group-hover:mr-5 transition-all ease-out duration-300"
+                <!-- log out part -->
+                <div class="mb-5 py-2.5 w-full self-end hidden md:block group">
+                    <a class="block text-slate-50 cursor-pointer text-center group-hover:text-red-600 transition"
                         id="exitButton" href="#">
                         <i class="fa-solid fa-arrow-right-from-bracket ml-2 text-red-600"></i>
                         خروج
@@ -92,10 +97,11 @@
         <!-- sections -->
         <section class="col-start-1 col-end-3">
             <div class="sections">
+                <!-- section about user info -->
                 <div class="hidden">
-                    <div class="flex justify-between items-center p-1  lg:p-4 md:mr-3">
+                    <div class="flex justify-between items-center lg:p-4 md:mr-3">
                         <div class="flex flex-col p-1 text-sm lg:text-base xl:text-lg">
-                            <h1 class="mb-6 text-lg font-bold"> حسن بهرامی </h1>
+                            <h1 class="mb-6 font-bold"> حسن بهرامی </h1>
                             <span class="p-1 my-2"><b> شماره تماس: </b>09100000000</span>
                             <span class="p-1 my-2"><b> ایمیل: </b>example@example.com</span>
                             <span class="p-1 my-2"><b> کد ملی: </b>0990000000</span>
@@ -122,7 +128,7 @@
                             <i class="fa-solid fa-users m-1"></i>
                             <h3 class="m-1">100</h3>
                             <p> تعداد کاربران عادی </p>
-                        </div class="card">
+                        </div>
                         <div class="card">
                             <i class="fa-solid fa-circle-question  m-1"></i>
                             <h3 class="m-1">100</h3>
@@ -145,7 +151,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex flex-col md:grid md:grid-cols-2 md:justify-between p-2 sm:p-2  bg-secondary bg-opacity-25 rounded text-xs sm:text-sm lg:text-sm xl:text-base">
+                        class="flex flex-col md:grid md:grid-cols-2 md:justify-between p-2 bg-secondary bg-opacity-25 rounded text-xs sm:text-sm lg:text-sm xl:text-base">
                         <div class=" flex flex-col">
                             <h2 class="font-semibold text-black md:mb-2"> حذف دائمی حساب کاربری </h2>
                             <p class="sm:text-xs lg:text-sm">
@@ -159,26 +165,32 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- section about transaction's list -->
                 <div class="hidden">
                     لیست تراکنش ها
                 </div>
+                <!-- section about user's list -->
                 <div class="hidden">
                     لیست کاربران
                 </div>
+                <!-- section about template's list -->
                 <div class="hidden">
                     لیست قالب ها
                 </div>
+                <!-- section about categories -->
                 <div class="hidden">
                     دسته بندی ها
                 </div>
+                <!-- section about FAQ -->
                 <div class="hidden">
                     لیست سوالات متداول
                 </div>
+                <!-- section about subscriptions's list -->
                 <div class="hidden">
                     لیست اشتراک ها
                 </div>
             </div>
+            <!-- section about change user info -->
             <div class="hidden" id="changeInfoSection">
                 <div class="p-2 hidden md:block md:float-left cursor-pointer">
                     <i class="fa-solid fa-circle-arrow-left md:text-2xl lg:text-3xl text-primary"></i>
@@ -229,6 +241,7 @@
             </div>
         </section>
     </div>
+
     <script src="../../js/sweetalert2.all.min.js"></script>
     <script src="../../js/dashboard_admin.js"></script>
 </body>
