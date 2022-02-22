@@ -18,9 +18,9 @@ let showPanelMobile = () => {
     if (panel.classList.contains("hidden")) {
         hamburgerMenu.classList.add("hidden");
         exitBtnMobile.classList.add("hidden");
-        returnBtnMobile.classList.add("hidden");
         panel.classList.remove("hidden");
         closeArrowBtn.classList.remove("hidden");
+        returnBtnMobile.classList.add("hidden");
     }
 };
 
@@ -30,9 +30,15 @@ let showPanelMobile = () => {
 let closePanelMobile = () => {
     hamburgerMenu.classList.remove("hidden");
     exitBtnMobile.classList.remove("hidden");
-    returnBtnMobile.classList.remove("hidden");
     panel.classList.add("hidden");
     closeArrowBtn.classList.add("hidden");
+    /* return button mobile should be displayed only when
+       change info section is displaying to user otherwise
+       it should remain hidden
+    */
+    if (!changeInfoSection.classList.contains("hidden")) {
+        returnBtnMobile.classList.remove("hidden");
+    }
 }
 
 /* when click on one item of panel, that item should get
@@ -68,9 +74,11 @@ let showSpecialSection = () => {
             panelListTag[i].classList.add("bg-secondary");
             sections[i - 2].classList.remove("hidden");
             /* if user first click on ' تغییر جزئیات ' and then click on
-               other li tag this section should be disappeared
+               other li tag this section should be disappeared and also
+               return button mobile should be disappeared
             */
             changeInfoSection.classList.add("hidden");
+            returnBtnMobile.classList.add("hidden");
         });
     }
 };
@@ -81,7 +89,13 @@ let showSpecialSection = () => {
 let showDetailsInfoSection = () => {
     sections[0].classList.add("hidden");
     changeInfoSection.classList.remove("hidden");
-    returnBtnMobile.classList.remove("hidden");
+    /* if panel opened and user click on change user info
+       button,return button mobile  shouldn't be displayed
+       to user 
+    */
+    if (panel.classList.contains("hidden")) {
+        returnBtnMobile.classList.remove("hidden");
+    }
 };
 
 /* when user click the arrow left button that section
