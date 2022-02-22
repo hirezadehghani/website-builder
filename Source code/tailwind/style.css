@@ -850,6 +850,10 @@ body {
   background-color: rgb(114 0 202 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-opacity-60:hover {
+  --tw-bg-opacity: 0.6;
+}
+
 .hover\:text-red-900:hover {
   --tw-text-opacity: 1;
   color: rgb(127 29 29 / var(--tw-text-opacity));
@@ -862,6 +866,20 @@ body {
 
 .group:hover .group-hover\:mr-5 {
   margin-right: 1.25rem;
+}
+
+.group:hover .group-hover\:bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(114 0 202 / var(--tw-bg-opacity));
+}
+
+.group:hover .group-hover\:bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
+}
+
+.group:hover .group-hover\:text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
@@ -955,6 +973,10 @@ body {
 
   .md\:justify-between {
     justify-content: space-between;
+  }
+
+  .md\:p-2 {
+    padding: 0.5rem;
   }
 
   .md\:text-sm {

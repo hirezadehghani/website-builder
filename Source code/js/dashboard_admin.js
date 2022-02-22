@@ -142,10 +142,31 @@ let deleteAccount = () => {
                 title: 'خروج',
                 text: 'یک درخواست به ایمیل شما ارسال شده است،روی لینک مربوطه کلیک کنید تا فرایند حذف آغاز شود!',
                 icon: 'success',
-                confirmButtonText: 'بله',
+                confirmButtonText: 'باشه',
+                confirmButtonColor: '#66bb6a'
             })
         }
     });
+};
+
+let formValidationFromUserInfo = () => {
+    Swal.fire({
+        title: 'هشدار',
+        text: 'آیا از صحت اطلاعات مطمئن هستید؟ ',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'بله',
+        confirmButtonColor: '#66bb6a',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'خیر',
+        reverseButtons: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            console.log('user clicked yes');
+        } else {
+            console.log('user clicked no');
+        }
+    })
 };
 
 hamburgerMenu.addEventListener("click", showPanelMobile);
@@ -157,3 +178,4 @@ returnBtnMobile.addEventListener("click", returnToUserInfoSection);
 exitBtn.addEventListener("click", exitFromPanel);
 exitBtnMobile.addEventListener("click", exitFromPanel);
 deleteAccountBtn.addEventListener("click", deleteAccount);
+changeInfoSection.querySelector("form").addEventListener("submit", formValidationFromUserInfo);
