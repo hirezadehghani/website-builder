@@ -9,6 +9,9 @@ let exitBtnMobile = document.querySelector("#exitButtonMobile");
 let deleteAccountBtn = document.querySelector("#deleteAccountButton");
 let returnBtnMobile = document.querySelector("#returnButtonMobile");
 
+let categoryItems = document.querySelector("#categoryItems");
+let editCategoryBtn = document.querySelector("#editCategoryButton");
+
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
    close the panel through it. so this Event listener plays role
@@ -193,6 +196,63 @@ let formValidationFromUserInfo = () => {
     })
 };
 
+let editCategoryItems = () => {
+    let inputCategory = label.nextElementSibling.nextElementSibling;
+    let temporaryValue = inputCategory.value;
+
+    /* if condition uses for preventing user from clicking on other
+       category item when
+       the user is already editing an item
+    */
+    if (editCategoryBtn.children[0].classList.contains("hidden")) {
+        label.nextElementSibling.nextElementSibling.removeAttribute("disabled");
+        editCategoryBtn.children[0].classList.remove("hidden"); // 'تایید' button
+        editCategoryBtn.children[1].classList.remove("hidden"); // 'منصرف شدن' button
+        inputCategory.value = "";
+    }
+
+    /* if user click on 'منصرف شدن' then two button should be
+       disappeared
+    */
+    editCategoryBtn.children[1].addEventListener("click", () => {
+        label.nextElementSibling.nextElementSibling.setAttribute("disabled", true); // input element
+        editCategoryBtn.children[0].classList.add("hidden");
+        editCategoryBtn.children[1].classList.add("hidden");
+        // return the default input value
+        inputCategory.value = temporaryValue;
+    });
+
+    /* if user click on 'تایید' then an warning alert should be
+       disappeared
+    */
+    editCategoryBtn.children[0].addEventListener("click", () => {
+
+        // using sweetalert2 for create a beautiful alert
+        Swal.fire({
+            title: 'تایید',
+            text: 'آیا از صحت اطلاعات مطمئن هستید؟ ',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'بله',
+            confirmButtonColor: '#66bb6a',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'خیر',
+            reverseButtons: true,
+        }).then((result) => {
+            /* if user click on 'بله' then two button should be
+               disappeared and this changes will be applied to
+               input
+            */
+            if (result.isConfirmed) {
+                label.nextElementSibling.nextElementSibling.setAttribute("disabled", true); // input element
+                editCategoryBtn.children[0].classList.add("hidden");
+                editCategoryBtn.children[1].classList.add("hidden");
+                // save this value in Database
+            }
+        });
+    });
+};
+
 hamburgerMenu.addEventListener("click", showPanelMobile);
 closeArrowBtn.addEventListener("click", closePanelMobile);
 showSpecialSection();
@@ -204,3 +264,5 @@ exitBtn.addEventListener("click", exitFromPanel);
 exitBtnMobile.addEventListener("click", exitFromPanel);
 deleteAccountBtn.addEventListener("click", deleteAccount);
 changeInfoSection.querySelector("form").addEventListener("submit", formValidationFromUserInfo);
+
+categoryItems.querySelectorAll("label").forEach(label => label.addEventListener("click", editCategoryItems));
