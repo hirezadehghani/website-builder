@@ -15,10 +15,10 @@ let returnBtnMobile = document.querySelector("#returnButtonMobile");
    when we click on hamburger menu.
 */
 let showPanelMobile = () => {
-    if (panel.classList.contains("hidden")) {
+    if (panel.classList.contains("invisible")) {
         hamburgerMenu.classList.add("hidden");
         exitBtnMobile.classList.add("hidden");
-        panel.classList.remove("hidden");
+        panel.classList.remove("invisible");
         closeArrowBtn.classList.remove("hidden");
         returnBtnMobile.classList.add("hidden");
     }
@@ -30,7 +30,7 @@ let showPanelMobile = () => {
 let closePanelMobile = () => {
     hamburgerMenu.classList.remove("hidden");
     exitBtnMobile.classList.remove("hidden");
-    panel.classList.add("hidden");
+    panel.classList.add("invisible");
     closeArrowBtn.classList.add("hidden");
     /* return button mobile should be displayed only when
        change info section is displaying to user otherwise
@@ -93,7 +93,7 @@ let showDetailsInfoSection = () => {
        button,return button mobile  shouldn't be displayed
        to user 
     */
-    if (panel.classList.contains("hidden")) {
+    if (panel.classList.contains("invisible")) {
         returnBtnMobile.classList.remove("hidden");
     }
 };

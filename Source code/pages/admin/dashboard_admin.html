@@ -35,7 +35,7 @@
     <div class="grid grid-cols-2">
 
         <!-- right panel -->
-        <div class="col-end-1 h-screen w-44 bg-primary hidden md:inline-block" id="panel">
+        <div class="col-end-1 h-screen w-44 bg-primary fixed md:static invisible md:visible" id="panel">
 
             <div class="h-full right-panel grid grid-cols-1">
                 <!-- main list -->
@@ -78,7 +78,7 @@
                         <i class="fa-solid fa-dollar-sign ml-2 mr-3"></i>
                         لیست اشتراک ها
                     </li>
-                    <div class="close-arrow-btn absolute top-2/4 right-full bg-primary p-1 rounded-l-sm hidden">
+                    <div class="close-arrow-btn absolute top-3/4 right-40 bg-secondary p-2 rounded-l-sm hidden">
                         <i class="fa-solid fa-arrow-right-long"></i>
                     </div>
                 </ul>
@@ -115,7 +115,7 @@
 
                         </div>
                     </div>
-                    <hr class="bg-slate-100 opacity-50 my-1">
+                    <hr class="bg-slate-100 my-1">
                     <div
                         class="grid grid-col-1 sm:grid-cols-2 sm:gap-x-2 gap-y-5 lg:grid-cols-4 lg:gap-x-14 lg:gap-y-4 text-xs sm:text-sm xl:text-base p-3 sm:p-2 lg:p-4">
                         <div class="card">
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex flex-col md:grid md:grid-cols-2 md:justify-between p-2 bg-secondary bg-opacity-25 rounded text-xs sm:text-sm lg:text-sm xl:text-base">
+                        class="flex flex-col sm:grid sm:grid-cols-2 sm:justify-between p-2 bg-secondary bg-opacity-25 rounded text-xs sm:text-sm lg:text-sm xl:text-base">
                         <div class=" flex flex-col">
                             <h2 class="font-semibold text-black md:mb-2"> حذف دائمی حساب کاربری </h2>
                             <p class="sm:text-xs lg:text-sm">
@@ -178,7 +178,123 @@
                 </div>
                 <!-- section about categories -->
                 <div class="hidden">
-                    دسته بندی ها
+                    <div class="justify-between md:justify-start flex flex-row-reverse items-center p-5 font-bold">
+                        <div
+                            class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded mr-1">
+                            <span> افزودن </span>
+                            <i class="fa-solid fa-plus mr-3"></i>
+                        </div>
+                        <div
+                            class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded">
+                            <span> حذف </span>
+                            <i class="fa-solid fa-trash text-red-600 mr-3"></i>
+                        </div>
+                    </div>
+                    <div
+                        class="grid grid-cols-1 grid-rows-4 gap-x-3 gap-y-7 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-2 lg:grid-cols-4 justify-center items-center p-5 text-slate-50 text-center">
+                        <div class="grid grid-rows-2 text-center group">
+                            <div
+                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
+                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
+                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
+                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
+                            </div>
+                            <div class="flex items-center">
+                                <i
+                                    class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer hover:text-secondary md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"></i>
+                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r ">1</span>
+                                <span class="px-1 py-1 w-3/6 bg-primary border-l border-slate-100 border-opacity-50">
+                                    فروشگاهی </span>
+                                <span class="px-1 py-1 w-2/6 bg-primary rounded-l">12</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-rows-2 text-center group">
+                            <div
+                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
+                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
+                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
+                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
+                            </div>
+                            <div class="flex items-center">
+                                <i
+                                    class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer hover:text-secondary md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"></i>
+                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r ">1</span>
+                                <span class="px-1 py-1 w-3/6 bg-primary border-l border-slate-100 border-opacity-50">
+                                    فروشگاهی </span>
+                                <span class="px-1 py-1 w-2/6 bg-primary rounded-l">12</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-rows-2 text-center group">
+                            <div
+                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
+                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
+                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
+                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
+                            </div>
+                            <div class="flex items-center">
+                                <i
+                                    class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer hover:text-secondary md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"></i>
+                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r ">1</span>
+                                <span class="px-1 py-1 w-3/6 bg-primary border-l border-slate-100 border-opacity-50">
+                                    فروشگاهی </span>
+                                <span class="px-1 py-1 w-2/6 bg-primary rounded-l">12</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-rows-2 text-center group">
+                            <div
+                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
+                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
+                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
+                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
+                            </div>
+                            <div class="flex items-center">
+                                <i
+                                    class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer hover:text-secondary md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"></i>
+                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r ">1</span>
+                                <span class="px-1 py-1 w-3/6 bg-primary border-l border-slate-100 border-opacity-50">
+                                    فروشگاهی </span>
+                                <span class="px-1 py-1 w-2/6 bg-primary rounded-l">12</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-rows-2 text-center group">
+                            <div
+                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
+                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
+                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
+                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
+                            </div>
+                            <div class="flex items-center">
+                                <i
+                                    class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer hover:text-secondary md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"></i>
+                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r ">1</span>
+                                <span class="px-1 py-1 w-3/6 bg-primary border-l border-slate-100 border-opacity-50">
+                                    فروشگاهی </span>
+                                <span class="px-1 py-1 w-2/6 bg-primary rounded-l">12</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-rows-2 text-center group">
+                            <div
+                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
+                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
+                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
+                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
+                            </div>
+                            <div class="flex items-center">
+                                <i
+                                    class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer hover:text-secondary md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"></i>
+                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r ">1</span>
+                                <span class="px-1 py-1 w-3/6 bg-primary border-l border-slate-100 border-opacity-50">
+                                    فروشگاهی </span>
+                                <span class="px-1 py-1 w-2/6 bg-primary rounded-l">12</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- section about FAQ -->
                 <div class="hidden">
@@ -234,10 +350,6 @@
                         <button type="submit" class="btn hover:bg-purple-900">
                             تایید
                         </button>
-                        <!-- <button type="submit"
-                            class="self-center w-24 bg-secondary bg-opacity-80 hover:bg-secondary transition duration-300 py-2 px-6 rounded text-slate-50">
-                            تایید
-                        </button> -->
                     </form>
                 </div>
             </div>
