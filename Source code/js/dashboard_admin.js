@@ -11,6 +11,7 @@ let returnBtnMobile = document.querySelector("#returnButtonMobile");
 
 let categoryItems = document.querySelector("#categoryItems");
 let editCategoryBtn = document.querySelector("#editCategoryButton");
+let adCategoryBtn = document.querySelector("#addDeleteCategoryButtons")
 
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
@@ -196,7 +197,87 @@ let formValidationFromUserInfo = () => {
     })
 };
 
-let editCategoryItems = () => {
+
+// add category item
+adCategoryBtn.children[0].addEventListener("click", () => {
+    let tempValue;
+    Swal.fire({
+        title: 'افزودن یک دسته بندی جدید',
+        input: 'text',
+        inputLabel: 'عنوانی برای دسته بندی جدید وارد کنید',
+        inputPlaceholder: ' به عنوان مثال شخصی ',
+        confirmButtonColor: '#66bb6a',
+        confirmButtonText: 'اضافه کردن',
+        showCancelButton: true,
+        cancelButtonText: 'انصراف',
+        cancelButtonColor: '#d33',
+    }).then((result) => {
+        /* if user click on 'اضافه کردن' button then the process
+           should be happened otherwise ignores it
+        */
+        if (result.isConfirmed) {
+            tempValue = result.value;
+
+            let divParent = document.createElement("div");
+            divParent.className = "grid grid-rows-2 text-center group";
+            let divFirstChild = document.createElement("div");
+            divFirstChild.className = "flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300";
+            let i = document.createElement("i");
+            i.className = "fa-solid fa-gear py-1 px-2 opacity-0";
+            let span1 = document.createElement("span");
+            span1.className = "px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50";
+            span1.innerHTML = " ایدی ";
+            let span2 = document.createElement("span");
+            span2.className = "px-1 py-1 w-3/6 bg-primary bg-opacity-50";
+            span2.innerHTML = " عنوان ";
+            let span3 = document.createElement("span");
+            span3.className = "px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50";
+            span3.innerHTML = " قالب ها ";
+
+            divFirstChild.append(i);
+            divFirstChild.append(span1);
+            divFirstChild.append(span2);
+            divFirstChild.append(span3);
+            divParent.append(divFirstChild);
+
+            let secondDivChild = document.createElement("div");
+            secondDivChild.className = "flex items-center";
+            let label = document.createElement("label");
+            label.htmlFor = "category-input" + (categoryItems.children.length + 1);
+            let i2 = document.createElement("i");
+            i2.className = "fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100";
+            let span4 = document.createElement("span");
+            span4.className = "px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r";
+            span4.innerHTML = (categoryItems.children.length + 1);
+            let inp = document.createElement("input");
+            inp.className = "px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0";
+            inp.type = "text";
+            inp.placeholder = tempValue;
+            inp.value = tempValue;
+            inp.id = "category-input" + (categoryItems.children.length + 1);
+            inp.setAttribute("disabled", true);
+            let span5 = document.createElement("span");
+            span5.className = "px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50";
+            span5.innerHTML = "0";
+
+            label.append(i2);
+            secondDivChild.append(label);
+            secondDivChild.append(span4);
+            secondDivChild.append(inp);
+            secondDivChild.append(span5);
+            divParent.append(secondDivChild)
+
+            categoryItems.append(divParent);
+            // add event listener for this label separately
+            label.addEventListener("click", () => {
+                editCategoryItemFunc(label);
+            });
+        }
+    });
+});
+
+// edit category item' content
+let editCategoryItemFunc = (label) => {
     let inputCategory = label.nextElementSibling.nextElementSibling;
     let temporaryValue = inputCategory.value;
 
@@ -215,11 +296,13 @@ let editCategoryItems = () => {
        disappeared
     */
     editCategoryBtn.children[1].addEventListener("click", () => {
-        label.nextElementSibling.nextElementSibling.setAttribute("disabled", true); // input element
-        editCategoryBtn.children[0].classList.add("hidden");
-        editCategoryBtn.children[1].classList.add("hidden");
-        // return the default input value
-        inputCategory.value = temporaryValue;
+        if (!label.nextElementSibling.nextElementSibling.getAttribute("disabled")) {
+            label.nextElementSibling.nextElementSibling.setAttribute("disabled", true); // input element
+            editCategoryBtn.children[0].classList.add("hidden");
+            editCategoryBtn.children[1].classList.add("hidden");
+            // return the default input value
+            inputCategory.value = temporaryValue;
+        }
     });
 
     /* if user click on 'تایید' then an warning alert should be
@@ -253,6 +336,7 @@ let editCategoryItems = () => {
     });
 };
 
+
 hamburgerMenu.addEventListener("click", showPanelMobile);
 closeArrowBtn.addEventListener("click", closePanelMobile);
 showSpecialSection();
@@ -265,4 +349,6 @@ exitBtnMobile.addEventListener("click", exitFromPanel);
 deleteAccountBtn.addEventListener("click", deleteAccount);
 changeInfoSection.querySelector("form").addEventListener("submit", formValidationFromUserInfo);
 
-categoryItems.querySelectorAll("label").forEach(label => label.addEventListener("click", editCategoryItems));
+categoryItems.querySelectorAll("label").forEach(label => label.addEventListener("click", () => {
+    editCategoryItemFunc(label);
+}));
