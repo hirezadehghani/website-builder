@@ -64,7 +64,9 @@ let handleDisplayOfSections = () => {
 
             /* if section category have been displayed already,
                then we should check if some process in category 
-               section is happening or not
+               section is happening or not. if all default buttons
+               are displayed to user and others are hidden then
+               we haven't any process happening
             */
             if ((!sections[4].classList.contains("hidden")) && (!(
                     adCategoryBtn.children[0].classList.contains("hidden") == false && adCategoryBtn.children[1].classList.contains("hidden") == false &&
@@ -83,7 +85,7 @@ let handleDisplayOfSections = () => {
 
                 /* if user first click on ' تغییر جزئیات ' and then click on
                    other li tag this section should be disappeared and also
-                   return button mobile should be disappeared
+                   return button mobile should be disappeared for mobile width
                 */
                 changeInfoSection.classList.add("hidden");
                 returnBtnMobile.classList.add("hidden");
@@ -274,10 +276,11 @@ let editCategoryItemFunc = (label) => {
                 editCategoryBtn.children[0].classList.add("hidden");
                 editCategoryBtn.children[1].classList.add("hidden");
 
+                /* I we should update default value of input and 
+                   and also placeholder
+                */
                 inputCategory.defaultValue = inputCategory.value;
                 inputCategory.placeholder = inputCategory.value;
-
-                // save this value in Database
             }
         });
     });
@@ -305,6 +308,7 @@ let addCategoryItemFunc = () => {
             if (result.isConfirmed) {
                 tempValue = result.value;
 
+                // create new category item
                 let divParent = document.createElement("div");
                 divParent.className = "grid grid-rows-2 text-center group";
                 let divFirstChild = document.createElement("div");
@@ -355,7 +359,7 @@ let addCategoryItemFunc = () => {
                 divParent.append(secondDivChild)
 
                 categoryItems.append(divParent);
-                // add event listener for this label separately
+                // add event listener for every new label separately
                 label.addEventListener("click", () => {
                     editCategoryItemFunc(label);
                 });
@@ -388,8 +392,25 @@ function removeCategoryItem(item) {
            that item will be deleted  
         */
         if (result.isConfirmed) {
-            // first find its parent and then remove that element
-            item.target.parentElement.parentElement.remove();
+            // find its parent and then remove that element
+            let mainItem = item.target.parentElement.parentElement;
+            if (mainItem == categoryItems.children[categoryItems.children.length - 1]) {
+                // check if mainItem is the first child of categoryItems
+                mainItem.remove();
+            } else {
+                mainItem.remove();
+                /* after delete an category item we should
+                   correct for property for label tag and
+                   input id and inner text of span tag
+                */
+                categoryItems.querySelectorAll("label").forEach((label, index) => {
+                    label.htmlFor = "category-input" + (index + 1);
+                    let span = label.nextElementSibling;
+                    span.innerHTML = (index + 1);
+                    let input = span.nextElementSibling;
+                    input.id = "category-input" + (index + 1);
+                });
+            }
         }
     });
 }
@@ -462,8 +483,3 @@ categoryItems.querySelectorAll("label").forEach(label => label.addEventListener(
 }));
 // event listener for delete button in category section
 adCategoryBtn.children[1].addEventListener("click", deleteCategoryItemFunc);
-
-
-// دکمه کنسل برای فرایند حذف کردن اضافه کنم که بتونه کاربر از فرایند حذف خراج بشه و 
-// وقتی یک دسته بندی حذف میشه باید شماره ایدی و برچست بقیه درسته بشه
-// و در نهایت باید نتیجه کار در پایگاه داده ذخیره بشه
