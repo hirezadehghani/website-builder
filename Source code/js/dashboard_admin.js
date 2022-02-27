@@ -13,6 +13,8 @@ let categoryItems = document.querySelector("#categoryItems");
 let editCategoryBtn = document.querySelector("#editCategoryButton");
 let adCategoryBtn = document.querySelector("#addDeleteCategoryButtons")
 
+let accordion = document.querySelector(".accordion");
+let faqBtn = document.querySelector("#faqButton");
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
    close the panel through it. so this Event listener plays role
@@ -463,6 +465,37 @@ let deleteCategoryItemFunc = () => {
     });
 };
 
+let createAccordion = (item, accordion) => {
+
+    item.classList.toggle("active");
+    if (item.classList.contains("active")) {
+        item.children[0].classList.add("bg-blue-500");
+        item.children[0].children[1].classList.add("rotate-180");
+        item.children[1].style.maxHeight = item.children[1].scrollHeight + 16 + "px";
+        item.children[1].style.padding = "8px";
+        item.children[1].classList.remove("max-h-0");
+    } else {
+        item.children[0].classList.remove("bg-blue-500");
+        item.children[0].children[1].classList.remove("rotate-180");
+        item.children[1].style.maxHeight = null;
+        item.children[1].style.padding = null;
+        item.children[1].classList.add("max-h-0");
+    }
+
+
+    accordion.querySelectorAll(".active").forEach((activeItem) => {
+
+        if (activeItem.children[0] != item.children[0]) {
+            activeItem.classList.remove("active");
+            activeItem.children[0].classList.remove("bg-blue-500");
+            activeItem.children[0].children[1].classList.remove("rotate-180");
+            activeItem.children[1].style.maxHeight = null;
+            activeItem.children[1].style.padding = null;
+            activeItem.children[1].classList.add("max-h-0");
+        }
+    });
+};
+
 hamburgerMenu.addEventListener("click", showPanelMobile);
 closeArrowBtn.addEventListener("click", closePanelMobile);
 handleDisplayOfSections();
@@ -483,3 +516,9 @@ categoryItems.querySelectorAll("label").forEach(label => label.addEventListener(
 }));
 // event listener for delete button in category section
 adCategoryBtn.children[1].addEventListener("click", deleteCategoryItemFunc);
+
+
+// FAQ
+Array.from(accordion.children).forEach((item) => {
+    item.children[0].addEventListener("click", () => createAccordion(item, accordion));
+});
