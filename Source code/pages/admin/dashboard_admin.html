@@ -1,429 +1,731 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../tailwind/style.css" />
+        <script
+            src="https://kit.fontawesome.com/cf36ff6fd8.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../tailwind/style.css">
-    <script src="https://kit.fontawesome.com/cf36ff6fd8.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-
-    <!-- mobile menu that placed in top of page -->
-    <div class="flex justify-between md:hidden">
-
-        <div id="hamburger_menu">
-            <i class="fa-solid fa-bars p-5 text-base sm:text-lg"></i>
-        </div>
-
-        <div class="flex items-center">
-
-            <div class="hidden md:hidden" id="returnButtonMobile">
-                <i class="fa-solid fa-circle-arrow-left text-primary sm:text-lg"></i>
+    <body>
+        <!-- mobile menu that placed in top of page -->
+        <div class="flex justify-between md:hidden">
+            <div id="hamburger_menu">
+                <i class="fa-solid fa-bars p-5 text-base sm:text-lg"></i>
             </div>
 
-            <div class="p-5" id="exitButtonMobile">
-                <a class="block text-slate-50 transition-all ease-out duration-300" href="#">
-                    <i class="fa-solid fa-power-off text-red-600 text-base sm:text-lg"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+            <div class="flex items-center">
+                <div class="hidden md:hidden" id="returnButtonMobile">
+                    <i
+                        class="fa-solid fa-circle-arrow-left text-primary sm:text-lg"
+                    ></i>
+                </div>
 
-    <div class="grid grid-cols-2">
-
-        <!-- right panel -->
-        <div class="col-end-1 h-screen w-44 bg-primary fixed md:static invisible md:visible" id="panel">
-
-            <div class="h-full right-panel grid grid-cols-1">
-                <!-- main list -->
-                <ul class="flex flex-col text-slate-50 text-xs md:text-sm lg:text-md relative">
-                    <li class="py-2.5 mt-3">
-                        <i class="fa-solid fa-gauge ml-2 mr-3"></i>
-                        داشبورد ادمین
-                    </li>
-                    <hr class="bg-slate-100 opacity-50 my-1">
-                    <li class="py-2.5">
-                        <i class="fa-solid fa-user ml-2 mr-3"></i>
-                        حسن بهرامی
-                    </li>
-                    <hr class="bg-slate-100 opacity-50 my-1">
-                    <li class="py-2.5 cursor-pointer hover:bg-secondary">
-                        <i class="fa-solid fa-envelope ml-2 mr-3"></i>
-                        اطلاعات شخصی
-                    </li>
-                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
-                        <i class="fa-solid fa-arrow-right-arrow-left ml-2 mr-3"></i>
-                        لیست تراکنش ها
-                    </li>
-                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
-                        <i class="fa-solid fa-users ml-2 mr-3"></i>
-                        لیست کاربران
-                    </li>
-                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
-                        <i class="fa-solid fa-file ml-2 mr-3"></i>
-                        لیست قالب ها
-                    </li>
-                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
-                        <i class="fa-solid fa-layer-group ml-2 mr-3"></i>
-                        دسته بندی ها
-                    </li>
-                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
-                        <i class="fa-solid fa-circle-question ml-2 mr-3"></i>
-                        لیست سوالات متداول
-                    </li>
-                    <li class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300">
-                        <i class="fa-solid fa-dollar-sign ml-2 mr-3"></i>
-                        لیست اشتراک ها
-                    </li>
-                    <div class="close-arrow-btn absolute top-3/4 right-40 bg-secondary p-2 rounded-l-sm hidden">
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </div>
-                </ul>
-                <!-- log out part -->
-                <div class="mb-5 py-2.5 w-full self-end hidden md:block group">
-                    <a class="block text-slate-50 cursor-pointer text-center group-hover:text-red-600 transition"
-                        id="exitButton" href="#">
-                        <i class="fa-solid fa-arrow-right-from-bracket ml-2 text-red-600"></i>
-                        خروج
+                <div class="p-5" id="exitButtonMobile">
+                    <a
+                        class="block text-slate-50 transition-all ease-out duration-300"
+                        href="#"
+                    >
+                        <i
+                            class="fa-solid fa-power-off text-red-600 text-base sm:text-lg"
+                        ></i>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- sections -->
-        <section class="col-start-1 col-end-3">
-            <div class="sections">
-                <!-- section about user info -->
-                <div class="hidden">
-                    <div class="flex justify-between items-center md:mr-3 lg:p-4">
-                        <div class="flex flex-col p-1 text-sm lg:text-base xl:text-lg">
-                            <h1 class="mb-6 font-bold"> حسن بهرامی </h1>
-                            <span class="p-1 my-2"><b> شماره تماس: </b>09100000000</span>
-                            <span class="p-1 my-2"><b> ایمیل: </b>example@example.com</span>
-                            <span class="p-1 my-2"><b> کد ملی: </b>0990000000</span>
+        <div class="grid grid-cols-2">
+            <!-- right panel -->
+            <div
+                class="col-end-1 h-screen w-44 bg-primary fixed md:static invisible md:visible"
+                id="panel"
+            >
+                <div class="h-full right-panel grid grid-cols-1">
+                    <!-- main list -->
+                    <ul
+                        class="flex flex-col text-slate-50 text-xs md:text-sm lg:text-md relative"
+                    >
+                        <li class="py-2.5 mt-3">
+                            <i class="fa-solid fa-gauge ml-2 mr-3"></i>
+                            داشبورد ادمین
+                        </li>
+                        <hr class="bg-slate-100 opacity-50 my-1" />
+                        <li class="py-2.5">
+                            <i class="fa-solid fa-user ml-2 mr-3"></i>
+                            حسن بهرامی
+                        </li>
+                        <hr class="bg-slate-100 opacity-50 my-1" />
+                        <li class="py-2.5 cursor-pointer hover:bg-secondary">
+                            <i class="fa-solid fa-envelope ml-2 mr-3"></i>
+                            اطلاعات شخصی
+                        </li>
+                        <li
+                            class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300"
+                        >
+                            <i
+                                class="fa-solid fa-arrow-right-arrow-left ml-2 mr-3"
+                            ></i>
+                            لیست تراکنش ها
+                        </li>
+                        <li
+                            class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300"
+                        >
+                            <i class="fa-solid fa-users ml-2 mr-3"></i>
+                            لیست کاربران
+                        </li>
+                        <li
+                            class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300"
+                        >
+                            <i class="fa-solid fa-file ml-2 mr-3"></i>
+                            لیست قالب ها
+                        </li>
+                        <li
+                            class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300"
+                        >
+                            <i class="fa-solid fa-layer-group ml-2 mr-3"></i>
+                            دسته بندی ها
+                        </li>
+                        <li
+                            class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300"
+                        >
+                            <i
+                                class="fa-solid fa-circle-question ml-2 mr-3"
+                            ></i>
+                            لیست سوالات متداول
+                        </li>
+                        <li
+                            class="py-2.5 cursor-pointer hover:bg-secondary transition ease-out duration-300"
+                        >
+                            <i class="fa-solid fa-dollar-sign ml-2 mr-3"></i>
+                            لیست اشتراک ها
+                        </li>
+                        <div
+                            class="close-arrow-btn absolute top-3/4 right-40 bg-secondary p-2 rounded-l-sm hidden"
+                        >
+                            <i class="fa-solid fa-arrow-right-long"></i>
                         </div>
-                        <div class="flex flex-col p-3 text-sm lg:text-base xl:text-lg">
-                            <img class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 hover:scale-105"
-                                src="../../images/user_profile.png" alt="user_profile">
-                            <a class="mt-2 underline cursor-pointer text-center text-secondary text-sm sm:text-base md:text-lg"
-                                id="changeInfoButton">
-                                تغییر جزئیات
-                            </a>
+                    </ul>
+                    <!-- log out part -->
+                    <div
+                        class="mb-5 py-2.5 w-full self-end hidden md:block group"
+                    >
+                        <a
+                            class="block text-slate-50 cursor-pointer text-center group-hover:text-red-600 transition"
+                            id="exitButton"
+                            href="#"
+                        >
+                            <i
+                                class="fa-solid fa-arrow-right-from-bracket ml-2 text-red-600"
+                            ></i>
+                            خروج
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                        </div>
-                    </div>
-                    <hr class="bg-slate-100 my-1">
-                    <div
-                        class="grid grid-col-1 sm:grid-cols-2 sm:gap-x-2 gap-y-5 lg:grid-cols-4 lg:gap-x-14 lg:gap-y-4 text-xs sm:text-sm xl:text-base p-3 sm:p-2 lg:p-4">
-                        <div class="card">
-                            <i class="fa-solid fa-user-tie m-1"></i>
-                            <h3 class="m-1">100</h3>
-                            <p> تعداد طراحان </p>
-                        </div>
-                        <div class="card">
-                            <i class="fa-solid fa-users m-1"></i>
-                            <h3 class="m-1">100</h3>
-                            <p> تعداد کاربران عادی </p>
-                        </div>
-                        <div class="card">
-                            <i class="fa-solid fa-circle-question m-1"></i>
-                            <h3 class="m-1">100</h3>
-                            <p> تعداد سوالات متداول </p>
-                        </div>
-                        <div class="card">
-                            <i class="fa-solid fa-layer-group m-1"></i>
-                            <h3 class="m-1">100</h3>
-                            <p> تعداد دسته بندی ها </p>
-                        </div>
-                        <div class="card lg:col-start-2 lg:col-end-3">
-                            <i class="fa-solid fa-file m-1"></i>
-                            <h3 class="m-1">100</h3>
-                            <p> تعداد قالب ها </p>
-                        </div>
-                        <div class="card lg:col-start-3 lg:col-end-4">
-                            <i class="fa-solid fa-user-nurse m-1"></i>
-                            <h3 class="m-1">100</h3>
-                            <p> تعداد پشتیبانی </p>
-                        </div>
-                    </div>
-                    <div
-                        class="flex flex-col sm:grid sm:grid-cols-2 sm:justify-between p-2 bg-secondary bg-opacity-25 rounded text-xs sm:text-sm lg:text-sm xl:text-base">
-                        <div class="flex flex-col">
-                            <h2 class="font-semibold text-black md:mb-2"> حذف دائمی حساب کاربری </h2>
-                            <p class="sm:text-xs lg:text-sm">
-                                در حذف دائمی حساب کاربری،حساب شما به همراه تمام تاریخچه کاری شما حذف خواهد شد.
-                            </p>
-                        </div>
-                        <div class="justify-self-end self-center cursor-pointer mt-3 md:mt-0" id="deleteAccountButton">
-                            <a class="transition text-red-600 hover:text-red-900 font-bold">
-                                حذف حساب کاربری
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- section about transaction's list -->
-                <div class="hidden">
-                    لیست تراکنش ها
-                </div>
-                <!-- section about user's list -->
-                <div class="hidden">
-                    لیست کاربران
-                </div>
-                <!-- section about template's list -->
-                <div class="hidden">
-                    لیست قالب ها
-                </div>
-                <!-- section about categories -->
-                <div class="hidden">
-                    <div class="flex flex-row-reverse justify-center md:justify-between items-center p-5 font-bold">
-                        <div class="flex items-center" id="addDeleteCategoryButtons">
+            <!-- sections -->
+            <section class="col-start-1 col-end-3">
+                <div class="sections">
+                    <!-- section about user info -->
+                    <div class="hidden">
+                        <div
+                            class="flex justify-between items-center md:mr-3 lg:p-4"
+                        >
                             <div
-                                class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded">
+                                class="flex flex-col p-1 text-sm lg:text-base xl:text-lg"
+                            >
+                                <h1 class="mb-6 font-bold">حسن بهرامی</h1>
+                                <span class="p-1 my-2"
+                                    ><b> شماره تماس: </b>09100000000</span
+                                >
+                                <span class="p-1 my-2"
+                                    ><b> ایمیل: </b>example@example.com</span
+                                >
+                                <span class="p-1 my-2"
+                                    ><b> کد ملی: </b>0990000000</span
+                                >
+                            </div>
+                            <div
+                                class="flex flex-col p-3 text-sm lg:text-base xl:text-lg"
+                            >
+                                <img
+                                    class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 hover:scale-105"
+                                    src="../../images/user_profile.png"
+                                    alt="user_profile"
+                                />
+                                <a
+                                    class="mt-2 underline cursor-pointer text-center text-secondary text-sm sm:text-base md:text-lg"
+                                    id="changeInfoButton"
+                                >
+                                    تغییر جزئیات
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="bg-slate-100 my-1" />
+                        <div
+                            class="grid grid-col-1 sm:grid-cols-2 sm:gap-x-2 gap-y-5 lg:grid-cols-4 lg:gap-x-14 lg:gap-y-4 text-xs sm:text-sm xl:text-base p-3 sm:p-2 lg:p-4"
+                        >
+                            <div class="card">
+                                <i class="fa-solid fa-user-tie m-1"></i>
+                                <h3 class="m-1">100</h3>
+                                <p>تعداد طراحان</p>
+                            </div>
+                            <div class="card">
+                                <i class="fa-solid fa-users m-1"></i>
+                                <h3 class="m-1">100</h3>
+                                <p>تعداد کاربران عادی</p>
+                            </div>
+                            <div class="card">
+                                <i class="fa-solid fa-circle-question m-1"></i>
+                                <h3 class="m-1">100</h3>
+                                <p>تعداد سوالات متداول</p>
+                            </div>
+                            <div class="card">
+                                <i class="fa-solid fa-layer-group m-1"></i>
+                                <h3 class="m-1">100</h3>
+                                <p>تعداد دسته بندی ها</p>
+                            </div>
+                            <div class="card lg:col-start-2 lg:col-end-3">
+                                <i class="fa-solid fa-file m-1"></i>
+                                <h3 class="m-1">100</h3>
+                                <p>تعداد قالب ها</p>
+                            </div>
+                            <div class="card lg:col-start-3 lg:col-end-4">
+                                <i class="fa-solid fa-user-nurse m-1"></i>
+                                <h3 class="m-1">100</h3>
+                                <p>تعداد پشتیبانی</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col sm:grid sm:grid-cols-2 sm:justify-between p-2 bg-secondary bg-opacity-25 rounded text-xs sm:text-sm lg:text-sm xl:text-base"
+                        >
+                            <div class="flex flex-col">
+                                <h2 class="font-semibold text-black md:mb-2">
+                                    حذف دائمی حساب کاربری
+                                </h2>
+                                <p class="sm:text-xs lg:text-sm">
+                                    در حذف دائمی حساب کاربری،حساب شما به همراه
+                                    تمام تاریخچه کاری شما حذف خواهد شد.
+                                </p>
+                            </div>
+                            <div
+                                class="justify-self-end self-center cursor-pointer mt-3 md:mt-0"
+                                id="deleteAccountButton"
+                            >
+                                <a
+                                    class="transition text-red-600 hover:text-red-900 font-bold"
+                                >
+                                    حذف حساب کاربری
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- section about transaction's list -->
+                    <div class="hidden">لیست تراکنش ها</div>
+                    <!-- section about user's list -->
+                    <div class="hidden">لیست کاربران</div>
+                    <!-- section about template's list -->
+                    <div class="hidden">لیست قالب ها</div>
+                    <!-- section about categories -->
+                    <div class="hidden">
+                        <div
+                            class="flex flex-row-reverse justify-center md:justify-between items-center p-5 font-bold"
+                        >
+                            <div
+                                class="flex items-center"
+                                id="addDeleteCategoryButtons"
+                            >
+                                <div
+                                    class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded"
+                                >
+                                    <span> افزودن </span>
+                                    <i class="fa-solid fa-plus mr-3"></i>
+                                </div>
+                                <div
+                                    class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded mr-1"
+                                >
+                                    <span> حذف </span>
+                                    <i
+                                        class="fa-solid fa-trash text-red-600 mr-3"
+                                    ></i>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center ml-1"
+                                id="editCategoryButton"
+                            >
+                                <div
+                                    class="cursor-pointer transition duration-300 bg-green-500 hover:bg-green-700 text-slate-100 py-1 px-3 rounded hidden"
+                                >
+                                    <span> تایید </span>
+                                </div>
+                                <div
+                                    class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 mr-1 rounded hidden"
+                                >
+                                    <span>منصرف شدن</span>
+                                </div>
+                                <div
+                                    class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 mr-1 rounded hidden"
+                                >
+                                    <span> انصراف </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="grid grid-cols-1 grid-rows-4 gap-x-2 gap-y-7 justify-center items-center sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-2 lg:grid-cols-4 p-5 text-slate-50 text-center"
+                            id="categoryItems"
+                        >
+                            <div class="grid grid-rows-2 text-center group">
+                                <div
+                                    class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+                                >
+                                    <i
+                                        class="fa-solid fa-gear py-1 px-2 opacity-0"
+                                    ></i>
+                                    <span
+                                        class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"
+                                    >
+                                        ایدی
+                                    </span>
+                                    <span
+                                        class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"
+                                    >
+                                        عنوان
+                                    </span>
+                                    <span
+                                        class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"
+                                    >
+                                        قالب ها
+                                    </span>
+                                </div>
+                                <div class="flex items-center">
+                                    <label for="category-input1">
+                                        <i
+                                            class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"
+                                        ></i>
+                                    </label>
+                                    <span
+                                        class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r"
+                                        >1</span
+                                    >
+                                    <input
+                                        type="text"
+                                        class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0"
+                                        placeholder="فروشگاهی"
+                                        value="فروشگاهی"
+                                        id="category-input1"
+                                        disabled="true"
+                                    />
+                                    <span
+                                        class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50"
+                                        >12</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="grid grid-rows-2 text-center group">
+                                <div
+                                    class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+                                >
+                                    <i
+                                        class="fa-solid fa-gear py-1 px-2 opacity-0"
+                                    ></i>
+                                    <span
+                                        class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"
+                                    >
+                                        ایدی
+                                    </span>
+                                    <span
+                                        class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"
+                                    >
+                                        عنوان
+                                    </span>
+                                    <span
+                                        class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"
+                                    >
+                                        قالب ها
+                                    </span>
+                                </div>
+                                <div class="flex items-center">
+                                    <label for="category-input2">
+                                        <i
+                                            class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"
+                                        ></i>
+                                    </label>
+                                    <span
+                                        class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r"
+                                        >2</span
+                                    >
+                                    <input
+                                        type="text"
+                                        class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0"
+                                        placeholder="شخصی"
+                                        value="شخصی"
+                                        id="category-input2"
+                                        disabled="true"
+                                    />
+                                    <span
+                                        class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50"
+                                        >12</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="grid grid-rows-2 text-center group">
+                                <div
+                                    class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+                                >
+                                    <i
+                                        class="fa-solid fa-gear py-1 px-2 opacity-0"
+                                    ></i>
+                                    <span
+                                        class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"
+                                    >
+                                        ایدی
+                                    </span>
+                                    <span
+                                        class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"
+                                    >
+                                        عنوان
+                                    </span>
+                                    <span
+                                        class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"
+                                    >
+                                        قالب ها
+                                    </span>
+                                </div>
+                                <div class="flex items-center">
+                                    <label for="category-input3">
+                                        <i
+                                            class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"
+                                        ></i>
+                                    </label>
+                                    <span
+                                        class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r"
+                                        >3</span
+                                    >
+                                    <input
+                                        type="text"
+                                        class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0"
+                                        placeholder="عمومی"
+                                        value="عمومی"
+                                        id="category-input3"
+                                        disabled="true"
+                                    />
+                                    <span
+                                        class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50"
+                                        >12</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="grid grid-rows-2 text-center group">
+                                <div
+                                    class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+                                >
+                                    <i
+                                        class="fa-solid fa-gear py-1 px-2 opacity-0"
+                                    ></i>
+                                    <span
+                                        class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"
+                                    >
+                                        ایدی
+                                    </span>
+                                    <span
+                                        class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"
+                                    >
+                                        عنوان
+                                    </span>
+                                    <span
+                                        class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"
+                                    >
+                                        قالب ها
+                                    </span>
+                                </div>
+                                <div class="flex items-center">
+                                    <label for="category-input4">
+                                        <i
+                                            class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"
+                                        ></i>
+                                    </label>
+                                    <span
+                                        class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r"
+                                        >4</span
+                                    >
+                                    <input
+                                        type="text"
+                                        class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0"
+                                        placeholder="سرگرمی"
+                                        value="سرگرمی"
+                                        id="category-input4"
+                                        disabled="true"
+                                    />
+                                    <span
+                                        class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50"
+                                        >12</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- section about FAQ -->
+                    <div class="hidden">
+                        <div
+                            class="flex flex-row-reverse justify-center md:justify-start items-center p-5"
+                            id="faqButton"
+                        >
+                            <div
+                                class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded"
+                            >
+                                <span> حذف </span>
+                                <i
+                                    class="fa-solid fa-trash text-red-600 mr-3"
+                                ></i>
+                            </div>
+                            <div
+                                class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded ml-2"
+                            >
                                 <span> افزودن </span>
                                 <i class="fa-solid fa-plus mr-3"></i>
                             </div>
                             <div
-                                class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded mr-1">
-                                <span> حذف </span>
-                                <i class="fa-solid fa-trash text-red-600 mr-3"></i>
-                            </div>
-                        </div>
-                        <div class="flex items-center ml-1" id="editCategoryButton">
-                            <div
-                                class="cursor-pointer transition duration-300 bg-green-500 hover:bg-green-700 text-slate-100 py-1 px-3 rounded hidden">
-                                <span> تایید </span>
-                            </div>
-                            <div class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800
-                            text-slate-100 py-1 px-3 mr-1 rounded hidden">
-                                <span>منصرف شدن</span>
-                            </div>
-                            <div
-                                class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 mr-1 rounded hidden">
+                                class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 ml-1 rounded hidden"
+                            >
                                 <span> انصراف </span>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 grid-rows-4 gap-x-2 gap-y-7 justify-center items-center sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-2 lg:grid-cols-4 p-5 text-slate-50 text-center"
-                        id="categoryItems">
-                        <div class="grid grid-rows-2 text-center group">
-                            <div
-                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
-                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
-                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
-                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
-                            </div>
-                            <div class="flex items-center">
-                                <label for="category-input1">
-                                    <i
-                                        class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"></i>
-                                </label>
-                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r">1</span>
-                                <input type="text"
-                                    class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0"
-                                    placeholder="فروشگاهی" value="فروشگاهی" id="category-input1" disabled="true">
-                                <span
-                                    class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50">12</span>
-                            </div>
-                        </div>
-                        <div class="grid grid-rows-2 text-center group">
-                            <div
-                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
-                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
-                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
-                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
-                            </div>
-                            <div class="flex items-center">
-                                <label for="category-input2">
-                                    <i
-                                        class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"></i>
-                                </label>
-                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r">2</span>
-                                <input type="text"
-                                    class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0"
-                                    placeholder="شخصی" value="شخصی" id="category-input2" disabled="true">
-                                <span
-                                    class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50">12</span>
-                            </div>
-                        </div>
-                        <div class="grid grid-rows-2 text-center group">
-                            <div
-                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
-                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
-                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
-                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
-                            </div>
-                            <div class="flex items-center">
-                                <label for="category-input3">
-                                    <i
-                                        class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"></i>
-                                </label>
-                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r">3</span>
-                                <input type="text"
-                                    class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0"
-                                    placeholder="عمومی" value="عمومی" id="category-input3" disabled="true">
-                                <span
-                                    class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50">12</span>
-                            </div>
-                        </div>
-                        <div class="grid grid-rows-2 text-center group">
-                            <div
-                                class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
-                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> ایدی </span>
-                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
-                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
-                            </div>
-                            <div class="flex items-center">
-                                <label for="category-input4">
-                                    <i
-                                        class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"></i>
-                                </label>
-                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r">4</span>
-                                <input type="text"
-                                    class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0"
-                                    placeholder="سرگرمی" value="سرگرمی" id="category-input4" disabled="true">
-                                <span
-                                    class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50">12</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- section about FAQ -->
-                <div class="hidden">
-                    <div class="flex flex-row-reverse p-5 items-center" id="faqButton">
-                        <div
-                            class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded">
-                            <span> حذف </span>
-                            <i class="fa-solid fa-trash text-red-600 mr-3"></i>
-                        </div>
-                        <div
-                            class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded ml-2">
-                            <span> افزودن </span>
-                            <i class="fa-solid fa-plus mr-3"></i>
-                        </div>
-                    </div>
-                    <div class="flex justify-center items-center p-5">
-                        <div class="accordion w-96">
-                            <div class="overflow-hidden rounded-t-sm text-white active">
+                        <div class="flex justify-center p-5">
+                            <div class="accordion w-96">
                                 <div
-                                    class="bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center">
-                                    <h2 class="text-sm"> آیا می توان همزمان چند قالب را در داشبورد ذخیره کرد؟ </h2>
-                                    <i class="fa-solid fa-arrow-up text-xs transition-all"></i>
+                                    class="overflow-hidden rounded-t-sm text-white"
+                                >
+                                    <div
+                                        class="bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center"
+                                    >
+                                        <h2 class="text-sm">
+                                            آیا می توان همزمان چند قالب را در
+                                            داشبورد ذخیره کرد؟
+                                        </h2>
+                                        <i
+                                            class="fa-solid fa-arrow-up text-xs transition-all"
+                                        ></i>
+                                    </div>
+                                    <p
+                                        class="text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200"
+                                    >
+                                        بله شما با خرید اشتراک می توانید به همه
+                                        قالب ها به مدت تعیین شده دسترسی داشته و
+                                        در صورت تمایل آن را ذخیره کنید
+                                    </p>
                                 </div>
-                                <p
-                                    class="text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200">
-                                    بله شما با خرید اشتراک می توانید به همه قالب ها به مدت تعیین شده دسترسی داشته و
-                                    در
-                                    صورت تمایل آن
-                                    را ذخیره کنید
-                                </p>
-                            </div>
-                            <div class="overflow-hidden text-white">
+                                <div class="overflow-hidden text-white">
+                                    <div
+                                        class="bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center"
+                                    >
+                                        <h2 class="text-sm">
+                                            آیا می توان همزمان چند قالب را در
+                                            داشبورد ذخیره کرد؟
+                                        </h2>
+                                        <i
+                                            class="fa-solid fa-arrow-up text-xs transition-all"
+                                        ></i>
+                                    </div>
+                                    <p
+                                        class="text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200"
+                                    >
+                                        بله شما با خرید اشتراک می توانید به همه
+                                        قالب ها به مدت تعیین شده دسترسی داشته و
+                                        در صورت تمایل آن را ذخیره کنید بله شما
+                                        با خرید اشتراک می توانید به همه قالب ها
+                                        به مدت تعیین شده دسترسی داشته و در صورت
+                                        تمایل آن را ذخیره کنید
+                                    </p>
+                                </div>
                                 <div
-                                    class="bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center">
-                                    <h2 class="text-sm"> آیا می توان همزمان چند قالب را در داشبورد ذخیره کرد؟ </h2>
-                                    <i class="fa-solid fa-arrow-up text-xs transition-all"></i>
+                                    class="overflow-hidden rounded-b-sm text-white"
+                                >
+                                    <div
+                                        class="bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center"
+                                    >
+                                        <h2 class="text-sm">
+                                            آیا می توان همزمان چند قالب را در
+                                            داشبورد ذخیره کرد؟
+                                        </h2>
+                                        <i
+                                            class="fa-solid fa-arrow-up text-xs transition-all"
+                                        ></i>
+                                    </div>
+                                    <p
+                                        class="text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200"
+                                    >
+                                        بله شما با خرید اشتراک می توانید به همه
+                                        قالب ها به مدت تعیین شده دسترسی داشته و
+                                        در صورت تمایل آن را ذخیره کنید
+                                    </p>
                                 </div>
-                                <p
-                                    class="text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200 ">
-
-                                    بله شما با خرید اشتراک می توانید به همه قالب ها به مدت تعیین شده دسترسی داشته و
-                                    در
-                                    صورت تمایل آن
-                                    را ذخیره کنید
-                                    بله شما با خرید اشتراک می توانید به همه قالب ها به مدت تعیین شده دسترسی داشته و
-                                    در
-                                    صورت تمایل آن
-                                    را ذخیره کنید
-                                </p>
                             </div>
-                            <div class="overflow-hidden rounded-b-sm border-b border-b-grey-400 text-white">
-                                <div
-                                    class="bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center">
-                                    <h2 class="text-sm"> آیا می توان همزمان چند قالب را در داشبورد ذخیره کرد؟ </h2>
-                                    <i class="fa-solid fa-arrow-up text-xs transition-all"></i>
-                                </div>
-                                <p
-                                    class="text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200">
-                                    بله شما با خرید اشتراک می توانید به همه قالب ها به مدت تعیین شده دسترسی داشته و
-                                    در
-                                    صورت تمایل آن
-                                    را ذخیره کنید
-                                </p>
+                            <div
+                                class="grid justify-center items-center mr-2 cursor-pointer text-sm hidden"
+                                id="redCirclesDelete"
+                            >
+                                <span
+                                    class="rounded-full bg-red-600 text-white p-1"
+                                    >0</span
+                                >
+                                <span
+                                    class="rounded-full bg-red-600 text-white p-1"
+                                    >1</span
+                                >
+                                <span
+                                    class="rounded-full bg-red-600 text-white p-1"
+                                    >2</span
+                                >
                             </div>
                         </div>
                     </div>
+                    <!-- section about subscriptions's list -->
+                    <div class="hidden">لیست اشتراک ها</div>
                 </div>
-                <!-- section about subscriptions's list -->
-                <div class="hidden">
-                    لیست اشتراک ها
-                </div>
-            </div>
-            <!-- section about change user info -->
-            <div class="hidden" id="changeInfoSection">
-                <div class="p-2 cursor-pointer hidden md:block md:float-left">
-                    <i class="fa-solid fa-circle-arrow-left text-primary md:text-2xl lg:text-3xl"></i>
-                </div>
-                <div>
-                    <form action="#" class="flex flex-col mr-3 p-3">
-                        <div class="flex flex-col justify-center items-center p-3">
-                            <img class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 hover:scale-105"
-                                src="../../images/user_profile.png" alt="user_profile">
-                            <label for="userPhoto"
-                                class="text-sm sm:text-base lg:text-lg cursor-pointer transition-all text-secondary text-opacity-80 hover:text-secondary text-center mt-2 underline">
-                                آپلود عکس جدید
-                            </label>
-                            <input type="file" id="userPhoto" class="hidden">
-                        </div>
-                        <div class="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 p-3">
-                            <div class="flex flex-col">
-                                <label for="firstName" class="text-md md:text-lg"> نام </label>
-                                <input type="text" id="firstName" placeholder="حسن" class="input-btn" required>
+                <!-- section about change user info -->
+                <div class="hidden" id="changeInfoSection">
+                    <div
+                        class="p-2 cursor-pointer hidden md:block md:float-left"
+                    >
+                        <i
+                            class="fa-solid fa-circle-arrow-left text-primary md:text-2xl lg:text-3xl"
+                        ></i>
+                    </div>
+                    <div>
+                        <form action="#" class="flex flex-col mr-3 p-3">
+                            <div
+                                class="flex flex-col justify-center items-center p-3"
+                            >
+                                <img
+                                    class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 hover:scale-105"
+                                    src="../../images/user_profile.png"
+                                    alt="user_profile"
+                                />
+                                <label
+                                    for="userPhoto"
+                                    class="text-sm sm:text-base lg:text-lg cursor-pointer transition-all text-secondary text-opacity-80 hover:text-secondary text-center mt-2 underline"
+                                >
+                                    آپلود عکس جدید
+                                </label>
+                                <input
+                                    type="file"
+                                    id="userPhoto"
+                                    class="hidden"
+                                />
                             </div>
-                            <div class="flex flex-col">
-                                <label for="nationalCode" class="text-md md:text-lg"> کد ملی </label>
-                                <input type="text" id="nationalCode" placeholder="0990000000" class="input-btn"
-                                    required>
+                            <div
+                                class="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 p-3"
+                            >
+                                <div class="flex flex-col">
+                                    <label
+                                        for="firstName"
+                                        class="text-md md:text-lg"
+                                    >
+                                        نام
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        placeholder="حسن"
+                                        class="input-btn"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="nationalCode"
+                                        class="text-md md:text-lg"
+                                    >
+                                        کد ملی
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="nationalCode"
+                                        placeholder="0990000000"
+                                        class="input-btn"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="lastName"
+                                        class="text-md md:text-lg"
+                                    >
+                                        نام خانوادگی
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        placeholder="بهرامی"
+                                        class="input-btn"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="mail"
+                                        class="text-md md:text-lg"
+                                    >
+                                        ایمیل
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="mail"
+                                        placeholder="example@example.com"
+                                        class="input-btn"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="phoneNumber"
+                                        class="text-md md:text-lg"
+                                    >
+                                        شماره تماس
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="phoneNumber"
+                                        placeholder="09100000000"
+                                        class="input-btn"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="password"
+                                        class="text-md md:text-lg"
+                                    >
+                                        رمز عبور
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="password"
+                                        placeholder="یک پسورد شامل حداقل ۸ رقم وارد کنید "
+                                        class="input-btn"
+                                        required
+                                    />
+                                </div>
                             </div>
-                            <div class=" flex flex-col">
-                                <label for="lastName" class="text-md md:text-lg"> نام خانوادگی </label>
-                                <input type="text" id="lastName" placeholder="بهرامی" class="input-btn" required>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="mail" class="text-md md:text-lg"> ایمیل </label>
-                                <input type="email" id="mail" placeholder="example@example.com" class="input-btn"
-                                    required>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="phoneNumber" class="text-md md:text-lg"> شماره تماس </label>
-                                <input type="text" id="phoneNumber" placeholder="09100000000" class="input-btn"
-                                    required>
-                            </div>
-                            <div class="flex flex-col">
-                                <label for="password" class="text-md md:text-lg"> رمز عبور </label>
-                                <input type="text" id="password" placeholder="یک پسورد شامل حداقل ۸ رقم وارد کنید "
-                                    class="input-btn" required>
-                            </div>
-                        </div>
 
-                        <button type="submit"
-                            class="self-center w-24 py-2 px-6 transition duration-300 bg-secondary bg-opacity-80 hover:bg-secondary rounded text-slate-50">
-                            تایید
-                        </button>
-                    </form>
+                            <button
+                                type="submit"
+                                class="self-center w-24 py-2 px-6 transition duration-300 bg-secondary bg-opacity-80 hover:bg-secondary rounded text-slate-50"
+                            >
+                                تایید
+                            </button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </div>
 
-    <script src="../../js/sweetalert2.all.min.js"></script>
-    <script src="../../js/dashboard_admin.js"></script>
-</body>
-
+        <script src="../../js/sweetalert2.all.min.js"></script>
+        <script src="../../js/dashboard_admin.js"></script>
+    </body>
 </html>

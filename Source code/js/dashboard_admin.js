@@ -11,10 +11,11 @@ let returnBtnMobile = document.querySelector("#returnButtonMobile");
 
 let categoryItems = document.querySelector("#categoryItems");
 let editCategoryBtn = document.querySelector("#editCategoryButton");
-let adCategoryBtn = document.querySelector("#addDeleteCategoryButtons")
+let adCategoryBtn = document.querySelector("#addDeleteCategoryButtons");
 
 let accordion = document.querySelector(".accordion");
 let faqBtn = document.querySelector("#faqButton");
+let redCirclesDelete = document.querySelector("#redCirclesDelete");
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
    close the panel through it. so this Event listener plays role
@@ -45,7 +46,7 @@ let closePanelMobile = () => {
     if (!changeInfoSection.classList.contains("hidden")) {
         returnBtnMobile.classList.remove("hidden");
     }
-}
+};
 
 /* when click on one item of panel, that item should get
    background-color secondary and related information to
@@ -53,8 +54,7 @@ let closePanelMobile = () => {
    disappeared
 */
 let handleDisplayOfSections = () => {
-
-    let panelListTag = panel.querySelectorAll("div > ul li")
+    let panelListTag = panel.querySelectorAll("div > ul li");
     panelListTag[2].classList.add("bg-secondary");
     sections[0].classList.remove("hidden");
     /* we start this loop from item 3 (i=2) because first two
@@ -63,28 +63,53 @@ let handleDisplayOfSections = () => {
     */
     for (let i = 2; i < panelListTag.length; i++) {
         panelListTag[i].addEventListener("click", () => {
-
             /* if section category have been displayed already,
                then we should check if some process in category 
                section is happening or not. if all default buttons
                are displayed to user and others are hidden then
                we haven't any process happening
             */
-            if ((!sections[4].classList.contains("hidden")) && (!(
-                    adCategoryBtn.children[0].classList.contains("hidden") == false && adCategoryBtn.children[1].classList.contains("hidden") == false &&
-                    editCategoryBtn.children[0].classList.contains("hidden") && editCategoryBtn.children[1].classList.contains("hidden") && editCategoryBtn.children[2].classList.contains("hidden")
-                ))) {
-
+            if (
+                !sections[4].classList.contains("hidden") &&
+                !(
+                    adCategoryBtn.children[0].classList.contains("hidden") ==
+                        false &&
+                    adCategoryBtn.children[1].classList.contains("hidden") ==
+                        false &&
+                    editCategoryBtn.children[0].classList.contains("hidden") &&
+                    editCategoryBtn.children[1].classList.contains("hidden") &&
+                    editCategoryBtn.children[2].classList.contains("hidden")
+                )
+            ) {
                 Swal.fire({
-                    title: 'اخطار',
-                    text: 'شما در حال حاضر در حال انجام یک فرایند دیگر هستید!',
-                    icon: 'warning',
-                    confirmButtonText: 'باشه',
-                    confirmButtonColor: '#66bb6a'
-                })
-
+                    title: "اخطار",
+                    text: "شما در حال حاضر در حال انجام یک فرایند دیگر هستید!",
+                    icon: "warning",
+                    confirmButtonText: "باشه",
+                    confirmButtonColor: "#66bb6a",
+                });
+            } else if (
+                !sections[5].classList.contains("hidden") &&
+                !(
+                    faqBtn.children[0].classList.contains("hidden") == false &&
+                    faqBtn.children[1].classList.contains("hidden") == false &&
+                    faqBtn.children[2].classList.contains("hidden")
+                )
+            ) {
+                /* if section faq have been displayed already,
+                   then we should check if some process in faq 
+                   section is happening or not. if all default buttons
+                   are displayed to user and others are hidden then
+                   we haven't any process happening
+                */
+                Swal.fire({
+                    title: "اخطار",
+                    text: "شما در حال حاضر در حال انجام یک فرایند دیگر هستید!",
+                    icon: "warning",
+                    confirmButtonText: "باشه",
+                    confirmButtonColor: "#66bb6a",
+                });
             } else {
-
                 /* if user first click on ' تغییر جزئیات ' and then click on
                    other li tag this section should be disappeared and also
                    return button mobile should be disappeared for mobile width
@@ -93,9 +118,11 @@ let handleDisplayOfSections = () => {
                 returnBtnMobile.classList.add("hidden");
 
                 // remove background color secondary class for other item
-                panel.querySelectorAll("div > ul li.bg-secondary").forEach((list) => {
-                    list.classList.remove("bg-secondary");
-                });
+                panel
+                    .querySelectorAll("div > ul li.bg-secondary")
+                    .forEach((list) => {
+                        list.classList.remove("bg-secondary");
+                    });
 
                 /* add hidden class to divs tag that don't have that class
                    because just one item should be displayed to user
@@ -143,17 +170,16 @@ let returnToUserInfoSection = () => {
    loging out from panel
 */
 let exitFromPanel = () => {
-
     // using sweetalert2 for create a beautiful alert
     Swal.fire({
-        title: 'خروج',
-        text: 'آیا برای خارج شدن از پنل کاربری مطمئن هستید؟ ',
-        icon: 'warning',
+        title: "خروج",
+        text: "آیا برای خارج شدن از پنل کاربری مطمئن هستید؟ ",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'بله',
-        confirmButtonColor: '#66bb6a',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'خیر',
+        confirmButtonText: "بله",
+        confirmButtonColor: "#66bb6a",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "خیر",
         reverseButtons: true,
     }).then((result) => {
         /* if user click on 'بله' button page redirect 
@@ -171,17 +197,16 @@ let exitFromPanel = () => {
    your account permanently 
 */
 let deleteAccount = () => {
-
     // using sweetalert2 for create a beautiful alert
     Swal.fire({
-        title: 'اخطار',
-        text: 'آیا از حذف حساب کاربری خود مطمئن هستید؟ ',
-        icon: 'warning',
+        title: "اخطار",
+        text: "آیا از حذف حساب کاربری خود مطمئن هستید؟ ",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'بله',
-        confirmButtonColor: '#66bb6a',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'خیر',
+        confirmButtonText: "بله",
+        confirmButtonColor: "#66bb6a",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "خیر",
         reverseButtons: true,
     }).then((result) => {
         /* if user click on 'بله' button another alert
@@ -189,12 +214,12 @@ let deleteAccount = () => {
         */
         if (result.isConfirmed) {
             Swal.fire({
-                title: 'خروج',
-                text: 'یک درخواست به ایمیل شما ارسال شده است،روی لینک مربوطه کلیک کنید تا فرایند حذف آغاز شود!',
-                icon: 'success',
-                confirmButtonText: 'باشه',
-                confirmButtonColor: '#66bb6a'
-            })
+                title: "خروج",
+                text: "یک درخواست به ایمیل شما ارسال شده است،روی لینک مربوطه کلیک کنید تا فرایند حذف آغاز شود!",
+                icon: "success",
+                confirmButtonText: "باشه",
+                confirmButtonColor: "#66bb6a",
+            });
         }
     });
 };
@@ -202,27 +227,26 @@ let deleteAccount = () => {
 let formValidationFromUserInfo = () => {
     // using sweetalert2 for create a beautiful alert
     Swal.fire({
-        title: 'هشدار',
-        text: 'آیا از صحت اطلاعات مطمئن هستید؟ ',
-        icon: 'warning',
+        title: "هشدار",
+        text: "آیا از صحت اطلاعات مطمئن هستید؟ ",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'بله',
-        confirmButtonColor: '#66bb6a',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'خیر',
+        confirmButtonText: "بله",
+        confirmButtonColor: "#66bb6a",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "خیر",
         reverseButtons: true,
     }).then((result) => {
         /* if user click 'بله' button then we should validate
            form and if user click on 'خیر' we should ignore it
         */
         if (result.isConfirmed) {
-            console.log('form validation');
+            console.log("form validation");
         } else {
-            console.log('just ignore it');
+            console.log("just ignore it");
         }
-    })
+    });
 };
-
 
 // edit category item' content
 let editCategoryItemFunc = (label) => {
@@ -243,8 +267,15 @@ let editCategoryItemFunc = (label) => {
        disappeared
     */
     editCategoryBtn.children[1].addEventListener("click", () => {
-        if (!label.nextElementSibling.nextElementSibling.getAttribute("disabled")) {
-            label.nextElementSibling.nextElementSibling.setAttribute("disabled", true); // input element
+        if (
+            !label.nextElementSibling.nextElementSibling.getAttribute(
+                "disabled"
+            )
+        ) {
+            label.nextElementSibling.nextElementSibling.setAttribute(
+                "disabled",
+                true
+            ); // input element
             editCategoryBtn.children[0].classList.add("hidden");
             editCategoryBtn.children[1].classList.add("hidden");
             // return the default input value
@@ -256,17 +287,16 @@ let editCategoryItemFunc = (label) => {
        disappeared
     */
     editCategoryBtn.children[0].addEventListener("click", () => {
-
         // using sweetalert2 for create a beautiful alert
         Swal.fire({
-            title: 'تایید',
-            text: 'آیا از صحت اطلاعات مطمئن هستید؟ ',
-            icon: 'warning',
+            title: "تایید",
+            text: "آیا از صحت اطلاعات مطمئن هستید؟ ",
+            icon: "warning",
             showCancelButton: true,
-            confirmButtonText: 'بله',
-            confirmButtonColor: '#66bb6a',
-            cancelButtonColor: '#d33',
-            cancelButtonText: 'خیر',
+            confirmButtonText: "بله",
+            confirmButtonColor: "#66bb6a",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "خیر",
             reverseButtons: true,
         }).then((result) => {
             /* if user click on 'بله' then two button should be
@@ -274,7 +304,10 @@ let editCategoryItemFunc = (label) => {
                input
             */
             if (result.isConfirmed) {
-                label.nextElementSibling.nextElementSibling.setAttribute("disabled", true); // input element
+                label.nextElementSibling.nextElementSibling.setAttribute(
+                    "disabled",
+                    true
+                ); // input element
                 editCategoryBtn.children[0].classList.add("hidden");
                 editCategoryBtn.children[1].classList.add("hidden");
 
@@ -294,15 +327,15 @@ let addCategoryItemFunc = () => {
     if (editCategoryBtn.children[0].classList.contains("hidden")) {
         let tempValue;
         Swal.fire({
-            title: 'افزودن یک دسته بندی جدید',
-            input: 'text',
-            inputLabel: 'عنوانی برای دسته بندی جدید وارد کنید',
-            inputPlaceholder: ' به عنوان مثال شخصی ',
-            confirmButtonColor: '#66bb6a',
-            confirmButtonText: 'اضافه کردن',
+            title: "افزودن یک دسته بندی جدید",
+            input: "text",
+            inputLabel: "عنوانی برای دسته بندی جدید وارد کنید",
+            inputPlaceholder: " به عنوان مثال شخصی ",
+            confirmButtonColor: "#66bb6a",
+            confirmButtonText: "اضافه کردن",
             showCancelButton: true,
-            cancelButtonText: 'انصراف',
-            cancelButtonColor: '#d33',
+            cancelButtonText: "انصراف",
+            cancelButtonColor: "#d33",
         }).then((result) => {
             /* if user click on 'اضافه کردن' button then the process
                should be happened otherwise ignores it
@@ -314,17 +347,20 @@ let addCategoryItemFunc = () => {
                 let divParent = document.createElement("div");
                 divParent.className = "grid grid-rows-2 text-center group";
                 let divFirstChild = document.createElement("div");
-                divFirstChild.className = "flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300";
+                divFirstChild.className =
+                    "flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300";
                 let i = document.createElement("i");
                 i.className = "fa-solid fa-gear py-1 px-2 opacity-0";
                 let span1 = document.createElement("span");
-                span1.className = "px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50";
+                span1.className =
+                    "px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50";
                 span1.innerHTML = " ایدی ";
                 let span2 = document.createElement("span");
                 span2.className = "px-1 py-1 w-3/6 bg-primary bg-opacity-50";
                 span2.innerHTML = " عنوان ";
                 let span3 = document.createElement("span");
-                span3.className = "px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50";
+                span3.className =
+                    "px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50";
                 span3.innerHTML = " قالب ها ";
 
                 divFirstChild.append(i);
@@ -336,21 +372,26 @@ let addCategoryItemFunc = () => {
                 let secondDivChild = document.createElement("div");
                 secondDivChild.className = "flex items-center";
                 let label = document.createElement("label");
-                label.htmlFor = "category-input" + (categoryItems.children.length + 1);
+                label.htmlFor =
+                    "category-input" + (categoryItems.children.length + 1);
                 let i2 = document.createElement("i");
-                i2.className = "fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100";
+                i2.className =
+                    "fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100";
                 let span4 = document.createElement("span");
-                span4.className = "px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r";
-                span4.innerHTML = (categoryItems.children.length + 1);
+                span4.className =
+                    "px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r";
+                span4.innerHTML = categoryItems.children.length + 1;
                 let inp = document.createElement("input");
-                inp.className = "px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0";
+                inp.className =
+                    "px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0";
                 inp.type = "text";
                 inp.placeholder = tempValue;
                 inp.value = tempValue;
                 inp.id = "category-input" + (categoryItems.children.length + 1);
                 inp.setAttribute("disabled", true);
                 let span5 = document.createElement("span");
-                span5.className = "px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50";
+                span5.className =
+                    "px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50";
                 span5.innerHTML = "0";
 
                 label.append(i2);
@@ -358,7 +399,7 @@ let addCategoryItemFunc = () => {
                 secondDivChild.append(span4);
                 secondDivChild.append(inp);
                 secondDivChild.append(span5);
-                divParent.append(secondDivChild)
+                divParent.append(secondDivChild);
 
                 categoryItems.append(divParent);
                 // add event listener for every new label separately
@@ -369,25 +410,25 @@ let addCategoryItemFunc = () => {
         });
     } else {
         Swal.fire({
-            title: ' اخطار ',
-            text: ' شما در حال ویرایش یک نوع دسته بندی هستید! ',
-            icon: 'warning',
-            confirmButtonText: 'باشه',
-            confirmButtonColor: '#65bb6a'
-        })
+            title: " اخطار ",
+            text: " شما در حال ویرایش یک نوع دسته بندی هستید! ",
+            icon: "warning",
+            confirmButtonText: "باشه",
+            confirmButtonColor: "#65bb6a",
+        });
     }
 };
 
 function removeCategoryItem(item) {
     Swal.fire({
-        title: 'حذف',
-        text: 'آیا از حذف این دسته بندی مطمئن هستید؟ ',
-        icon: 'warning',
+        title: "حذف",
+        text: "آیا از حذف این دسته بندی مطمئن هستید؟ ",
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'بله',
-        confirmButtonColor: '#66bb6a',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'خیر',
+        confirmButtonText: "بله",
+        confirmButtonColor: "#66bb6a",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "خیر",
         reverseButtons: true,
     }).then((result) => {
         /* if user click on 'بله' button
@@ -396,7 +437,10 @@ function removeCategoryItem(item) {
         if (result.isConfirmed) {
             // find its parent and then remove that element
             let mainItem = item.target.parentElement.parentElement;
-            if (mainItem == categoryItems.children[categoryItems.children.length - 1]) {
+            if (
+                mainItem ==
+                categoryItems.children[categoryItems.children.length - 1]
+            ) {
                 // check if mainItem is the first child of categoryItems
                 mainItem.remove();
             } else {
@@ -405,73 +449,76 @@ function removeCategoryItem(item) {
                    correct for property for label tag and
                    input id and inner text of span tag
                 */
-                categoryItems.querySelectorAll("label").forEach((label, index) => {
-                    label.htmlFor = "category-input" + (index + 1);
-                    let span = label.nextElementSibling;
-                    span.innerHTML = (index + 1);
-                    let input = span.nextElementSibling;
-                    input.id = "category-input" + (index + 1);
-                });
+                categoryItems
+                    .querySelectorAll("label")
+                    .forEach((label, index) => {
+                        label.htmlFor = "category-input" + (index + 1);
+                        let span = label.nextElementSibling;
+                        span.innerHTML = index + 1;
+                        let input = span.nextElementSibling;
+                        input.id = "category-input" + (index + 1);
+                    });
             }
         }
     });
 }
 
 let deleteCategoryItemFunc = () => {
-
     // check if another process haven't been activated by user
     if (editCategoryBtn.children[0].classList.contains("hidden")) {
-
         adCategoryBtn.children[0].classList.add("hidden");
         adCategoryBtn.children[1].classList.remove("bg-opacity-20");
         adCategoryBtn.children[1].classList.add("text-slate-100");
         editCategoryBtn.children[2].classList.remove("hidden");
-        categoryItems.querySelectorAll("label").forEach(label => {
-            label.classList.add("hidden")
-            label.nextElementSibling.nextElementSibling.removeAttribute("disabled");
+        categoryItems.querySelectorAll("label").forEach((label) => {
+            label.classList.add("hidden");
+            label.nextElementSibling.nextElementSibling.removeAttribute(
+                "disabled"
+            );
         });
 
-        Array.from(categoryItems.children).forEach(item => {
+        Array.from(categoryItems.children).forEach((item) => {
             item.classList.add("cursor-pointer");
             item.addEventListener("click", removeCategoryItem);
         });
     } else {
         Swal.fire({
-            title: ' اخطار ',
-            text: ' شما در حال ویرایش یک نوع دسته بندی هستید! ',
-            icon: 'warning',
-            confirmButtonText: 'باشه',
-            confirmButtonColor: '#66bb6a'
-        })
+            title: " اخطار ",
+            text: " شما در حال ویرایش یک نوع دسته بندی هستید! ",
+            icon: "warning",
+            confirmButtonText: "باشه",
+            confirmButtonColor: "#66bb6a",
+        });
     }
     /* when user click on 'انصراف' button the page should be came
        back to its default behavior when user opens it for first 
        time
     */
     editCategoryBtn.children[2].addEventListener("click", () => {
-        categoryItems.querySelectorAll("label").forEach(label => {
-            label.classList.remove("hidden")
-            label.nextElementSibling.nextElementSibling.setAttribute("disabled", true);
+        categoryItems.querySelectorAll("label").forEach((label) => {
+            label.classList.remove("hidden");
+            label.nextElementSibling.nextElementSibling.setAttribute(
+                "disabled",
+                true
+            );
         });
         adCategoryBtn.children[0].classList.remove("hidden");
         adCategoryBtn.children[1].classList.add("bg-opacity-20");
         adCategoryBtn.children[1].classList.remove("text-slate-100");
         editCategoryBtn.children[2].classList.add("hidden");
-        Array.from(categoryItems.children).forEach(item => {
+        Array.from(categoryItems.children).forEach((item) => {
             item.removeEventListener("click", removeCategoryItem);
             item.classList.remove("cursor-pointer");
         });
-
     });
 };
-
 let createAccordion = (item, accordion) => {
-
     item.classList.toggle("active");
     if (item.classList.contains("active")) {
         item.children[0].classList.add("bg-blue-500");
         item.children[0].children[1].classList.add("rotate-180");
-        item.children[1].style.maxHeight = item.children[1].scrollHeight + 16 + "px";
+        item.children[1].style.maxHeight =
+            item.children[1].scrollHeight + 16 + "px";
         item.children[1].style.padding = "8px";
         item.children[1].classList.remove("max-h-0");
     } else {
@@ -482,9 +529,7 @@ let createAccordion = (item, accordion) => {
         item.children[1].classList.add("max-h-0");
     }
 
-
     accordion.querySelectorAll(".active").forEach((activeItem) => {
-
         if (activeItem.children[0] != item.children[0]) {
             activeItem.classList.remove("active");
             activeItem.children[0].classList.remove("bg-blue-500");
@@ -496,29 +541,127 @@ let createAccordion = (item, accordion) => {
     });
 };
 
+let deleteAccordionItemButton = () => {
+    // 'افزودن' button shouldn be disappeared
+    faqBtn.children[1].classList.add("hidden");
+    // 'انصراف' button should be displayed
+    faqBtn.children[2].classList.remove("hidden");
+    faqBtn.children[0].classList.add("text-slate-100");
+    faqBtn.children[0].classList.remove("bg-opacity-20");
+    redCirclesDelete.classList.remove("hidden");
+
+    // disable all active accordion item
+    Array.from(accordion.children).forEach((item) => {
+        if (item.classList.contains("active")) {
+            item.children[0].classList.remove("bg-blue-500");
+            item.children[0].children[1].classList.remove("rotate-180");
+            item.children[1].style.maxHeight = null;
+            item.children[1].style.padding = null;
+            item.children[1].classList.add("max-h-0");
+        }
+    });
+};
+
+let CancelDeletingAccordionItem = () => {
+    faqBtn.children[0].classList.remove("text-slate-100");
+    faqBtn.children[0].classList.add("bg-opacity-20");
+    faqBtn.children[1].classList.remove("hidden");
+    faqBtn.children[2].classList.add("hidden");
+};
+
+let deleteAccordionItems = (e) => {
+    let redCircle = e.target;
+
+    Swal.fire({
+        title: "حذف",
+        text: "آیا از حذف این اکوردیون مطمئن هستید؟ ",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "بله",
+        confirmButtonColor: "#66bb6a",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "خیر",
+        reverseButtons: true,
+    }).then((result) => {
+        /* if user click on 'بله' button
+           that item will be deleted  
+        */
+        if (result.isConfirmed) {
+            let tempIndex = parseInt(redCircle.innerHTML);
+            /* first and last accordion item has some special class 
+                   that we should add them when delete an item from first 
+                   or end
+                */
+            if (tempIndex == 0 && accordion.children.length != 1) {
+                // we check if user deletes first accordion item
+                accordion.children[1].classList.add("rounded-t-sm");
+            } else if (
+                tempIndex == accordion.children.length - 1 &&
+                accordion.children.length != 1
+            ) {
+                // we check if user deletes last accodion item
+                accordion.children[accordion.children.length - 2].classList.add(
+                    "rounded-b-sm"
+                );
+            }
+
+            accordion.children[tempIndex].remove();
+            redCircle.remove();
+            /* we should update index of redCircle item 
+                   when we deleted an acccordion item
+                */
+            Array.from(redCirclesDelete.children).forEach((circle, index) => {
+                circle.innerHTML = index;
+            });
+        }
+    });
+};
+
 hamburgerMenu.addEventListener("click", showPanelMobile);
 closeArrowBtn.addEventListener("click", closePanelMobile);
 handleDisplayOfSections();
 changeInfoBtn.addEventListener("click", showDetailsInfoSection);
 // first children => arrow left button for return to user info section
-changeInfoSection.children[0].addEventListener("click", returnToUserInfoSection);
+changeInfoSection.children[0].addEventListener(
+    "click",
+    returnToUserInfoSection
+);
 returnBtnMobile.addEventListener("click", returnToUserInfoSection);
 exitBtn.addEventListener("click", exitFromPanel);
 exitBtnMobile.addEventListener("click", exitFromPanel);
 deleteAccountBtn.addEventListener("click", deleteAccount);
-changeInfoSection.querySelector("form").addEventListener("submit", formValidationFromUserInfo);
+changeInfoSection
+    .querySelector("form")
+    .addEventListener("submit", formValidationFromUserInfo);
 
+// category section
 // event listener for add button in category section
 adCategoryBtn.children[0].addEventListener("click", addCategoryItemFunc);
 // event listener for edit button in category section on every category item
-categoryItems.querySelectorAll("label").forEach(label => label.addEventListener("click", () => {
-    editCategoryItemFunc(label);
-}));
+categoryItems.querySelectorAll("label").forEach((label) =>
+    label.addEventListener("click", () => {
+        editCategoryItemFunc(label);
+    })
+);
 // event listener for delete button in category section
 adCategoryBtn.children[1].addEventListener("click", deleteCategoryItemFunc);
+// end category section
 
-
-// FAQ
+// FAQ section
 Array.from(accordion.children).forEach((item) => {
-    item.children[0].addEventListener("click", () => createAccordion(item, accordion));
+    item.children[0].addEventListener("click", () =>
+        createAccordion(item, accordion)
+    );
 });
+
+// faq 'حذف' button in FAQ section
+faqBtn.children[0].addEventListener("click", deleteAccordionItemButton);
+
+// faq 'انصراف' button in FAQ section
+faqBtn.children[2].addEventListener("click", CancelDeletingAccordionItem);
+
+// delete accordion items
+Array.from(redCirclesDelete.children).forEach((redCircle) => {
+    redCircle.addEventListener("click", deleteAccordionItems);
+});
+// end FAQ section
