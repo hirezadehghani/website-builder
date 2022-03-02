@@ -567,6 +567,7 @@ let CancelDeletingAccordionItem = () => {
     faqBtn.children[0].classList.add("bg-opacity-20");
     faqBtn.children[1].classList.remove("hidden");
     faqBtn.children[2].classList.add("hidden");
+    redCirclesDelete.classList.add("hidden");
 };
 
 let deleteAccordionItems = (e) => {
@@ -617,6 +618,73 @@ let deleteAccordionItems = (e) => {
     });
 };
 
+let addAccordionItem = () => {
+    Swal.fire({
+        title: "افزودن یک اکوردیون جدید",
+        input: "textarea",
+        inputPlaceholder: "یک عنوان برای اکوردیون بنویسید",
+        confirmButtonColor: "#66bb6a",
+        confirmButtonText: "تایید",
+        showCancelButton: true,
+        cancelButtonText: "انصراف",
+        cancelButtonColor: "#d33",
+    }).then((result1) => {
+        if (result1.isConfirmed) {
+            Swal.fire({
+                title: "افزودن یک اکوردیون جدید",
+                input: "textarea",
+                inputPlaceholder: "متن بدنه اکوردیون را وارد کنید",
+                confirmButtonColor: "#66bb6a",
+                confirmButtonText: "تایید",
+                showCancelButton: true,
+                cancelButtonText: "انصراف",
+                cancelButtonColor: "#d33",
+            }).then((result2) => {
+                if (result2.isConfirmed) {
+                    let title = result1.value;
+                    let text = result2.value;
+                    // add accordion item
+                    let divParent = document.createElement("div");
+                    divParent.className =
+                        "overflow-hidden rounded-b-sm text-white";
+                    let div1 = document.createElement("div");
+                    div1.className =
+                        "bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center";
+                    let h2 = document.createElement("h2");
+                    h2.className = "test-sm";
+                    h2.innerHTML = title;
+                    let i = document.createElement("i");
+                    i.className = "fa-solid fa-arrow-up text-xs transition-all";
+                    let p = document.createElement("p");
+                    p.className =
+                        "text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200";
+                    p.innerHTML = text;
+
+                    accordion.children[
+                        accordion.children.length - 1
+                    ].classList.remove("rounded-b-sm");
+                    div1.append(h2);
+                    div1.append(i);
+                    divParent.append(div1);
+                    divParent.append(p);
+                    divParent.addEventListener("click", () =>
+                        createAccordion(divParent, accordion)
+                    );
+                    accordion.append(divParent);
+
+                    // Equivalent span tag
+                    let span = document.createElement("span");
+                    span.className = "rounded-full bg-red-600 text-white p-1";
+                    span.innerHTML = accordion.children.length - 1;
+                    span.addEventListener("click", deleteAccordionItems);
+
+                    redCirclesDelete.append(span);
+                }
+            });
+        }
+    });
+};
+
 hamburgerMenu.addEventListener("click", showPanelMobile);
 closeArrowBtn.addEventListener("click", closePanelMobile);
 handleDisplayOfSections();
@@ -654,14 +722,18 @@ Array.from(accordion.children).forEach((item) => {
     );
 });
 
-// faq 'حذف' button in FAQ section
+// 'حذف' button in FAQ section
 faqBtn.children[0].addEventListener("click", deleteAccordionItemButton);
 
-// faq 'انصراف' button in FAQ section
+// 'انصراف' button in FAQ section
 faqBtn.children[2].addEventListener("click", CancelDeletingAccordionItem);
 
 // delete accordion items
 Array.from(redCirclesDelete.children).forEach((redCircle) => {
     redCircle.addEventListener("click", deleteAccordionItems);
 });
+
+// 'افزودن' button in FAQ section
+faqBtn.children[1].addEventListener("click", addAccordionItem);
+
 // end FAQ section
