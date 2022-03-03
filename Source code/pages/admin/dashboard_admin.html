@@ -227,7 +227,130 @@
                     <!-- section about transaction's list -->
                     <div class="hidden">لیست تراکنش ها</div>
                     <!-- section about user's list -->
-                    <div class="hidden">لیست کاربران</div>
+                    <div class="hidden">
+                        <div
+                            class="flex flex-row-reverse justify-center items-center md:justify-start p-5"
+                            id="listUsersButtons"
+                        >
+                            <div
+                                class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded"
+                            >
+                                <span> حذف </span>
+                                <i
+                                    class="fa-solid fa-trash text-red-600 mr-3"
+                                ></i>
+                            </div>
+                            <div
+                                class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded ml-2"
+                            >
+                                <span> ویرایش </span>
+                                <i class="fa-solid fa-gear mr-3"></i>
+                            </div>
+                            <div class="flex items-center ml-2 rounded-sm">
+                                <input
+                                    type="text"
+                                    placeholder=" جستجوی کاربر "
+                                    class="bg-secondary bg-opacity-20 py-1 px-3 rounded-sm"
+                                />
+                            </div>
+                            <div
+                                class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 ml-2 rounded hidden"
+                            >
+                                <span> انصراف </span>
+                            </div>
+                        </div>
+                        <div class="table w-full p-7">
+                            <div
+                                class="table-header-group p-4 text-center font-bold text-xs md:text-sm lg:text-lg xl:text-xl"
+                            >
+                                <div class="table-row p-1">
+                                    <div class="table-cell p-2">ایدی کاربر</div>
+                                    <div class="table-cell p-2">نام</div>
+                                    <div class="table-cell p-2">
+                                        نام خانوادگی
+                                    </div>
+                                    <div class="table-cell p-2">شماره تماس</div>
+                                    <div class="table-cell p-2">ایمیل</div>
+                                    <div class="table-cell p-2">ایدی خرید</div>
+                                </div>
+                            </div>
+                            <div
+                                class="table-row-group p-4 text-center text-xs md:text-sm lg:text-base xl:text-lg cursor-pointer"
+                                id="usersListTableContent"
+                            >
+                                <div
+                                    class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                >
+                                    <div class="table-cell p-2">2</div>
+                                    <div class="table-cell p-2">احمد</div>
+                                    <div class="table-cell p-2">زارع</div>
+                                    <div class="table-cell p-2">
+                                        09100000000
+                                    </div>
+                                    <div class="table-cell p-2">
+                                        example@example.com
+                                    </div>
+                                    <div class="table-cell p-2">4</div>
+                                </div>
+                                <div
+                                    class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                >
+                                    <div class="table-cell p-2">2</div>
+                                    <div class="table-cell p-2">احمد</div>
+                                    <div class="table-cell p-2">زارع</div>
+                                    <div class="table-cell p-2">
+                                        09100000000
+                                    </div>
+                                    <div class="table-cell p-2">
+                                        example@example.com
+                                    </div>
+                                    <div class="table-cell p-2">4</div>
+                                </div>
+                                <div
+                                    class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                >
+                                    <div class="table-cell p-2">2</div>
+                                    <div class="table-cell p-2">احمد</div>
+                                    <div class="table-cell p-2">زارع</div>
+                                    <div class="table-cell p-2">
+                                        09100000000
+                                    </div>
+                                    <div class="table-cell p-2">
+                                        example@example.com
+                                    </div>
+                                    <div class="table-cell p-2">4</div>
+                                </div>
+                                <div
+                                    class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                >
+                                    <div class="table-cell p-2">2</div>
+                                    <div class="table-cell p-2">احمد</div>
+                                    <div class="table-cell p-2">زارع</div>
+                                    <div class="table-cell p-2">
+                                        09100000000
+                                    </div>
+                                    <div class="table-cell p-2">
+                                        example@example.com
+                                    </div>
+                                    <div class="table-cell p-2">4</div>
+                                </div>
+                                <div
+                                    class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                >
+                                    <div class="table-cell p-2">2</div>
+                                    <div class="table-cell p-2">احمد</div>
+                                    <div class="table-cell p-2">زارع</div>
+                                    <div class="table-cell p-2">
+                                        09100000000
+                                    </div>
+                                    <div class="table-cell p-2">
+                                        example@example.com
+                                    </div>
+                                    <div class="table-cell p-2">4</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- section about template's list -->
                     <div class="hidden">لیست قالب ها</div>
                     <!-- section about categories -->

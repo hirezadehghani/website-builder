@@ -1,3 +1,4 @@
+// user info variables
 let panel = document.querySelector("#panel");
 let hamburgerMenu = document.querySelector("#hamburger_menu");
 let closeArrowBtn = document.querySelector(".close-arrow-btn");
@@ -8,14 +9,20 @@ let exitBtn = document.querySelector("#exitButton");
 let exitBtnMobile = document.querySelector("#exitButtonMobile");
 let deleteAccountBtn = document.querySelector("#deleteAccountButton");
 let returnBtnMobile = document.querySelector("#returnButtonMobile");
-
+// category variables
 let categoryItems = document.querySelector("#categoryItems");
 let editCategoryBtn = document.querySelector("#editCategoryButton");
 let adCategoryBtn = document.querySelector("#addDeleteCategoryButtons");
-
+// FAQ variables
 let accordion = document.querySelector(".accordion");
 let faqBtn = document.querySelector("#faqButton");
 let redCirclesDelete = document.querySelector("#redCirclesDelete");
+// list users variables
+let listUsersButtons = document.querySelector("#listUsersButtons");
+let usersListTableContent = document.querySelectorAll(
+    "#usersListTableContent div"
+);
+
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
    close the panel through it. so this Event listener plays role
@@ -685,6 +692,25 @@ let addAccordionItem = () => {
     });
 };
 
+let DeleteUsersListTableItem = (e) => {
+    let tableItem = e.target.parentElement;
+    Swal.fire({
+        title: "حذف",
+        text: "آیا از حذف این کاربر از لیست کاربران مطمئن هستید؟ ",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "بله",
+        confirmButtonColor: "#66bb6a",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "خیر",
+        reverseButtons: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            tableItem.remove();
+        }
+    });
+};
+
 hamburgerMenu.addEventListener("click", showPanelMobile);
 closeArrowBtn.addEventListener("click", closePanelMobile);
 handleDisplayOfSections();
@@ -717,9 +743,7 @@ adCategoryBtn.children[1].addEventListener("click", deleteCategoryItemFunc);
 
 // FAQ section
 Array.from(accordion.children).forEach((item) => {
-    item.children[0].addEventListener("click", () =>
-        createAccordion(item, accordion)
-    );
+    item.addEventListener("click", () => createAccordion(item, accordion));
 });
 
 // 'حذف' button in FAQ section
@@ -737,3 +761,31 @@ Array.from(redCirclesDelete.children).forEach((redCircle) => {
 faqBtn.children[1].addEventListener("click", addAccordionItem);
 
 // end FAQ section
+
+// users list section
+
+// 'حذف' button in users list section
+listUsersButtons.children[0].addEventListener("click", () => {
+    listUsersButtons.children[0].classList.remove("bg-opacity-20");
+    listUsersButtons.children[0].classList.add("text-slate-100");
+    listUsersButtons.children[1].classList.add("hidden");
+    listUsersButtons.children[2].classList.add("hidden");
+    listUsersButtons.children[3].classList.remove("hidden");
+
+    usersListTableContent.forEach((tableItem) => {
+        tableItem.addEventListener("click", DeleteUsersListTableItem);
+    });
+});
+
+// 'انصراف' button in users list section
+listUsersButtons.children[3].addEventListener("click", () => {
+    listUsersButtons.children[0].classList.add("bg-opacity-20");
+    listUsersButtons.children[0].classList.remove("text-slate-100");
+    listUsersButtons.children[1].classList.remove("hidden");
+    listUsersButtons.children[2].classList.remove("hidden");
+    listUsersButtons.children[3].classList.add("hidden");
+
+    usersListTableContent.forEach((tableItem) => {
+        tableItem.removeEventListener("click", DeleteUsersListTableItem);
+    });
+});
