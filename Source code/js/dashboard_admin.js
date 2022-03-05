@@ -20,9 +20,15 @@ let redCirclesDelete = document.querySelector("#redCirclesDelete");
 // list users variables
 let listUsersButtons = document.querySelector("#listUsersButtons");
 let usersListTableContent = document.querySelectorAll(
-    "#usersListTableContent div"
+    "#usersListTableContent > div"
 );
 
+let userName = [];
+let userLastName = [];
+usersListTableContent.forEach((tableItem) => {
+    userName.push(tableItem.children[0].innerHTML.trim());
+    userLastName.push(tableItem.children[1].innerHTML.trim());
+});
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
    close the panel through it. so this Event listener plays role
@@ -711,6 +717,37 @@ let DeleteUsersListTableItem = (e) => {
     });
 };
 
+let searchUsersListTable = (e) => {
+    let inputValue = e.target.value;
+    /* if input value is empty this is default look
+       and all table item should be displayed to user
+    */
+    if (inputValue == "") {
+        usersListTableContent.forEach((tableItem) =>
+            tableItem.classList.remove("hidden")
+        );
+    } else if (
+        userName.indexOf(inputValue) != -1 ||
+        userLastName.indexOf(inputValue) != -1
+    ) {
+        usersListTableContent.forEach((tableItem) => {
+            if (
+                tableItem.children[0].innerHTML.trim() == inputValue ||
+                tableItem.children[1].innerHTML.trim() == inputValue
+            ) {
+                tableItem.classList.remove("hidden");
+            }
+        });
+    } else {
+        /* other table item should not be dispplayed
+           while user searchs for a special one
+        */
+        usersListTableContent.forEach((tableItem) =>
+            tableItem.classList.add("hidden")
+        );
+    }
+};
+
 hamburgerMenu.addEventListener("click", showPanelMobile);
 closeArrowBtn.addEventListener("click", closePanelMobile);
 handleDisplayOfSections();
@@ -769,7 +806,6 @@ listUsersButtons.children[0].addEventListener("click", () => {
     listUsersButtons.children[0].classList.remove("bg-opacity-20");
     listUsersButtons.children[0].classList.add("text-slate-100");
     listUsersButtons.children[1].classList.add("hidden");
-    listUsersButtons.children[2].classList.add("hidden");
     listUsersButtons.children[3].classList.remove("hidden");
 
     usersListTableContent.forEach((tableItem) => {
@@ -782,10 +818,15 @@ listUsersButtons.children[3].addEventListener("click", () => {
     listUsersButtons.children[0].classList.add("bg-opacity-20");
     listUsersButtons.children[0].classList.remove("text-slate-100");
     listUsersButtons.children[1].classList.remove("hidden");
-    listUsersButtons.children[2].classList.remove("hidden");
     listUsersButtons.children[3].classList.add("hidden");
 
     usersListTableContent.forEach((tableItem) => {
         tableItem.removeEventListener("click", DeleteUsersListTableItem);
     });
 });
+
+// 'جستجوی کاربر' button in users list section
+listUsersButtons.children[2].children[0].addEventListener(
+    "keyup",
+    searchUsersListTable
+);
