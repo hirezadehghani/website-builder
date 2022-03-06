@@ -1153,6 +1153,10 @@ body {
     width: 12rem;
   }
 
+  .sm\:transform-none {
+    transform: none;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1271,6 +1275,12 @@ body {
 
   .md\:opacity-0 {
     opacity: 0;
+  }
+
+  .md\:hover\:scale-105:hover {
+    --tw-scale-x: 1.05;
+    --tw-scale-y: 1.05;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .group:hover .md\:group-hover\:opacity-100 {
