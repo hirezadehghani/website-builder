@@ -23,12 +23,6 @@ let usersListTableContent = document.querySelectorAll(
     "#usersListTableContent > div"
 );
 
-let userName = [];
-let userLastName = [];
-usersListTableContent.forEach((tableItem) => {
-    userName.push(tableItem.children[0].innerHTML.trim());
-    userLastName.push(tableItem.children[1].innerHTML.trim());
-});
 /* when click on hamburger menu the panel should appear to user
    and also the close arrow button should be in panel,so user can
    close the panel through it. so this Event listener plays role
@@ -718,34 +712,41 @@ let deleteUsersListTableItem = (e) => {
 };
 
 let searchUsersListTable = (e) => {
-    let inputValue = e.target.value;
-    /* if input value is empty this is default look
-       and all table item should be displayed to user
-    */
-    if (inputValue == "") {
-        usersListTableContent.forEach((tableItem) =>
-            tableItem.classList.remove("hidden")
-        );
-    } else if (
-        userName.indexOf(inputValue) != -1 ||
-        userLastName.indexOf(inputValue) != -1
-    ) {
-        usersListTableContent.forEach((tableItem) => {
-            if (
-                tableItem.children[0].innerHTML.trim() == inputValue ||
-                tableItem.children[1].innerHTML.trim() == inputValue
-            ) {
-                tableItem.classList.remove("hidden");
-            }
-        });
-    } else {
-        /* other table item should not be dispplayed
-           while user searchs for a special one
+    let userName = [];
+    let userLastName = [];
+    let result = [];
+    let inputValue = e.target.value.trim();
+    usersListTableContent.forEach((tableItem) => {
+        userName.push(tableItem.children[0].innerHTML.trim());
+        userLastName.push(tableItem.children[1].innerHTML.trim());
+    });
+
+    // selecting user names that scorresponds to admin search
+    userName.filter((Name) => {
+        if (Name.includes(inputValue)) {
+            result.push(Name);
+        }
+    });
+    // selecting user family that scorresponds to admin search
+    userLastName.filter((Family) => {
+        if (Family.includes(inputValue)) {
+            result.push(Family);
+        }
+    });
+
+    usersListTableContent.forEach((tableItem) => {
+        /* if any item from result array matches with name or
+           family in users table it will be shown to user
         */
-        usersListTableContent.forEach((tableItem) =>
-            tableItem.classList.add("hidden")
-        );
-    }
+        if (
+            result.indexOf(tableItem.children[0].innerHTML.trim()) != -1 ||
+            result.indexOf(tableItem.children[1].innerHTML.trim()) != -1
+        ) {
+            tableItem.classList.remove("hidden");
+        } else {
+            tableItem.classList.add("hidden");
+        }
+    });
 };
 
 let editUsersListTableItem = (e) => {
