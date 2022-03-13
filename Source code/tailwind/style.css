@@ -426,8 +426,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: "Vazir";
 
-  src: url("../fonts/Vazir.woff") format('woff'),
-            url("../fonts/Vazir.woff2") format('woff2');
+  src: url("../fonts/Vazir.woff") format("woff"),
+            url("../fonts/Vazir.woff2") format("woff2");
 }
 
 body {
@@ -1331,6 +1331,11 @@ body {
     line-height: 1.75rem;
   }
 
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1423,10 +1428,5 @@ body {
   .xl\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .xl\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
   }
 }
