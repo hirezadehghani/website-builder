@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <link rel="stylesheet" href="../../tailwind/style.css" />
-        <script
+        <!-- <script
             src="https://kit.fontawesome.com/cf36ff6fd8.js"
             crossorigin="anonymous"
-        ></script>
+        ></script> -->
     </head>
 
     <body>
@@ -810,12 +810,14 @@
                                     for="userPhoto"
                                     class="text-sm sm:text-base lg:text-lg cursor-pointer transition-all text-secondary text-opacity-80 hover:text-secondary text-center mt-2 underline"
                                 >
-                                    آپلود عکس جدید
+                                    آپلود عکس جدید (jpeg,jpg,png)
                                 </label>
                                 <input
                                     type="file"
+                                    name="userPhoto"
                                     id="userPhoto"
                                     class="hidden"
+                                    accept="image/png, image/jpeg, image/jpg"
                                 />
                             </div>
                             <div
@@ -830,23 +832,9 @@
                                     </label>
                                     <input
                                         type="text"
+                                        name="firstName"
                                         id="firstName"
-                                        placeholder="حسن"
-                                        class="input-btn"
-                                        required
-                                    />
-                                </div>
-                                <div class="flex flex-col">
-                                    <label
-                                        for="nationalCode"
-                                        class="text-md md:text-lg"
-                                    >
-                                        کد ملی
-                                    </label>
-                                    <input
-                                        type="text"
-                                        id="nationalCode"
-                                        placeholder="0990000000"
+                                        placeholder="نام با حروف تماماً فارسی وارد کنید"
                                         class="input-btn"
                                         required
                                     />
@@ -860,8 +848,25 @@
                                     </label>
                                     <input
                                         type="text"
+                                        name="lastName"
                                         id="lastName"
-                                        placeholder="بهرامی"
+                                        placeholder="نام خانوادگی با حروف تماماً فارسی وارد کنید"
+                                        class="input-btn"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="nationalCode"
+                                        class="text-md md:text-lg"
+                                    >
+                                        کد ملی
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="nationalCode"
+                                        id="nationalCode"
+                                        placeholder=" کد ملی خود را وارد کنید "
                                         class="input-btn"
                                         required
                                     />
@@ -875,6 +880,7 @@
                                     </label>
                                     <input
                                         type="email"
+                                        name="mail"
                                         id="mail"
                                         placeholder="example@example.com"
                                         class="input-btn"
@@ -890,8 +896,9 @@
                                     </label>
                                     <input
                                         type="text"
+                                        name="phoneNumber"
                                         id="phoneNumber"
-                                        placeholder="09100000000"
+                                        placeholder=" شماره تماس را بدون احتساب صفر وارد کنید "
                                         class="input-btn"
                                         required
                                     />
@@ -905,8 +912,9 @@
                                     </label>
                                     <input
                                         type="password"
+                                        name="password"
                                         id="password"
-                                        placeholder="یک پسورد شامل حداقل ۸ رقم وارد کنید "
+                                        placeholder=" یک پسورد که شامل اعداد و حروف بزرگ و کوچک باشد و حداقل ۸ رقم باشد وارد کنید "
                                         class="input-btn"
                                         required
                                     />
