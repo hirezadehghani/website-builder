@@ -41,7 +41,7 @@ let deleteAccordionItemButton = () => {
     redCirclesDelete.classList.remove("hidden");
 
     // disable all active accordion item
-    Array.from(accordion.children).forEach((item) => {
+    for (let item of accordion.children) {
         if (item.classList.contains("active")) {
             item.children[0].classList.remove("bg-blue-500");
             item.children[0].children[1].classList.remove("rotate-180");
@@ -49,7 +49,7 @@ let deleteAccordionItemButton = () => {
             item.children[1].style.padding = null;
             item.children[1].classList.add("max-h-0");
         }
-    });
+    }
 };
 
 let CancelDeletingAccordionItem = () => {
@@ -175,9 +175,9 @@ let addAccordionItem = () => {
     });
 };
 
-Array.from(accordion.children).forEach((item) => {
+for (let item of accordion.children) {
     item.addEventListener("click", () => createAccordion(item, accordion));
-});
+}
 
 // 'حذف' button in FAQ section
 faqBtn.children[0].addEventListener("click", deleteAccordionItemButton);
@@ -186,9 +186,9 @@ faqBtn.children[0].addEventListener("click", deleteAccordionItemButton);
 faqBtn.children[2].addEventListener("click", CancelDeletingAccordionItem);
 
 // delete accordion items
-Array.from(redCirclesDelete.children).forEach((redCircle) => {
+for (let redCircle of redCirclesDelete.children) {
     redCircle.addEventListener("click", deleteAccordionItems);
-});
+}
 
 // 'افزودن' button in FAQ section
 faqBtn.children[1].addEventListener("click", addAccordionItem);

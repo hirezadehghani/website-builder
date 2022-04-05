@@ -231,10 +231,10 @@ let deleteCategoryItemFunc = () => {
             );
         });
 
-        Array.from(categoryItems.children).forEach((item) => {
+        for (let item of categoryItems.children) {
             item.classList.add("cursor-pointer");
             item.addEventListener("click", removeCategoryItem);
-        });
+        }
     } else {
         Swal.fire({
             title: " اخطار ",
@@ -260,10 +260,10 @@ let deleteCategoryItemFunc = () => {
         adCategoryBtn.children[1].classList.add("bg-opacity-20");
         adCategoryBtn.children[1].classList.remove("text-slate-100");
         editCategoryBtn.children[2].classList.add("hidden");
-        Array.from(categoryItems.children).forEach((item) => {
+        for (let item of categoryItems.children) {
             item.removeEventListener("click", removeCategoryItem);
             item.classList.remove("cursor-pointer");
-        });
+        }
     });
 };
 
