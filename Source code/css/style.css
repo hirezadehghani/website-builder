@@ -20,7 +20,7 @@
 }
 
 .input-btn {
-    @apply bg-secondary bg-opacity-20 rounded-sm mt-2 p-1 focus:placeholder:bg-secondary;
+    @apply bg-secondary bg-opacity-20 rounded-sm mt-2 p-1;
 }
 
 .btn {
@@ -29,4 +29,8 @@
 
 .h-97 {
     height: 97%;
+}
+
+.input-incorrect {
+    @apply outline-4 outline outline-rose-600;
 }
