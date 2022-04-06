@@ -58,18 +58,36 @@ let editCategoryItemFunc = (label) => {
                input
             */
             if (result.isConfirmed) {
-                label.nextElementSibling.nextElementSibling.setAttribute(
-                    "disabled",
-                    true
-                ); // input element
-                editCategoryBtn.children[0].classList.add("hidden");
-                editCategoryBtn.children[1].classList.add("hidden");
+                /* this regex is all standard persian
+                   letter that contains at least 4 letter
+                   and no English letter,special character,digits,and so on
+                */
+                let regex =
+                    /^[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]{4,}\s*[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]*$/;
+                if (regex.test(inputCategory.value)) {
+                    label.nextElementSibling.nextElementSibling.setAttribute(
+                        "disabled",
+                        true
+                    ); // input element
+                    editCategoryBtn.children[0].classList.add("hidden");
+                    editCategoryBtn.children[1].classList.add("hidden");
 
-                /* I we should update default value of input and 
+                    /* I we should update default value of input and 
                    and also placeholder
                 */
-                inputCategory.defaultValue = inputCategory.value;
-                inputCategory.placeholder = inputCategory.value;
+                    inputCategory.defaultValue = inputCategory.value;
+                    inputCategory.placeholder = inputCategory.value;
+
+                    // this new information should be saved in server
+                } else {
+                    Swal.fire({
+                        title: " اخطار ",
+                        text: " مقدار وارد شده معتبر نمی باشد.\nباید مقدار وارد شده شامل فقط حروف فارسی و حداقل ۴ حرف باشد.",
+                        icon: "warning",
+                        confirmButtonText: "باشه",
+                        confirmButtonColor: "#65bb6a",
+                    });
+                }
             }
         });
     });
@@ -96,70 +114,89 @@ let addCategoryItemFunc = () => {
             */
             if (result.isConfirmed) {
                 tempValue = result.value;
+                /* this regex is all standard persian
+                   letter that contains at least 4 letter
+                   and no English letter,special character,digits,and so on
+                */
+                let regex =
+                    /^[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]{4,}\s*[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]*$/;
+                if (regex.test(tempValue)) {
+                    // create new category item
+                    let divParent = document.createElement("div");
+                    divParent.className = "grid grid-rows-2 text-center group";
+                    let divFirstChild = document.createElement("div");
+                    divFirstChild.className =
+                        "flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300";
+                    let i = document.createElement("i");
+                    i.className = "fa-solid fa-gear py-1 px-2 opacity-0";
+                    let span1 = document.createElement("span");
+                    span1.className =
+                        "px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50";
+                    span1.innerHTML = " ایدی ";
+                    let span2 = document.createElement("span");
+                    span2.className =
+                        "px-1 py-1 w-3/6 bg-primary bg-opacity-50";
+                    span2.innerHTML = " عنوان ";
+                    let span3 = document.createElement("span");
+                    span3.className =
+                        "px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50";
+                    span3.innerHTML = " قالب ها ";
 
-                // create new category item
-                let divParent = document.createElement("div");
-                divParent.className = "grid grid-rows-2 text-center group";
-                let divFirstChild = document.createElement("div");
-                divFirstChild.className =
-                    "flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300";
-                let i = document.createElement("i");
-                i.className = "fa-solid fa-gear py-1 px-2 opacity-0";
-                let span1 = document.createElement("span");
-                span1.className =
-                    "px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50";
-                span1.innerHTML = " ایدی ";
-                let span2 = document.createElement("span");
-                span2.className = "px-1 py-1 w-3/6 bg-primary bg-opacity-50";
-                span2.innerHTML = " عنوان ";
-                let span3 = document.createElement("span");
-                span3.className =
-                    "px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50";
-                span3.innerHTML = " قالب ها ";
+                    divFirstChild.append(i);
+                    divFirstChild.append(span1);
+                    divFirstChild.append(span2);
+                    divFirstChild.append(span3);
+                    divParent.append(divFirstChild);
 
-                divFirstChild.append(i);
-                divFirstChild.append(span1);
-                divFirstChild.append(span2);
-                divFirstChild.append(span3);
-                divParent.append(divFirstChild);
+                    let secondDivChild = document.createElement("div");
+                    secondDivChild.className = "flex items-center";
+                    let label = document.createElement("label");
+                    label.htmlFor =
+                        "category-input" + (categoryItems.children.length + 1);
+                    let i2 = document.createElement("i");
+                    i2.className =
+                        "fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100";
+                    let span4 = document.createElement("span");
+                    span4.className =
+                        "px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r";
+                    span4.innerHTML = categoryItems.children.length + 1;
+                    let inp = document.createElement("input");
+                    inp.className =
+                        "px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0";
+                    inp.type = "text";
+                    inp.placeholder = tempValue;
+                    inp.value = tempValue;
+                    inp.id =
+                        "category-input" + (categoryItems.children.length + 1);
+                    inp.setAttribute("disabled", true);
+                    let span5 = document.createElement("span");
+                    span5.className =
+                        "px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50";
+                    span5.innerHTML = "0";
 
-                let secondDivChild = document.createElement("div");
-                secondDivChild.className = "flex items-center";
-                let label = document.createElement("label");
-                label.htmlFor =
-                    "category-input" + (categoryItems.children.length + 1);
-                let i2 = document.createElement("i");
-                i2.className =
-                    "fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100";
-                let span4 = document.createElement("span");
-                span4.className =
-                    "px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r";
-                span4.innerHTML = categoryItems.children.length + 1;
-                let inp = document.createElement("input");
-                inp.className =
-                    "px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0";
-                inp.type = "text";
-                inp.placeholder = tempValue;
-                inp.value = tempValue;
-                inp.id = "category-input" + (categoryItems.children.length + 1);
-                inp.setAttribute("disabled", true);
-                let span5 = document.createElement("span");
-                span5.className =
-                    "px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50";
-                span5.innerHTML = "0";
+                    label.append(i2);
+                    secondDivChild.append(label);
+                    secondDivChild.append(span4);
+                    secondDivChild.append(inp);
+                    secondDivChild.append(span5);
+                    divParent.append(secondDivChild);
 
-                label.append(i2);
-                secondDivChild.append(label);
-                secondDivChild.append(span4);
-                secondDivChild.append(inp);
-                secondDivChild.append(span5);
-                divParent.append(secondDivChild);
+                    categoryItems.append(divParent);
+                    // add event listener for every new label separately
+                    label.addEventListener("click", () => {
+                        editCategoryItemFunc(label);
+                    });
 
-                categoryItems.append(divParent);
-                // add event listener for every new label separately
-                label.addEventListener("click", () => {
-                    editCategoryItemFunc(label);
-                });
+                    // this new information should be saved in server
+                } else {
+                    Swal.fire({
+                        title: " اخطار ",
+                        text: " مقدار وارد شده معتبر نمی باشد.\nباید مقدار وارد شده شامل فقط حروف فارسی و حداقل ۴ حرف باشد.",
+                        icon: "warning",
+                        confirmButtonText: "باشه",
+                        confirmButtonColor: "#65bb6a",
+                    });
+                }
             }
         });
     } else {
