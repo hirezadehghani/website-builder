@@ -131,44 +131,74 @@ let addAccordionItem = () => {
                 cancelButtonColor: "#d33",
             }).then((result2) => {
                 if (result2.isConfirmed) {
+                    // this regex supports all persian letter plus space and ؟ at the end
+                    let titleRegex = /^[آ-ی\s]+؟$/;
+                    // this regex supports all persian letter plus space and . at the end
+                    let textRegex = /^[آ-ی\s]+\.$/;
+
                     let title = result1.value;
                     let text = result2.value;
-                    // add accordion item
-                    let divParent = document.createElement("div");
-                    divParent.className =
-                        "overflow-hidden rounded-b-sm text-white";
-                    let div1 = document.createElement("div");
-                    div1.className =
-                        "bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center";
-                    let h2 = document.createElement("h2");
-                    h2.className = "test-sm";
-                    h2.innerHTML = title;
-                    let i = document.createElement("i");
-                    i.className = "fa-solid fa-arrow-up text-xs transition-all";
-                    let p = document.createElement("p");
-                    p.className =
-                        "text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200";
-                    p.innerHTML = text;
+                    if (titleRegex.test(title) && textRegex.test(text)) {
+                        // add accordion item
+                        let divParent = document.createElement("div");
+                        divParent.className =
+                            "overflow-hidden rounded-b-sm text-white";
+                        let div1 = document.createElement("div");
+                        div1.className =
+                            "bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center";
+                        let h2 = document.createElement("h2");
+                        h2.className = "test-sm";
+                        h2.innerHTML = title;
+                        let i = document.createElement("i");
+                        i.className =
+                            "fa-solid fa-arrow-up text-xs transition-all";
+                        let p = document.createElement("p");
+                        p.className =
+                            "text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200";
+                        p.innerHTML = text;
 
-                    accordion.children[
-                        accordion.children.length - 1
-                    ].classList.remove("rounded-b-sm");
-                    div1.append(h2);
-                    div1.append(i);
-                    divParent.append(div1);
-                    divParent.append(p);
-                    divParent.addEventListener("click", () =>
-                        createAccordion(divParent, accordion)
-                    );
-                    accordion.append(divParent);
+                        accordion.children[
+                            accordion.children.length - 1
+                        ].classList.remove("rounded-b-sm");
+                        div1.append(h2);
+                        div1.append(i);
+                        divParent.append(div1);
+                        divParent.append(p);
+                        divParent.addEventListener("click", () =>
+                            createAccordion(divParent, accordion)
+                        );
+                        accordion.append(divParent);
 
-                    // Equivalent span tag
-                    let span = document.createElement("span");
-                    span.className = "rounded-full bg-red-600 text-white p-1";
-                    span.innerHTML = accordion.children.length - 1;
-                    span.addEventListener("click", deleteAccordionItems);
+                        // Equivalent span tag
+                        let span = document.createElement("span");
+                        span.className =
+                            "rounded-full bg-red-600 text-white p-1";
+                        span.innerHTML = accordion.children.length - 1;
+                        span.addEventListener("click", deleteAccordionItems);
 
-                    redCirclesDelete.append(span);
+                        redCirclesDelete.append(span);
+                    } else {
+                        // warn user to modify title of accordion if it's not correct
+                        if (!titleRegex.test(title)) {
+                            Swal.fire({
+                                title: " اخطار ",
+                                text: " عنوان اکوردیون معتبر نیست\nباید عنوان اکوردیون فقط شامل حروف فارسی و علامت سوال در انتهای آن باشد.",
+                                icon: "warning",
+                                confirmButtonText: "باشه",
+                                confirmButtonColor: "#65bb6a",
+                            });
+                        }
+                        // warn user to modify content of accordion if it's not correct
+                        if (!textRegex.test(text)) {
+                            Swal.fire({
+                                title: " اخطار ",
+                                text: " متن اکوردیون معتبر نیست\nباید متن اکوردیون فقط شامل حروف فارسی و علامت نقطه در پایان آن باشد.",
+                                icon: "warning",
+                                confirmButtonText: "باشه",
+                                confirmButtonColor: "#65bb6a",
+                            });
+                        }
+                    }
                 }
             });
         }
