@@ -36,10 +36,9 @@ let firstNameValidation = () => {
        letter that contains at least 4 letter
        and no English letter,special character,digits,and so on
     */
-    let regex =
-        /^[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]{4,}\s*[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]*$/;
+    let regexForFirstName = /^[آ-ی]{4,}\s*[آ-ی]*/;
 
-    if (regex.test(firstName.value)) {
+    if (regexForFirstName.test(firstName.value)) {
         firstName.classList.remove("input-incorrect");
         return true;
     } else {
@@ -55,10 +54,9 @@ let lastNameValidation = () => {
        letter that contains at least 4 letter
        and no English letter,special character,digits,and so on
     */
-    let regex =
-        /^[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]{4,}\s*[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]*$/;
+    let regexForLastName = /^[آ-ی]{4,}\s*[آ-ی]*/;
 
-    if (regex.test(lastName.value)) {
+    if (regexForLastName.test(lastName.value)) {
         lastName.classList.remove("input-incorrect");
         return true;
     } else {
@@ -77,9 +75,9 @@ let userPhotoValidation = () => {
         // userPhoto = user_profile.png
     } else {
         // check if selected file is from desired format
-        let regex = /([^\\]+\.png)|([^\\]+\.jpeg)|([^\\]+\.jpg)/;
-        if (regex.test(userPhoto.value)) {
-            label.innerHTML = regex.exec(userPhoto.value)[0];
+        let regexForUserPhoto = /([^\\]+\.png)|([^\\]+\.jpeg)|([^\\]+\.jpg)/;
+        if (regexForUserPhoto.test(userPhoto.value)) {
+            label.innerHTML = regexForUserPhoto.exec(userPhoto.value)[0];
         } else {
             label.innerHTML = "آپلود عکس جدید (jpeg,jpg,png)";
             Swal.fire({
@@ -149,10 +147,10 @@ let nationalCodeValidation = () => {
 let emailValidation = () => {
     let email = form.mail;
 
-    let regex =
+    let regexForEmail =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (regex.test(email.value)) {
+    if (regexForEmail.test(email.value)) {
         email.classList.remove("input-incorrect");
         return true;
     } else {
@@ -179,8 +177,9 @@ let phoneNumberValidation = () => {
 
     if (pn.length === 10) {
         // this regex is for all Iran's phone numbers such as Irancell,Hamrahe Aval,Rightel
-        let regex = /^9(0[1-9]|1[0-9]|2[0-2]|3[0-9]|9[0-4]|41)[0-9]{7}$/;
-        if (regex.test(parseInt(pn))) {
+        let regexForPhoneNumber =
+            /^9(0[1-9]|1[0-9]|2[0-2]|3[0-9]|9[0-4]|41)[0-9]{7}$/;
+        if (regexForPhoneNumber.test(parseInt(pn))) {
             phoneNumber.classList.remove("input-incorrect");
             return true;
         } else {

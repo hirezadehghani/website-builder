@@ -62,9 +62,8 @@ let editCategoryItemFunc = (label) => {
                    letter that contains at least 4 letter
                    and no English letter,special character,digits,and so on
                 */
-                let regex =
-                    /^[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]{4,}\s*[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]*$/;
-                if (regex.test(inputCategory.value)) {
+                let regexForEditCategoryItems = /^[آ-ی]{4,}\s*[آ-ی]*/;
+                if (regexForEditCategoryItems.test(inputCategory.value)) {
                     label.nextElementSibling.nextElementSibling.setAttribute(
                         "disabled",
                         true
@@ -118,9 +117,8 @@ let addCategoryItemFunc = () => {
                    letter that contains at least 4 letter
                    and no English letter,special character,digits,and so on
                 */
-                let regex =
-                    /^[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]{4,}\s*[\u0627\u0628\u067E\u062A\u062B\u062C\u0686\u062D\u062E\u062F\u0630\u0631\u0632\u0698\u0633\u0634\u0625\u0636\u0637\u0638\u0639\u063A\u0641\u0642\u06A9\u06AF\u0644\u0645\u0646\u0648\u0647\u06CC\u0623\u0626\u0624]*$/;
-                if (regex.test(tempValue)) {
+                let regexForAddCategoryItem = /^[آ-ی]{4,}\s*[آ-ی]*/;
+                if (regexForAddCategoryItem.test(tempValue)) {
                     // create new category item
                     let divParent = document.createElement("div");
                     divParent.className = "grid grid-rows-2 text-center group";
