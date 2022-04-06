@@ -33,7 +33,7 @@ let formValidationFromUserInfo = (e) => {
 let firstNameValidation = () => {
     let firstName = form.firstName;
     /* this regex is all standard persian
-       letter that contains at least 5 letter
+       letter that contains at least 4 letter
        and no English letter,special character,digits,and so on
     */
     let regex =
@@ -52,7 +52,7 @@ let lastNameValidation = () => {
     let lastName = form.lastName;
 
     /* this regex is all standard persian
-       letter that contains at least 5 letter
+       letter that contains at least 4 letter
        and no English letter,special character,digits,and so on
     */
     let regex =
