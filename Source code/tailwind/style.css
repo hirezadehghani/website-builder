@@ -652,6 +652,14 @@ body {
   height: 100%;
 }
 
+.h-96 {
+  height: 24rem;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -759,6 +767,10 @@ body {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .rounded-full {
@@ -1261,21 +1273,6 @@ body {
     font-size: 0.75rem;
     line-height: 1rem;
   }
-
-  .sm\:placeholder\:text-sm::-moz-placeholder {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-
-  .sm\:placeholder\:text-sm:-ms-input-placeholder {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-
-  .sm\:placeholder\:text-sm::placeholder {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
 }
 
 @media (min-width: 768px) {
@@ -1354,21 +1351,6 @@ body {
 
   .md\:opacity-0 {
     opacity: 0;
-  }
-
-  .md\:placeholder\:text-base::-moz-placeholder {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .md\:placeholder\:text-base:-ms-input-placeholder {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .md\:placeholder\:text-base::placeholder {
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
 
   .md\:placeholder\:text-sm::-moz-placeholder {
@@ -1467,21 +1449,6 @@ body {
   }
 
   .xl\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .xl\:placeholder\:text-base::-moz-placeholder {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .xl\:placeholder\:text-base:-ms-input-placeholder {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .xl\:placeholder\:text-base::placeholder {
     font-size: 1rem;
     line-height: 1.5rem;
   }
