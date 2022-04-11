@@ -1,20 +1,9 @@
 let changeInfoSection = document.querySelector("#changeInfoSection");
 let form = changeInfoSection.querySelector("form");
-let persianNumber = {
-    "۰": 0,
-    "۱": 1,
-    "۲": 2,
-    "۳": 3,
-    "۴": 4,
-    "۵": 5,
-    "۶": 6,
-    "۷": 7,
-    "۸": 8,
-    "۹": 9,
-};
 
 // validate form for editing admin info
 let formValidationFromUserInfo = (e) => {
+    e.preventDefault();
     if (
         firstNameValidation() &&
         lastNameValidation() &&
@@ -93,51 +82,103 @@ let userPhotoValidation = () => {
     return true;
 };
 
-let isAllpersianNumbers = (NC) => {
-    if (NC === "") {
+// let nationalCodeValidation = () => {
+//     let nationalCode = form.nationalCode;
+//     let nc = "";
+
+//     if (isAllpersianNumbers(nationalCode.value)) {
+//         // convert persian number to English number
+//         for (let i = 0; i < nationalCode.value.length; i++) {
+//             nc += persianNumber[nationalCode.value[i]];
+//         }
+//         // checks if nationalCode's values are all English numbers
+//     } else if (parseInt(nationalCode.value)) {
+//         nc = nationalCode.value;
+//     } else {
+//         nationalCode.classList.add("input-incorrect");
+//         return false;
+//     }
+//     // checks if nc's length is 10
+//     if (nc.length == 10) {
+//         // this algorithm is for checking national code of Iran
+//         let res = 0;
+//         let controlDigit;
+//         for (let i = 0; i < nc.length - 1; i++) {
+//             res += parseInt(nc[i]) * (nc.length - i);
+//         }
+//         let rem = res % 11;
+//         controlDigit = rem < 2 ? rem : 11 - rem;
+//         if (controlDigit === parseInt(nc[nc.length - 1])) {
+//             nationalCode.classList.remove("input-incorrect");
+//             return true;
+//         } else {
+//             nationalCode.classList.add("input-incorrect");
+//             return false;
+//         }
+//     } else {
+//         nationalCode.classList.add("input-incorrect");
+//         return false;
+//     }
+// };
+
+// this algorithm is for checking national code of Iran
+let checkNationalCodeOfIran = (nc) => {
+    let result = 0;
+    let controlDigit;
+    for (let i = 0; i < nc.length - 1; i++) {
+        result += parseInt(nc[i]) * (nc.length - i);
+    }
+    let rem = result % 11;
+    controlDigit = rem < 2 ? rem : 11 - rem;
+    if (controlDigit === parseInt(nc[nc.length - 1])) {
+        return true;
+    } else {
         return false;
     }
-    for (let i = 0; i < NC.length; i++) {
-        if (persianNumber[NC[i]] === undefined) {
-            return false;
-        }
+};
+
+let convertPersianNumbersToEnglish = (num) => {
+    // an object for maping persian number to english number
+    let persianNumber = {
+        "۰": 0,
+        "۱": 1,
+        "۲": 2,
+        "۳": 3,
+        "۴": 4,
+        "۵": 5,
+        "۶": 6,
+        "۷": 7,
+        "۸": 8,
+        "۹": 9,
+    };
+
+    let result = "";
+    // convert persian number to English number
+    for (let i = 0; i < num.length; i++) {
+        result += persianNumber[num[i]];
     }
-    return true;
+    return result;
 };
 
 let nationalCodeValidation = () => {
     let nationalCode = form.nationalCode;
-    let nc = "";
+    let tempValue = nationalCode.value;
 
-    if (isAllpersianNumbers(nationalCode.value)) {
-        // convert persian number to English number
-        for (let i = 0; i < nationalCode.value.length; i++) {
-            nc += persianNumber[nationalCode.value[i]];
-        }
-        // checks if nationalCode's values are all English numbers
-    } else if (parseInt(nationalCode.value)) {
-        nc = nationalCode.value;
-    } else {
-        nationalCode.classList.add("input-incorrect");
-        return false;
+    // check for persian digits that has 10 length
+    let persianNumberRegex = /^[\u06F0-\u06F9]{10}$/;
+    // check for english digits that has 10 length
+    let englishNumberRegex = /^\d{10}$/;
+
+    if (persianNumberRegex.test(nationalCode.value)) {
+        tempValue = convertPersianNumbersToEnglish(nationalCode.value);
     }
-    // checks if nc's length is 10
-    if (nc.length == 10) {
-        // this algorithm is for checking national code of Iran
-        let res = 0;
-        let controlDigit;
-        for (let i = 0; i < nc.length - 1; i++) {
-            res += parseInt(nc[i]) * (nc.length - i);
-        }
-        let rem = res % 11;
-        controlDigit = rem < 2 ? rem : 11 - rem;
-        if (controlDigit === parseInt(nc[nc.length - 1])) {
-            nationalCode.classList.remove("input-incorrect");
-            return true;
-        } else {
-            nationalCode.classList.add("input-incorrect");
-            return false;
-        }
+    console.log(tempValue);
+    if (
+        englishNumberRegex.test(tempValue) &&
+        checkNationalCodeOfIran(tempValue)
+    ) {
+        nationalCode.classList.remove("input-incorrect");
+        return true;
     } else {
         nationalCode.classList.add("input-incorrect");
         return false;
@@ -161,31 +202,29 @@ let emailValidation = () => {
 
 let phoneNumberValidation = () => {
     let phoneNumber = form.phoneNumber;
-    let pn;
-    if (isAllpersianNumbers(phoneNumber.value)) {
-        // convert persian number to English number
-        for (let i = 0; i < phoneNumber.value.length; i++) {
-            pn += persianNumber[phoneNumber.value[i]];
-        }
-        // checks if phoneNumber's values are all English numbers
-    } else if (parseInt(phoneNumber.value)) {
-        pn = phoneNumber.value;
-    } else {
-        phoneNumber.classList.add("input-incorrect");
-        return false;
-    }
+    // check for persian digits that has 10 length
+    let persianNumberRegex = /^[\u06F0-\u06F9]{10}$/;
+    // check for english digits that has 10 length
+    let englishNumberRegex = /^\d{10}$/;
 
-    if (pn.length === 10) {
-        // this regex is for all Iran's phone numbers such as Irancell,Hamrahe Aval,Rightel
-        let regexForPhoneNumber =
-            /^9(0[1-9]|1[0-9]|2[0-2]|3[0-9]|9[0-4]|41)[0-9]{7}$/;
-        if (regexForPhoneNumber.test(parseInt(pn))) {
-            phoneNumber.classList.remove("input-incorrect");
-            return true;
-        } else {
-            phoneNumber.classList.add("input-incorrect");
-            return false;
-        }
+    // this regex is for all Iran's phone numbers such as Irancell,Hamrahe Aval,Rightel
+    let regexForPhoneNumber1 =
+        /^\u06F9(\u06F0[\u06F1-\u06F9]|\u06F1[\u06F0-\u06F9]|\u06F2[\u06F0-\u06F2]|\u06F3[\u06F0-\u06F9]|\u06F9[\u06F0-\u06F4]|\u06F4\u06F1)[\u06F0-\u06F9]{7}$/;
+    let regexForPhoneNumber2 =
+        /^9(0[1-9]|1[0-9]|2[0-2]|3[0-9]|9[0-4]|41)[0-9]{7}$/;
+
+    if (
+        persianNumberRegex.test(phoneNumber.value) &&
+        regexForPhoneNumber1.test(phoneNumber.value)
+    ) {
+        phoneNumber.classList.remove("input-incorrect");
+        return true;
+    } else if (
+        englishNumberRegex.test(phoneNumber.value) &&
+        regexForPhoneNumber2.test(phoneNumber.value)
+    ) {
+        phoneNumber.classList.remove("input-incorrect");
+        return true;
     } else {
         phoneNumber.classList.add("input-incorrect");
         return false;
