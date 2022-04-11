@@ -652,12 +652,8 @@ body {
   height: 100%;
 }
 
-.h-96 {
-  height: 24rem;
-}
-
-.h-40 {
-  height: 10rem;
+.h-auto {
+  height: auto;
 }
 
 .max-h-0 {
@@ -769,8 +765,8 @@ body {
   overflow: hidden;
 }
 
-.overflow-y-scroll {
-  overflow-y: scroll;
+.overflow-y-visible {
+  overflow-y: visible;
 }
 
 .rounded-full {
@@ -1308,6 +1304,10 @@ body {
     display: none;
   }
 
+  .md\:h-96 {
+    height: 24rem;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1327,6 +1327,10 @@ body {
 
   .md\:gap-y-2 {
     row-gap: 0.5rem;
+  }
+
+  .md\:overflow-y-scroll {
+    overflow-y: scroll;
   }
 
   .md\:text-sm {
