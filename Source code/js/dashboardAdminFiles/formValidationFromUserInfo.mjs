@@ -82,45 +82,6 @@ let userPhotoValidation = () => {
     return true;
 };
 
-// let nationalCodeValidation = () => {
-//     let nationalCode = form.nationalCode;
-//     let nc = "";
-
-//     if (isAllpersianNumbers(nationalCode.value)) {
-//         // convert persian number to English number
-//         for (let i = 0; i < nationalCode.value.length; i++) {
-//             nc += persianNumber[nationalCode.value[i]];
-//         }
-//         // checks if nationalCode's values are all English numbers
-//     } else if (parseInt(nationalCode.value)) {
-//         nc = nationalCode.value;
-//     } else {
-//         nationalCode.classList.add("input-incorrect");
-//         return false;
-//     }
-//     // checks if nc's length is 10
-//     if (nc.length == 10) {
-//         // this algorithm is for checking national code of Iran
-//         let res = 0;
-//         let controlDigit;
-//         for (let i = 0; i < nc.length - 1; i++) {
-//             res += parseInt(nc[i]) * (nc.length - i);
-//         }
-//         let rem = res % 11;
-//         controlDigit = rem < 2 ? rem : 11 - rem;
-//         if (controlDigit === parseInt(nc[nc.length - 1])) {
-//             nationalCode.classList.remove("input-incorrect");
-//             return true;
-//         } else {
-//             nationalCode.classList.add("input-incorrect");
-//             return false;
-//         }
-//     } else {
-//         nationalCode.classList.add("input-incorrect");
-//         return false;
-//     }
-// };
-
 // this algorithm is for checking national code of Iran
 let checkNationalCodeOfIran = (nc) => {
     let result = 0;
@@ -172,7 +133,6 @@ let nationalCodeValidation = () => {
     if (persianNumberRegex.test(nationalCode.value)) {
         tempValue = convertPersianNumbersToEnglish(nationalCode.value);
     }
-    console.log(tempValue);
     if (
         englishNumberRegex.test(tempValue) &&
         checkNationalCodeOfIran(tempValue)
@@ -218,6 +178,7 @@ let phoneNumberValidation = () => {
         regexForPhoneNumber1.test(phoneNumber.value)
     ) {
         phoneNumber.classList.remove("input-incorrect");
+        // convertPersianNumbersToEnglish(phoneNumber.value)
         return true;
     } else if (
         englishNumberRegex.test(phoneNumber.value) &&

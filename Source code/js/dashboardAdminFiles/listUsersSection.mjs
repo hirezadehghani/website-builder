@@ -28,32 +28,55 @@ let isAllpersianNumbers = (NC) => {
     return true;
 };
 
+let convertPersianNumbersToEnglish = (num) => {
+    // an object for maping persian number to english number
+    let persianNumber = {
+        "۰": 0,
+        "۱": 1,
+        "۲": 2,
+        "۳": 3,
+        "۴": 4,
+        "۵": 5,
+        "۶": 6,
+        "۷": 7,
+        "۸": 8,
+        "۹": 9,
+    };
+
+    let result = "";
+    // convert persian number to English number
+    for (let i = 0; i < num.length; i++) {
+        result += persianNumber[num[i]];
+    }
+    return result;
+};
+
 let phoneNumberValidation = (value) => {
     let phoneNumber = value;
-    let pn;
-    if (isAllpersianNumbers(phoneNumber)) {
-        // convert persian number to English number
-        for (let i = 0; i < phoneNumber.length; i++) {
-            pn += persianNumber[phoneNumber[i]];
-        }
-        // checks if phoneNumber's values are all English numbers
-    } else if (parseInt(phoneNumber)) {
-        pn = phoneNumber;
-    } else {
-        return false;
-    }
+    // check for persian digits that has 10 length
+    let persianNumberRegex = /^[\u06F0-\u06F9]{10}$/;
+    // check for english digits that has 10 length
+    let englishNumberRegex = /^\d{10}$/;
 
-    if (pn.length === 10) {
-        // this regex is for all Iran's phone numbers such as Irancell,Hamrahe Aval,Rightel
-        let regexForPhoneNumber =
-            /^9(0[1-9]|1[0-9]|2[0-2]|3[0-9]|9[0-4]|41)[0-9]{7}$/;
-        if (regexForPhoneNumber.test(parseInt(pn))) {
-            return true;
-        } else {
-            return false;
-        }
+    // this regex is for all Iran's phone numbers such as Irancell,Hamrahe Aval,Rightel
+    let regexForPhoneNumber1 =
+        /^\u06F9(\u06F0[\u06F1-\u06F9]|\u06F1[\u06F0-\u06F9]|\u06F2[\u06F0-\u06F2]|\u06F3[\u06F0-\u06F9]|\u06F9[\u06F0-\u06F4]|\u06F4\u06F1)[\u06F0-\u06F9]{7}$/;
+    let regexForPhoneNumber2 =
+        /^9(0[1-9]|1[0-9]|2[0-2]|3[0-9]|9[0-4]|41)[0-9]{7}$/;
+
+    if (
+        persianNumberRegex.test(phoneNumber) &&
+        regexForPhoneNumber1.test(phoneNumber)
+    ) {
+        phoneNumber = convertPersianNumbersToEnglish(phoneNumber);
+        return phoneNumber;
+    } else if (
+        englishNumberRegex.test(phoneNumber) &&
+        regexForPhoneNumber2.test(phoneNumber)
+    ) {
+        return phoneNumber;
     } else {
-        return false;
+        return null;
     }
 };
 
@@ -148,7 +171,7 @@ let editUsersListTableItem = (e) => {
             } else if (tableItemContent.getAttribute("data-phone")) {
                 // if our target is phone number of user
                 if (phoneNumberValidation(result.value)) {
-                    e.target.innerHTML = result.value;
+                    e.target.innerHTML = phoneNumberValidation(result.value);
                 } else {
                     Swal.fire({
                         title: " اخطار ",
