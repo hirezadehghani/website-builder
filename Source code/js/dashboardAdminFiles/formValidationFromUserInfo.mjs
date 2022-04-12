@@ -2,7 +2,7 @@ let changeInfoSection = document.querySelector("#changeInfoSection");
 let form = changeInfoSection.querySelector("form");
 
 // validate form for editing admin info
-let formValidationFromUserInfo = (e) => {
+function formValidationFromUserInfo(e) {
     e.preventDefault();
     if (
         firstNameValidation() &&
@@ -17,9 +17,9 @@ let formValidationFromUserInfo = (e) => {
     } else {
         e.preventDefault();
     }
-};
+}
 
-let firstNameValidation = () => {
+function firstNameValidation() {
     let firstName = form.firstName;
     /* this regex is all standard persian
        letter that contains at least 4 letter
@@ -34,9 +34,9 @@ let firstNameValidation = () => {
         firstName.classList.add("input-incorrect");
         return false;
     }
-};
+}
 
-let lastNameValidation = () => {
+function lastNameValidation() {
     let lastName = form.lastName;
 
     /* this regex is all standard persian
@@ -52,9 +52,9 @@ let lastNameValidation = () => {
         lastName.classList.add("input-incorrect");
         return false;
     }
-};
+}
 
-let userPhotoValidation = () => {
+function userPhotoValidation() {
     let userPhoto = form.userPhoto;
     let label = form.querySelector("div>label");
 
@@ -80,10 +80,10 @@ let userPhotoValidation = () => {
         }
     }
     return true;
-};
+}
 
 // this algorithm is for checking national code of Iran
-let checkNationalCodeOfIran = (nc) => {
+function checkNationalCodeOfIran(nc) {
     let result = 0;
     let controlDigit;
     for (let i = 0; i < nc.length - 1; i++) {
@@ -96,9 +96,9 @@ let checkNationalCodeOfIran = (nc) => {
     } else {
         return false;
     }
-};
+}
 
-let convertPersianNumbersToEnglish = (num) => {
+function convertPersianNumbersToEnglish(num) {
     // an object for maping persian number to english number
     let persianNumber = {
         "۰": 0,
@@ -119,9 +119,9 @@ let convertPersianNumbersToEnglish = (num) => {
         result += persianNumber[num[i]];
     }
     return result;
-};
+}
 
-let nationalCodeValidation = () => {
+function nationalCodeValidation() {
     let nationalCode = form.nationalCode;
     let tempValue = nationalCode.value;
 
@@ -143,9 +143,9 @@ let nationalCodeValidation = () => {
         nationalCode.classList.add("input-incorrect");
         return false;
     }
-};
+}
 
-let emailValidation = () => {
+function emailValidation() {
     let email = form.mail;
 
     let regexForEmail =
@@ -158,9 +158,9 @@ let emailValidation = () => {
         email.classList.add("input-incorrect");
         return false;
     }
-};
+}
 
-let phoneNumberValidation = () => {
+function phoneNumberValidation() {
     let phoneNumber = form.phoneNumber;
     // check for persian digits that has 10 length
     let persianNumberRegex = /^[\u06F0-\u06F9]{10}$/;
@@ -190,9 +190,9 @@ let phoneNumberValidation = () => {
         phoneNumber.classList.add("input-incorrect");
         return false;
     }
-};
+}
 
-let passwordValidation = () => {
+function passwordValidation() {
     let password = form.password;
 
     /* this checks if password's length is greater and equal 8
@@ -213,7 +213,7 @@ let passwordValidation = () => {
         password.classList.add("input-incorrect");
         return false;
     }
-};
+}
 
 form.firstName.addEventListener("keyup", firstNameValidation);
 form.lastName.addEventListener("keyup", lastNameValidation);

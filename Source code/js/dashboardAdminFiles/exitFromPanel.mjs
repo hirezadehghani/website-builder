@@ -4,7 +4,7 @@ let exitBtnMobile = document.querySelector("#exitButtonMobile");
    should be displayed to warn user that you are
    loging out from panel
 */
-let exitFromPanel = () => {
+function exitFromPanel() {
     // using sweetalert2 for create a beautiful alert
     Swal.fire({
         title: "خروج",
@@ -17,15 +17,15 @@ let exitFromPanel = () => {
         cancelButtonText: "خیر",
         reverseButtons: true,
     }).then((result) => {
-        /* if user click on 'بله' button page redirect 
+        /* if user click on 'بله' button page redirect
            to index.html page and if user click cancel
-           user remains on that page 
+           user remains on that page
         */
         if (result.isConfirmed) {
             window.location.href = "../../index.html";
         }
     });
-};
+}
 
 exitBtn.addEventListener("click", exitFromPanel);
 exitBtnMobile.addEventListener("click", exitFromPanel);

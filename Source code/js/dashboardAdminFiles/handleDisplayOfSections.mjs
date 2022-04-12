@@ -16,7 +16,7 @@ let listUsersButtons = document.querySelector("#listUsersButtons");
    that section will display and other section should be
    disappeared
 */
-let handleDisplayOfSections = () => {
+function handleDisplayOfSections() {
     let panelListTag = panel.querySelectorAll("div > ul li");
     panelListTag[2].classList.add("bg-secondary");
     sections[0].classList.remove("hidden");
@@ -46,7 +46,7 @@ let handleDisplayOfSections = () => {
                         )
                     )) ||
                 /* if section category have been displayed already,
-                   then we should check if some process in category 
+                   then we should check if some process in category
                    section is happening or not.If all default buttons
                    are displayed to user and others are hidden then
                    we haven't any process happening
@@ -68,7 +68,7 @@ let handleDisplayOfSections = () => {
                         editCategoryBtn.children[2].classList.contains("hidden")
                     )) ||
                 /* if section faq have been displayed already,
-                   then we should check if some process in faq 
+                   then we should check if some process in faq
                    section is happening or not.If all default buttons
                    are displayed to user and others are hidden then
                    we haven't any process happening
@@ -118,32 +118,32 @@ let handleDisplayOfSections = () => {
             }
         });
     }
-};
+}
 
 /* when user click on 'تغییر جزئیات' that section should be 
    disappeared and change info section be displayed to user
 */
-let showDetailsInfoSection = () => {
+function showDetailsInfoSection() {
     sections[0].classList.add("hidden");
     changeInfoSection.classList.remove("hidden");
     /* if panel opened and user click on change user info
        button,return button mobile  shouldn't be displayed
-       to user 
+       to user
     */
     if (panel.classList.contains("invisible")) {
         returnBtnMobile.classList.remove("hidden");
     }
-};
+}
 
 /* when user click the arrow left button that section
    should be disappeared and section admin info be
    displayed to user
 */
-let returnToUserInfoSection = () => {
+function returnToUserInfoSection() {
     sections[0].classList.remove("hidden");
     changeInfoSection.classList.add("hidden");
     returnBtnMobile.classList.add("hidden");
-};
+}
 
 export {
     handleDisplayOfSections,

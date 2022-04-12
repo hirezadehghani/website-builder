@@ -2,7 +2,7 @@ let accordion = document.querySelector(".accordion");
 let faqBtn = document.querySelector("#faqButton");
 let redCirclesDelete = document.querySelector("#redCirclesDelete");
 
-let createAccordion = (item, accordion) => {
+function createAccordion(item, accordion) {
     item.classList.toggle("active");
     if (item.classList.contains("active")) {
         item.children[0].classList.add("bg-blue-500");
@@ -29,9 +29,9 @@ let createAccordion = (item, accordion) => {
             activeItem.children[1].classList.add("max-h-0");
         }
     });
-};
+}
 
-let deleteAccordionItemButton = () => {
+function deleteAccordionItemButton() {
     // 'افزودن' button shouldn be disappeared
     faqBtn.children[1].classList.add("hidden");
     // 'انصراف' button should be displayed
@@ -50,17 +50,17 @@ let deleteAccordionItemButton = () => {
             item.children[1].classList.add("max-h-0");
         }
     }
-};
+}
 
-let CancelDeletingAccordionItem = () => {
+function CancelDeletingAccordionItem() {
     faqBtn.children[0].classList.remove("text-slate-100");
     faqBtn.children[0].classList.add("bg-opacity-20");
     faqBtn.children[1].classList.remove("hidden");
     faqBtn.children[2].classList.add("hidden");
     redCirclesDelete.classList.add("hidden");
-};
+}
 
-let deleteAccordionItems = (e) => {
+function deleteAccordionItems(e) {
     let redCircle = e.target;
 
     Swal.fire({
@@ -75,12 +75,12 @@ let deleteAccordionItems = (e) => {
         reverseButtons: true,
     }).then((result) => {
         /* if user click on 'بله' button
-           that item will be deleted  
+           that item will be deleted
         */
         if (result.isConfirmed) {
             let tempIndex = parseInt(redCircle.innerHTML);
-            /* first and last accordion item has some special class 
-                   that we should add them when delete an item from first 
+            /* first and last accordion item has some special class
+                   that we should add them when delete an item from first
                    or end
                 */
             if (tempIndex == 0 && accordion.children.length != 1) {
@@ -98,7 +98,7 @@ let deleteAccordionItems = (e) => {
 
             accordion.children[tempIndex].remove();
             redCircle.remove();
-            /* we should update index of redCircle item 
+            /* we should update index of redCircle item
                    when we deleted an acccordion item
                 */
             Array.from(redCirclesDelete.children).forEach((circle, index) => {
@@ -106,9 +106,9 @@ let deleteAccordionItems = (e) => {
             });
         }
     });
-};
+}
 
-let addAccordionItem = () => {
+function addAccordionItem() {
     Swal.fire({
         title: "افزودن یک اکوردیون جدید",
         input: "textarea",
@@ -203,7 +203,7 @@ let addAccordionItem = () => {
             });
         }
     });
-};
+}
 
 for (let item of accordion.children) {
     item.addEventListener("click", () => createAccordion(item, accordion));

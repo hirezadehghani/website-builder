@@ -10,7 +10,7 @@ let changeInfoSection = document.querySelector("#changeInfoSection");
    close the panel through it. so this Event listener plays role
    when we click on hamburger menu.
 */
-let showPanelMobile = () => {
+function showPanelMobile() {
     if (panel.classList.contains("invisible")) {
         hamburgerMenu.classList.add("hidden");
         exitBtnMobile.classList.add("hidden");
@@ -18,12 +18,12 @@ let showPanelMobile = () => {
         closeArrowBtn.classList.remove("hidden");
         returnBtnMobile.classList.add("hidden");
     }
-};
+}
 
 /* when we want to close panel this event listener should execute 
    and close panel and show hamburger menu
 */
-let closePanelMobile = () => {
+function closePanelMobile() {
     hamburgerMenu.classList.remove("hidden");
     exitBtnMobile.classList.remove("hidden");
     panel.classList.add("invisible");
@@ -35,7 +35,7 @@ let closePanelMobile = () => {
     if (!changeInfoSection.classList.contains("hidden")) {
         returnBtnMobile.classList.remove("hidden");
     }
-};
+}
 
 closeArrowBtn.addEventListener("click", closePanelMobile);
 hamburgerMenu.addEventListener("click", showPanelMobile);

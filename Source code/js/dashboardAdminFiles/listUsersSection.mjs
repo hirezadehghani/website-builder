@@ -3,32 +3,7 @@ let usersListTableContent = document.querySelectorAll(
     "#usersListTableContent > div"
 );
 
-let persianNumber = {
-    "۰": 0,
-    "۱": 1,
-    "۲": 2,
-    "۳": 3,
-    "۴": 4,
-    "۵": 5,
-    "۶": 6,
-    "۷": 7,
-    "۸": 8,
-    "۹": 9,
-};
-
-let isAllpersianNumbers = (NC) => {
-    if (NC === "") {
-        return false;
-    }
-    for (let i = 0; i < NC.length; i++) {
-        if (persianNumber[NC[i]] === undefined) {
-            return false;
-        }
-    }
-    return true;
-};
-
-let convertPersianNumbersToEnglish = (num) => {
+function convertPersianNumbersToEnglish(num) {
     // an object for maping persian number to english number
     let persianNumber = {
         "۰": 0,
@@ -49,9 +24,9 @@ let convertPersianNumbersToEnglish = (num) => {
         result += persianNumber[num[i]];
     }
     return result;
-};
+}
 
-let phoneNumberValidation = (value) => {
+function phoneNumberValidation(value) {
     let phoneNumber = value;
     // check for persian digits that has 10 length
     let persianNumberRegex = /^[\u06F0-\u06F9]{10}$/;
@@ -78,9 +53,9 @@ let phoneNumberValidation = (value) => {
     } else {
         return null;
     }
-};
+}
 
-let deleteUsersListTableItem = (e) => {
+function deleteUsersListTableItem(e) {
     let tableItem = e.target.parentElement;
     Swal.fire({
         title: "حذف",
@@ -97,9 +72,9 @@ let deleteUsersListTableItem = (e) => {
             tableItem.remove();
         }
     });
-};
+}
 
-let searchUsersListTable = (e) => {
+function searchUsersListTable(e) {
     let userName = [];
     let userLastName = [];
     let result = [];
@@ -135,15 +110,15 @@ let searchUsersListTable = (e) => {
             tableItem.classList.add("hidden");
         }
     });
-};
+}
 
-let editUsersListTableItem = (e) => {
+function editUsersListTableItem(e) {
     let tableItemContent = e.target;
     Swal.fire({
         title: " ویرایش محتوای جدول کاربران",
         input: "text",
         inputLabel: " مقدار جدید را وارد کنید ",
-        inputPlaceholder: tableItemContent.innerHTML.trim(), // trim function removes whitespace from end and begining
+        inputPlaceholder: tableItemContent.innerHTML.trim(),
         confirmButtonColor: "#66bb6a",
         confirmButtonText: " تایید ",
         showCancelButton: true,
@@ -199,7 +174,7 @@ let editUsersListTableItem = (e) => {
             }
         }
     });
-};
+}
 
 // 'حذف' button in users list section
 listUsersButtons.children[0].addEventListener("click", () => {

@@ -3,7 +3,7 @@ let deleteAccountBtn = document.querySelector("#deleteAccountButton");
    should be displayed to warn user that you are deleting
    your account permanently 
 */
-let deleteAccount = () => {
+function deleteAccount() {
     // using sweetalert2 for create a beautiful alert
     Swal.fire({
         title: "اخطار",
@@ -29,7 +29,7 @@ let deleteAccount = () => {
             });
         }
     });
-};
+}
 
 // add event listener for deleteing account button
 deleteAccountBtn.addEventListener("click", deleteAccount);

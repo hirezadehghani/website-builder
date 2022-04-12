@@ -3,7 +3,7 @@ let editCategoryBtn = document.querySelector("#editCategoryButton");
 let adCategoryBtn = document.querySelector("#addDeleteCategoryButtons");
 
 // edit category item' content
-let editCategoryItemFunc = (label) => {
+function editCategoryItemFunc(label) {
     let inputCategory = label.nextElementSibling.nextElementSibling;
 
     /* if condition uses for preventing user from clicking on other
@@ -71,7 +71,7 @@ let editCategoryItemFunc = (label) => {
                     editCategoryBtn.children[0].classList.add("hidden");
                     editCategoryBtn.children[1].classList.add("hidden");
 
-                    /* I we should update default value of input and 
+                    /* I we should update default value of input and
                    and also placeholder
                 */
                     inputCategory.defaultValue = inputCategory.value;
@@ -90,10 +90,10 @@ let editCategoryItemFunc = (label) => {
             }
         });
     });
-};
+}
 
 // add category item
-let addCategoryItemFunc = () => {
+function addCategoryItemFunc() {
     // check if another process haven't been activated by user
     if (editCategoryBtn.children[0].classList.contains("hidden")) {
         let tempValue;
@@ -206,7 +206,7 @@ let addCategoryItemFunc = () => {
             confirmButtonColor: "#65bb6a",
         });
     }
-};
+}
 
 function removeCategoryItem(item) {
     Swal.fire({
@@ -252,7 +252,7 @@ function removeCategoryItem(item) {
     });
 }
 
-let deleteCategoryItemFunc = () => {
+function deleteCategoryItemFunc() {
     // check if another process haven't been activated by user
     if (editCategoryBtn.children[0].classList.contains("hidden")) {
         adCategoryBtn.children[0].classList.add("hidden");
@@ -280,7 +280,7 @@ let deleteCategoryItemFunc = () => {
         });
     }
     /* when user click on 'انصراف' button the page should be came
-       back to its default behavior when user opens it for first 
+       back to its default behavior when user opens it for first
        time
     */
     editCategoryBtn.children[2].addEventListener("click", () => {
@@ -300,7 +300,7 @@ let deleteCategoryItemFunc = () => {
             item.classList.remove("cursor-pointer");
         }
     });
-};
+}
 
 // event listener for edit button in category section on every category item
 categoryItems.querySelectorAll("label").forEach((label) =>
