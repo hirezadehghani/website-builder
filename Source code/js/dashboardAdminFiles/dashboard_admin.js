@@ -6,3 +6,4 @@ import "./panelMobile.mjs";
 import "./categorySection.mjs";
 import "./FAQSection.mjs";
 import "./listUsersSection.mjs";
+import "./listTransactionsSection.mjs";
