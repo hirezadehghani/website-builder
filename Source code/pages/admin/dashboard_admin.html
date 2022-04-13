@@ -225,7 +225,99 @@
                         </div>
                     </div>
                     <!-- section about transaction's list -->
-                    <div class="hidden">لیست تراکنش ها</div>
+                    <div class="hidden">
+                        <div class="flex items-center justify-between p-5">
+                            <div class="flex">
+                                <label
+                                    for="filterTransaction"
+                                    class="bg-primary text-slate-100 py-1 px-3 rounded ml-1 text-xs md:text-sm lg:text-base"
+                                >
+                                    فیلتر کردن بر اساس
+                                </label>
+                                <select
+                                    class="flex items-center cursor-pointer transition duration-300 bg-secondary text-slate-100 text-xs md:text-sm lg:text-base text-center py-1 px-3 rounded"
+                                    name="filterTransaction"
+                                    id="filterTransaction"
+                                >
+                                    <option value="successStatus" selected>
+                                        وضعیت های موفق
+                                    </option>
+                                    <option value="failStatus">
+                                        وضعیت های ناموفق
+                                    </option>
+                                    <option value="deposit">واریز</option>
+                                    <option value="withdraw">برداشت</option>
+                                    <option value="price">قیمت</option>
+                                    <option value="date">تاریخ</option>
+                                </select>
+                            </div>
+                            <div
+                                class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 text-sm md:text-base lg:text-base py-1 px-3 rounded"
+                            >
+                                <span> حذف </span>
+                                <i
+                                    class="fa-solid fa-trash text-red-600 mr-3"
+                                ></i>
+                            </div>
+                        </div>
+                        <div
+                            class="h-auto overflow-y-visible md:overflow-y-scroll md:h-96"
+                        >
+                            <div class="table p-7 w-full h-auto">
+                                <div
+                                    class="table-header-group p-2 text-center font-bold text-xs md:text-sm lg:text-lg"
+                                >
+                                    <div class="table-row p-1">
+                                        <div class="table-cell p-1">
+                                            ایدی مشتری
+                                        </div>
+                                        <div class="table-cell p-1">تاریخ</div>
+                                        <div class="table-cell p-1">قیمت</div>
+                                        <div class="table-cell p-1">نوع</div>
+                                        <div class="table-cell p-1">وضعیت</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="table-row-group p-4 text-center text-xs md:text-base cursor-pointer"
+                                >
+                                    <div
+                                        class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                    >
+                                        <div class="table-cell p-1">10</div>
+                                        <div class="table-cell p-1">
+                                            1400/10/10
+                                        </div>
+                                        <div class="table-cell p-1">150000</div>
+                                        <div class="table-cell p-1">واریز</div>
+                                        <div class="table-cell p-2">
+                                            <span
+                                                class="bg-red-600 text-slate-100 p-1 rounded-sm"
+                                            >
+                                                موفق
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                    >
+                                        <div class="table-cell p-1">11</div>
+                                        <div class="table-cell p-1">
+                                            1400/10/11
+                                        </div>
+                                        <div class="table-cell p-1">150000</div>
+                                        <div class="table-cell p-1">برداشت</div>
+                                        <div class="table-cell p-2">
+                                            <span
+                                                class="bg-green-500 text-slate-100 p-1 rounded-sm"
+                                            >
+                                                ناموفق
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- section about user's list -->
                     <div class="hidden">
                         <div
