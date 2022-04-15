@@ -8,6 +8,12 @@ let filterTransaction = document.querySelector("#filterTransaction");
 
 function deleteTransactionItem(e) {
     let tableItem = e.target.parentElement;
+    /* if user clicks on status of transaction then
+       parent is different and should get it
+    */
+    if (tableItem.classList.contains("table-cell")) {
+        tableItem = tableItem.parentElement;
+    }
 
     Swal.fire({
         title: "حذف",
