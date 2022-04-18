@@ -5,6 +5,11 @@ let transactionDeleteButtons = document.querySelectorAll(
     "#transactionDeleteButtons > div"
 );
 let filterTransaction = document.querySelector("#filterTransaction");
+// variable for Price range
+let filterPriceRange = document.querySelector("#filterPriceRange");
+let resultPriceRange = filterPriceRange.querySelector("div:nth-child(2)");
+let inputPriceRange1 = document.querySelector("#inputPriceRange1");
+let inputPriceRange2 = document.querySelector("#inputPriceRange2");
 
 function deleteTransactionItem(e) {
     let tableItem = e.target.parentElement;
@@ -68,7 +73,49 @@ function showBaseOnDeposit(tableItem, value) {
     }
 }
 
+function setValuePriceRange1() {
+    let gapLimitPrice = 50000;
+    if (parseInt(inputPriceRange1.value) <= parseInt(inputPriceRange2.value)) {
+        inputPriceRange1.value =
+            parseInt(inputPriceRange2.value) + gapLimitPrice;
+    }
+}
+
+function setValuePriceRange2() {
+    let gapLimitPrice = 50000;
+
+    if (parseInt(inputPriceRange2.value) >= parseInt(inputPriceRange1.value)) {
+        inputPriceRange2.value =
+            parseInt(inputPriceRange1.value) - gapLimitPrice;
+    }
+}
+
+function showBaseOnPrice(tableItem) {
+    filterPriceRange.classList.remove("hidden");
+    // show value of range price to user
+    resultPriceRange.children[0].innerHTML = parseInt(inputPriceRange1.value);
+    resultPriceRange.children[1].innerHTML = parseInt(inputPriceRange2.value);
+
+    let tableItemPrice = parseInt(tableItem.children[2].innerHTML);
+
+    console.log(parseInt(inputPriceRange2.value) <= tableItemPrice);
+    console.log(parseInt(inputPriceRange1.value) >= tableItemPrice);
+    if (
+        parseInt(inputPriceRange2.value) <= tableItemPrice &&
+        tableItemPrice <= parseInt(inputPriceRange1.value)
+    ) {
+        tableItem.classList.remove("hidden");
+    } else {
+        tableItem.classList.add("hidden");
+    }
+}
+
 function filterTransactionsItem(e) {
+    /* range price should not be displayed to user if
+       user choose filter base on other things
+    */
+    filterPriceRange.classList.add("hidden");
+
     let option = e.target.value;
     if (option == "...") {
         transactionsListContent.forEach((tableItem) => {
@@ -83,7 +130,9 @@ function filterTransactionsItem(e) {
             showBaseOnDeposit(tableItem, option);
         });
     } else if (option == "price") {
-        console.log("price");
+        transactionsListContent.forEach((tableItem) => {
+            showBaseOnPrice(tableItem);
+        });
     } else if (option == "date") {
         console.log("date");
     }
@@ -113,3 +162,14 @@ transactionDeleteButtons[1].addEventListener("click", () => {
 
 // ' فیلتر ' button
 filterTransaction.addEventListener("change", filterTransactionsItem);
+
+transactionsListContent.forEach((tableItem) => {
+    inputPriceRange1.addEventListener("input", () => {
+        setValuePriceRange1();
+        showBaseOnPrice(tableItem);
+    });
+    inputPriceRange2.addEventListener("input", () => {
+        setValuePriceRange2();
+        showBaseOnPrice(tableItem);
+    });
+});

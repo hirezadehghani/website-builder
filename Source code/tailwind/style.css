@@ -554,6 +554,10 @@ body {
   margin: 0.25rem;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -566,6 +570,11 @@ body {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.my-11 {
+  margin-top: 2.75rem;
+  margin-bottom: 2.75rem;
 }
 
 .mt-3 {
@@ -652,6 +661,14 @@ body {
   height: 100%;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
 .h-auto {
   height: auto;
 }
@@ -666,6 +683,10 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .w-1\/6 {
@@ -962,6 +983,11 @@ body {
   line-height: 1.25rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -1118,6 +1144,100 @@ body {
   outline-style: solid;
   outline-width: 4px;
   outline-color: #e11d48;
+}
+
+/* Add custom css property for input type range */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  background: transparent;
+  outline: none;
+  pointer-events: none;
+  direction: ltr;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #000051;
+  z-index: 20;
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  -webkit-transition-property: all;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  pointer-events: all;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #000051;
+  z-index: 20;
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  -moz-transition-property: all;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  pointer-events: all;
+}
+
+input[type="range"]::-ms-thumb {
+  background: #000051;
+  z-index: 20;
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  -ms-transition-property: all;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  pointer-events: all;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  background: #7200ca;
+}
+
+input[type="range"]:active::-moz-range-thumb {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  background: #7200ca;
+}
+
+input[type="range"]:active::-ms-thumb {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  background: #7200ca;
+}
+
+input[type="range"]:nth-child(1)::-webkit-slider-runnable-track {
+  z-index: 0;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
+input[type="range"]:nth-child(1)::-moz-range-track {
+  z-index: 0;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
+input[type="range"]:nth-child(1)::-ms-track {
+  z-index: 0;
+  border-radius: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
 }
 
 .placeholder\:text-xs::-moz-placeholder {

@@ -226,48 +226,83 @@
                     </div>
                     <!-- section about transaction's list -->
                     <div class="hidden">
-                        <div class="flex items-center justify-between p-5">
-                            <div class="flex">
-                                <label
-                                    for="filterTransaction"
-                                    class="bg-primary text-slate-100 py-1 px-3 rounded ml-1 text-xs md:text-sm lg:text-base"
-                                >
-                                    فیلتر کردن بر اساس
-                                </label>
-                                <select
-                                    class="flex items-center cursor-pointer transition duration-300 bg-secondary text-slate-100 text-xs md:text-sm lg:text-base text-center py-1 px-3 rounded"
-                                    name="filterTransaction"
-                                    id="filterTransaction"
-                                >
-                                    <option value="..." selected>...</option>
-                                    <option value="successStatus">
-                                        وضعیت های موفق
-                                    </option>
-                                    <option value="failStatus">
-                                        وضعیت های ناموفق
-                                    </option>
-                                    <option value="deposit">واریز</option>
-                                    <option value="withdraw">برداشت</option>
-                                    <option value="price">قیمت</option>
-                                    <option value="date">تاریخ</option>
-                                </select>
-                            </div>
-                            <div
-                                class="flex flex-row-reverse"
-                                id="transactionDeleteButtons"
-                            >
-                                <div
-                                    class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 text-sm md:text-base lg:text-base py-1 px-3 rounded"
-                                >
-                                    <span> حذف </span>
-                                    <i
-                                        class="fa-solid fa-trash text-red-600 mr-3"
-                                    ></i>
+                        <div class="my-11">
+                            <div class="flex items-center justify-between p-5">
+                                <div class="flex">
+                                    <label
+                                        for="filterTransaction"
+                                        class="bg-primary text-slate-100 py-1 px-3 rounded ml-1 text-xs md:text-sm lg:text-base"
+                                    >
+                                        فیلتر کردن بر اساس
+                                    </label>
+                                    <select
+                                        class="flex items-center cursor-pointer transition duration-300 bg-secondary text-slate-100 text-xs md:text-sm lg:text-base text-center py-1 px-3 rounded"
+                                        name="filterTransaction"
+                                        id="filterTransaction"
+                                    >
+                                        <option value="..." selected>
+                                            ...
+                                        </option>
+                                        <option value="successStatus">
+                                            وضعیت های موفق
+                                        </option>
+                                        <option value="failStatus">
+                                            وضعیت های ناموفق
+                                        </option>
+                                        <option value="deposit">واریز</option>
+                                        <option value="withdraw">برداشت</option>
+                                        <option value="price">قیمت</option>
+                                        <option value="date">تاریخ</option>
+                                    </select>
                                 </div>
                                 <div
-                                    class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 ml-2 rounded hidden"
+                                    class="flex flex-row-reverse"
+                                    id="transactionDeleteButtons"
                                 >
-                                    <span> انصراف </span>
+                                    <div
+                                        class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 text-sm md:text-base lg:text-base py-1 px-3 rounded"
+                                    >
+                                        <span> حذف </span>
+                                        <i
+                                            class="fa-solid fa-trash text-red-600 mr-3"
+                                        ></i>
+                                    </div>
+                                    <div
+                                        class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 ml-2 rounded hidden"
+                                    >
+                                        <span> انصراف </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="w-52 h-9 flex-col justify-center m-auto hidden"
+                                id="filterPriceRange"
+                            >
+                                <div
+                                    class="relative w-full h-full flex justify-center items-center rounded-sm"
+                                >
+                                    <input
+                                        type="range"
+                                        min="50000"
+                                        max="500000"
+                                        step="50000"
+                                        value="400000"
+                                        id="inputPriceRange1"
+                                        class="w-full h-5 absolute"
+                                    />
+                                    <input
+                                        type="range"
+                                        min="50000"
+                                        max="500000"
+                                        step="50000"
+                                        value="100000"
+                                        id="inputPriceRange2"
+                                        class="w-full h-5 absolute"
+                                    />
+                                </div>
+                                <div class="flex justify-between my-2 text-lg">
+                                    <p></p>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
@@ -299,7 +334,7 @@
                                         <div class="table-cell p-1">
                                             1400/10/10
                                         </div>
-                                        <div class="table-cell p-1">150000</div>
+                                        <div class="table-cell p-1">100000</div>
                                         <div
                                             class="table-cell p-1"
                                             data-type="deposit"
@@ -330,6 +365,31 @@
                                             data-type="withdraw"
                                         >
                                             برداشت
+                                        </div>
+                                        <div
+                                            class="table-cell p-2"
+                                            data-success="true"
+                                        >
+                                            <span
+                                                class="bg-green-500 text-slate-100 p-1 rounded-sm"
+                                            >
+                                                موفق
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                    >
+                                        <div class="table-cell p-1">12</div>
+                                        <div class="table-cell p-1">
+                                            1400/9/1
+                                        </div>
+                                        <div class="table-cell p-1">65000</div>
+                                        <div
+                                            class="table-cell p-1"
+                                            data-type="deposit"
+                                        >
+                                            واریز
                                         </div>
                                         <div
                                             class="table-cell p-2"

@@ -34,3 +34,59 @@
 .input-incorrect {
     @apply outline-4 outline outline-rose-600;
 }
+
+/* Add custom css property for input type range */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    outline: none;
+    pointer-events: none;
+    direction: ltr;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #000051;
+    @apply rounded-full w-6 h-6 cursor-pointer z-20 transition-all duration-300;
+    pointer-events: all;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #000051;
+    @apply rounded-full w-6 h-6 cursor-pointer z-20 transition-all duration-300;
+    pointer-events: all;
+}
+input[type="range"]::-ms-thumb {
+    background: #000051;
+    @apply rounded-full w-6 h-6 cursor-pointer z-20 transition-all duration-300;
+    pointer-events: all;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: #7200ca;
+}
+input[type="range"]:active::-moz-range-thumb {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: #7200ca;
+}
+input[type="range"]:active::-ms-thumb {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: #7200ca;
+}
+
+input[type="range"]:nth-child(1)::-webkit-slider-runnable-track {
+    @apply bg-slate-300 rounded z-0;
+}
+
+input[type="range"]:nth-child(1)::-moz-range-track {
+    @apply bg-slate-300 rounded z-0;
+}
+
+input[type="range"]:nth-child(1)::-ms-track {
+    @apply bg-slate-300 rounded z-0;
+}
