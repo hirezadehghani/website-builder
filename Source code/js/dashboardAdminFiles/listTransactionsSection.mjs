@@ -11,6 +11,15 @@ let resultPriceRange = filterPriceRange.querySelector("div:nth-child(2)");
 let inputPriceRange1 = document.querySelector("#inputPriceRange1");
 let inputPriceRange2 = document.querySelector("#inputPriceRange2");
 
+// variable for date range
+let filterDateRange = document.querySelector("#filterDateRange");
+let dateMonthStart = document.querySelector("#dateMonthStart");
+let dateDayStart = document.querySelector("#dateDayStart");
+let dateYearStart = document.querySelector("#dateYearStart");
+let dateMonthEnd = document.querySelector("#dateMonthEnd");
+let dateDayEnd = document.querySelector("#dateDayEnd");
+let dateYearEnd = document.querySelector("#dateYearEnd");
+
 function deleteTransactionItem(e) {
     let tableItem = e.target.parentElement;
     /* if user clicks on status of transaction then
@@ -98,8 +107,6 @@ function showBaseOnPrice(tableItem) {
 
     let tableItemPrice = parseInt(tableItem.children[2].innerHTML);
 
-    console.log(parseInt(inputPriceRange2.value) <= tableItemPrice);
-    console.log(parseInt(inputPriceRange1.value) >= tableItemPrice);
     if (
         parseInt(inputPriceRange2.value) <= tableItemPrice &&
         tableItemPrice <= parseInt(inputPriceRange1.value)
@@ -110,11 +117,105 @@ function showBaseOnPrice(tableItem) {
     }
 }
 
+function validateRangeDate1(e) {
+    let element = e.target;
+
+    // if user choose from first six month
+    dateDayStart.children[dateDayStart.children.length - 1].removeAttribute(
+        "disabled"
+    );
+    dateDayStart.children[dateDayStart.children.length - 2].removeAttribute(
+        "disabled"
+    );
+    // if user choose last month, days should be decreased to 30
+    if (element.value >= 7) {
+        dateDayStart.children[dateDayStart.children.length - 1].setAttribute(
+            "disabled",
+            true
+        );
+    }
+    // if user choose last month, days should be decreased to 29
+    if (element.value == 12) {
+        dateDayStart.children[dateDayStart.children.length - 2].setAttribute(
+            "disabled",
+            true
+        );
+    }
+    dateDayStart.value = "1";
+}
+
+function validateRangeDate2(e) {
+    let element = e.target;
+
+    // if user choose from first six month
+    dateDayEnd.children[dateDayEnd.children.length - 1].removeAttribute(
+        "disabled"
+    );
+    dateDayEnd.children[dateDayEnd.children.length - 2].removeAttribute(
+        "disabled"
+    );
+    // if user choose last month, days should be decreased to 30
+    if (element.value >= 7) {
+        dateDayEnd.children[dateDayEnd.children.length - 1].setAttribute(
+            "disabled",
+            true
+        );
+    }
+    // if user choose last month, days should be decreased to 29
+    if (element.value == 12) {
+        dateDayEnd.children[dateDayEnd.children.length - 2].setAttribute(
+            "disabled",
+            true
+        );
+    }
+    dateDayEnd.value = "1";
+}
+
+function showBaseOnDate(tableItem) {
+    filterDateRange.classList.remove("hidden");
+
+    // get persian date for start date range
+    let startDateArray = [];
+    startDateArray.push(parseInt(dateYearStart.value));
+    startDateArray.push(parseInt(dateMonthStart.value));
+    startDateArray.push(parseInt(dateDayStart.value));
+    let startDate = new persianDate(startDateArray).format();
+
+    // get persian date for end date range
+    let endDateArray = [];
+    endDateArray.push(parseInt(dateYearEnd.value));
+    endDateArray.push(parseInt(dateMonthEnd.value));
+    endDateArray.push(parseInt(dateDayEnd.value));
+    let endDate = new persianDate(endDateArray).format();
+
+    // get persian date for current table Item
+    let tableItemDate = tableItem.children[1].innerHTML.trim();
+    let regexDateMonth = /\/(\d*)\//;
+    let regexDateYear = /\d{4}/;
+    let regexDateDay = /\d*$/;
+    let tableItemYear = regexDateYear.exec(tableItemDate)[0];
+    let tableItemMonth = regexDateMonth.exec(tableItemDate)[1];
+    let tableItemDay = regexDateDay.exec(tableItemDate)[0];
+
+    let itemDateArray = [];
+    itemDateArray.push(parseInt(tableItemYear));
+    itemDateArray.push(parseInt(tableItemMonth));
+    itemDateArray.push(parseInt(tableItemDay));
+    tableItemDate = new persianDate(itemDateArray).format();
+
+    if (startDate <= tableItemDate && tableItemDate <= endDate) {
+        tableItem.classList.remove("hidden");
+    } else {
+        tableItem.classList.add("hidden");
+    }
+}
+
 function filterTransactionsItem(e) {
-    /* range price should not be displayed to user if
+    /* range price and date should not be displayed to user if
        user choose filter base on other things
     */
     filterPriceRange.classList.add("hidden");
+    filterDateRange.classList.add("hidden");
 
     let option = e.target.value;
     if (option == "...") {
@@ -134,7 +235,9 @@ function filterTransactionsItem(e) {
             showBaseOnPrice(tableItem);
         });
     } else if (option == "date") {
-        console.log("date");
+        transactionsListContent.forEach((tableItem) => {
+            showBaseOnDate(tableItem);
+        });
     }
 }
 
@@ -172,4 +275,14 @@ transactionsListContent.forEach((tableItem) => {
         setValuePriceRange2();
         showBaseOnPrice(tableItem);
     });
+
+    // Date range
+    filterDateRange.addEventListener("submit", (e) => {
+        e.preventDefault();
+        showBaseOnDate(tableItem);
+    });
 });
+
+// validate date range
+dateMonthStart.addEventListener("input", validateRangeDate1);
+dateMonthEnd.addEventListener("input", validateRangeDate2);

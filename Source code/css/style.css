@@ -54,10 +54,8 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 input[type="range"]::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
     background: #000051;
-    @apply rounded-full w-6 h-6 cursor-pointer z-20 transition-all duration-300;
+    @apply rounded-full w-5 h-5 md:w-6 md:h-6 xl:w-7 xl:h-7 cursor-pointer z-20 transition-all duration-300;
     pointer-events: all;
 }
 input[type="range"]::-ms-thumb {
