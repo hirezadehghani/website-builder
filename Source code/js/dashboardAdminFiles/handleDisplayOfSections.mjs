@@ -10,6 +10,10 @@ let adCategoryBtn = document.querySelector("#addDeleteCategoryButtons");
 let faqBtn = document.querySelector("#faqButton");
 // list users variables
 let listUsersButtons = document.querySelector("#listUsersButtons");
+// list transactions variables
+let transactionDeleteButtons = document.querySelectorAll(
+    "#transactionDeleteButtons > div"
+);
 
 /* when click on one item of panel, that item should get
    background-color secondary and related information to
@@ -26,13 +30,26 @@ function handleDisplayOfSections() {
     */
     for (let i = 2; i < panelListTag.length; i++) {
         panelListTag[i].addEventListener("click", () => {
-            /* if section user list have been displayed already,
-               then we should check if some process in user list
+            /* if section transaction list have been displayed already,
+               then we should check if some process in transaction list
                section is happening or not.If all default buttons
                are displayed to user and others are hidden then
-               we haven't any process happeing
+               we haven't any process happening 
             */
             if (
+                (!sections[1].classList.contains("hidden") &&
+                    !(
+                        transactionDeleteButtons[0].classList.contains(
+                            "hidden"
+                        ) == false &&
+                        transactionDeleteButtons[1].classList.contains("hidden")
+                    )) ||
+                /* if section user list have been displayed already,
+                   then we should check if some process in user list
+                   section is happening or not.If all default buttons
+                   are displayed to user and others are hidden then
+                   we haven't any process happening
+                */
                 (!sections[2].classList.contains("hidden") &&
                     !(
                         listUsersButtons.children[0].classList.contains(
