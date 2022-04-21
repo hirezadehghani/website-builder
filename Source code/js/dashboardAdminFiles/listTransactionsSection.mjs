@@ -176,16 +176,20 @@ function showBaseOnDate(tableItem) {
 
     // get persian date for start date range
     let startDateArray = [];
-    startDateArray.push(parseInt(dateYearStart.value));
-    startDateArray.push(parseInt(dateMonthStart.value));
-    startDateArray.push(parseInt(dateDayStart.value));
+    startDateArray.push(
+        parseInt(dateYearStart.value),
+        parseInt(dateMonthStart.value),
+        parseInt(dateDayStart.value)
+    );
     let startDate = new persianDate(startDateArray).format();
 
     // get persian date for end date range
     let endDateArray = [];
-    endDateArray.push(parseInt(dateYearEnd.value));
-    endDateArray.push(parseInt(dateMonthEnd.value));
-    endDateArray.push(parseInt(dateDayEnd.value));
+    endDateArray.push(
+        parseInt(dateYearEnd.value),
+        parseInt(dateMonthEnd.value),
+        parseInt(dateDayEnd.value)
+    );
     let endDate = new persianDate(endDateArray).format();
 
     // get persian date for current table Item
@@ -198,9 +202,11 @@ function showBaseOnDate(tableItem) {
     let tableItemDay = regexDateDay.exec(tableItemDate)[0];
 
     let itemDateArray = [];
-    itemDateArray.push(parseInt(tableItemYear));
-    itemDateArray.push(parseInt(tableItemMonth));
-    itemDateArray.push(parseInt(tableItemDay));
+    itemDateArray.push(
+        parseInt(tableItemYear),
+        parseInt(tableItemMonth),
+        parseInt(tableItemDay)
+    );
     tableItemDate = new persianDate(itemDateArray).format();
 
     if (startDate <= tableItemDate && tableItemDate <= endDate) {
