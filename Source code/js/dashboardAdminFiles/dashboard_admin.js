@@ -7,3 +7,4 @@ import "./categorySection.mjs";
 import "./FAQSection.mjs";
 import "./listUsersSection.mjs";
 import "./listTransactionsSection.mjs";
+import "./listSubscriptionsSection.mjs";
