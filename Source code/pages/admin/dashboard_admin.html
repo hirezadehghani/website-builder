@@ -226,7 +226,7 @@
                     </div>
                     <!-- section about transaction's list -->
                     <div class="hidden">
-                        <div class="my-11">
+                        <div class="mb-11">
                             <div class="flex items-center justify-between p-5">
                                 <div class="flex">
                                     <label
@@ -1566,7 +1566,240 @@
                         </div>
                     </div>
                     <!-- section about subscriptions's list -->
-                    <div class="hidden">لیست اشتراک ها</div>
+                    <div class="hidden">
+                        <div class="p-5">
+                            <div class="flex items-center justify-center p-5">
+                                <div
+                                    class="flex flex-row-reverse"
+                                    id="subscriptionsbuttons"
+                                >
+                                    <div
+                                        class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded"
+                                    >
+                                        <span> حذف </span>
+                                        <i
+                                            class="fa-solid fa-trash text-red-600 mr-3"
+                                        ></i>
+                                    </div>
+                                    <div
+                                        class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 py-1 px-3 rounded ml-2"
+                                    >
+                                        <span> افزودن </span>
+                                        <i class="fa-solid fa-plus mr-3"></i>
+                                    </div>
+
+                                    <div
+                                        class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 ml-2 rounded hidden"
+                                    >
+                                        <span> انصراف </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="grid grid-cols-3 gap-x-3 mt-5"
+                                id="subscriptionItems"
+                            >
+                                <div
+                                    class="flex flex-col hover:-translate-y-4 transition-all ease-out duration-300 border border-gray-200 rounded-sm p-3 hover:shadow-xl"
+                                >
+                                    <div class="flex flex-col items-center">
+                                        <i
+                                            class="fa-solid fa-dollar-sign text-emerald-700 text-5xl"
+                                        ></i>
+                                        <h3
+                                            class="text-lg font-bold text-center mt-2"
+                                        >
+                                            اشتراک معمولی
+                                        </h3>
+                                    </div>
+                                    <div class="p-1 my-4">
+                                        <div class="flex justify-between my-2">
+                                            <p>دسترسی به تمام قالب ها</p>
+                                            <i
+                                                class="fa-solid fa-check text-green-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>
+                                                تاریخ انقضا یک هفته پس از خرید
+                                            </p>
+                                            <i
+                                                class="fa-solid fa-check text-green-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>امکان ویرایش تمام قالب ها</p>
+                                            <i
+                                                class="fa-solid fa-xmark text-red-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>دسترسی به قالب های حرفه ای</p>
+                                            <i
+                                                class="fa-solid fa-xmark text-red-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex justify-between items-center p-2"
+                                    >
+                                        <span>
+                                            <span
+                                                class="text-sm line-through opacity-50 ml-3"
+                                            >
+                                                20/000</span
+                                            >
+                                            <span
+                                                class="text-sm bg-red-600 text-slate-100 px-3 py-1 rounded-full"
+                                            >
+                                                20%
+                                            </span>
+                                        </span>
+                                        <span class="text-lg font-bold">
+                                            64/000 تومان
+                                        </span>
+                                    </div>
+                                    <button
+                                        class="border border-secondary text-secondary hover:text-slate-100 hover:bg-secondary transition ease-in duration-300 py-2 px-4 rounded-lg mx-auto mt-3"
+                                    >
+                                        خرید
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex flex-col hover:-translate-y-4 transition-all ease-out duration-300 border border-gray-200 rounded-sm p-3 hover:shadow-xl"
+                                >
+                                    <div class="flex flex-col items-center">
+                                        <i
+                                            class="fa-solid fa-dollar-sign text-emerald-700 text-5xl"
+                                        ></i>
+                                        <h3
+                                            class="text-lg font-bold text-center mt-2"
+                                        >
+                                            اشتراک معمولی
+                                        </h3>
+                                    </div>
+                                    <div class="p-1 my-4">
+                                        <div class="flex justify-between my-2">
+                                            <p>دسترسی به تمام قالب ها</p>
+                                            <i
+                                                class="fa-solid fa-check text-green-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>
+                                                تاریخ انقضا یک هفته پس از خرید
+                                            </p>
+                                            <i
+                                                class="fa-solid fa-check text-green-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>امکان ویرایش تمام قالب ها</p>
+                                            <i
+                                                class="fa-solid fa-xmark text-red-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>دسترسی به قالب های حرفه ای</p>
+                                            <i
+                                                class="fa-solid fa-xmark text-red-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex justify-between items-center p-2"
+                                    >
+                                        <span>
+                                            <span
+                                                class="text-sm line-through opacity-50 ml-3"
+                                            >
+                                                20/000</span
+                                            >
+                                            <span
+                                                class="text-sm bg-red-600 text-slate-100 px-3 py-1 rounded-full"
+                                            >
+                                                20%
+                                            </span>
+                                        </span>
+                                        <span class="text-lg font-bold">
+                                            64/000 تومان
+                                        </span>
+                                    </div>
+                                    <button
+                                        class="border border-secondary text-secondary hover:text-slate-100 hover:bg-secondary transition ease-in duration-300 py-2 px-4 rounded-lg mx-auto mt-3"
+                                    >
+                                        خرید
+                                    </button>
+                                </div>
+                                <div
+                                    class="flex flex-col hover:-translate-y-4 transition-all ease-out duration-300 border border-gray-200 rounded-sm p-3 hover:shadow-xl"
+                                >
+                                    <div class="flex flex-col items-center">
+                                        <i
+                                            class="fa-solid fa-dollar-sign text-emerald-700 text-5xl"
+                                        ></i>
+                                        <h3
+                                            class="text-lg font-bold text-center mt-2"
+                                        >
+                                            اشتراک معمولی
+                                        </h3>
+                                    </div>
+                                    <div class="p-1 my-4">
+                                        <div class="flex justify-between my-2">
+                                            <p>دسترسی به تمام قالب ها</p>
+                                            <i
+                                                class="fa-solid fa-check text-green-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>
+                                                تاریخ انقضا یک هفته پس از خرید
+                                            </p>
+                                            <i
+                                                class="fa-solid fa-check text-green-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>امکان ویرایش تمام قالب ها</p>
+                                            <i
+                                                class="fa-solid fa-xmark text-red-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                        <div class="flex justify-between my-2">
+                                            <p>دسترسی به قالب های حرفه ای</p>
+                                            <i
+                                                class="fa-solid fa-xmark text-red-600 text-2xl"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex justify-between items-center p-2"
+                                    >
+                                        <span>
+                                            <span
+                                                class="text-sm line-through opacity-50 ml-3"
+                                            >
+                                                20/000</span
+                                            >
+                                            <span
+                                                class="text-sm bg-red-600 text-slate-100 px-3 py-1 rounded-full"
+                                            >
+                                                20%
+                                            </span>
+                                        </span>
+                                        <span class="text-lg font-bold">
+                                            64/000 تومان
+                                        </span>
+                                    </div>
+                                    <button
+                                        class="border border-secondary text-secondary hover:text-slate-100 hover:bg-secondary transition ease-in duration-300 py-2 px-4 rounded-lg mx-auto mt-3"
+                                    >
+                                        خرید
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- section about change user info -->
                 <div class="hidden" id="changeInfoSection">
