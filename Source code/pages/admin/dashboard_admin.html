@@ -1593,6 +1593,11 @@
                                     >
                                         <span> انصراف </span>
                                     </div>
+                                    <div
+                                        class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 ml-2 rounded hidden"
+                                    >
+                                        <span> انصراف </span>
+                                    </div>
                                 </div>
                             </div>
                             <div
@@ -1643,18 +1648,18 @@
                                     >
                                         <span>
                                             <span
-                                                class="text-sm line-through opacity-50 ml-3"
+                                                class="text-xs sm:text-sm line-through opacity-50 ml-3"
                                             >
                                                 20/000</span
                                             >
                                             <span
-                                                class="text-sm bg-red-600 text-slate-100 px-2 py-0.5 md:px-3 md:py-1 rounded-full"
+                                                class="text-xs sm:text-sm bg-red-600 text-slate-100 px-2 py-0.5 md:px-3 md:py-1 rounded-full"
                                             >
                                                 20%
                                             </span>
                                         </span>
                                         <span
-                                            class="text-md md:text-lg font-bold"
+                                            class="text-base xl:text-lg font-bold"
                                         >
                                             64/000 تومان
                                         </span>
@@ -1709,17 +1714,19 @@
                                     >
                                         <span>
                                             <span
-                                                class="text-sm line-through opacity-50 ml-3"
+                                                class="text-xs sm:text-sm line-through opacity-50 ml-3"
                                             >
                                                 120/000</span
                                             >
                                             <span
-                                                class="text-sm bg-red-600 text-slate-100 px-3 py-1 rounded-full"
+                                                class="text-xs sm:text-sm bg-red-600 text-slate-100 px-3 py-1 rounded-full"
                                             >
                                                 20%
                                             </span>
                                         </span>
-                                        <span class="text-md font-bold">
+                                        <span
+                                            class="text-base xl:text-lg font-bold"
+                                        >
                                             96/000 تومان
                                         </span>
                                     </div>
@@ -1773,18 +1780,18 @@
                                     >
                                         <span>
                                             <span
-                                                class="text-sm line-through opacity-50 ml-3"
+                                                class="text-xs sm:text-sm line-through opacity-50 ml-3"
                                             >
                                                 200/000</span
                                             >
                                             <span
-                                                class="text-sm bg-red-600 text-slate-100 px-3 py-1 rounded-full"
+                                                class="text-xs sm:text-sm bg-red-600 text-slate-100 px-3 py-1 rounded-full"
                                             >
                                                 20%
                                             </span>
                                         </span>
                                         <span
-                                            class="text-md md:text-lg font-bold"
+                                            class="text-base xl:text-lg font-bold"
                                         >
                                             160/000 تومان
                                         </span>
@@ -1795,6 +1802,187 @@
                                         خرید
                                     </button>
                                 </div>
+                            </div>
+                            <div class="hidden" id="addSubscriptionSection">
+                                <h3
+                                    class="text-lg lg:text-xl font-bold text-center"
+                                >
+                                    افزودن اشتراک جدید
+                                </h3>
+                                <form action="#" class="my-3 p-5">
+                                    <div
+                                        class="flex flex-col sm:flex-row items-center"
+                                    >
+                                        <p
+                                            class="text-primary text-sm sm:text-base lg:text-lg"
+                                        >
+                                            نوع اشتراک را انتخاب کنید:
+                                        </p>
+                                        <div class="flex items-center my-2">
+                                            <div class="flex p-1 mx-1">
+                                                <label
+                                                    for="subtype1"
+                                                    class="text-sm sm:text-base lg:text-lg text-yellow-500 ml-2"
+                                                >
+                                                    طلایی
+                                                </label>
+                                                <input
+                                                    type="radio"
+                                                    name="subscriptionType"
+                                                    id="subtype1"
+                                                    value="gold"
+                                                />
+                                            </div>
+                                            <div class="flex p-1 mx-1">
+                                                <label
+                                                    for="subtype2"
+                                                    class="text-sm sm:text-base lg:text-lg text-slate-500 ml-2"
+                                                >
+                                                    نقره ای
+                                                </label>
+                                                <input
+                                                    type="radio"
+                                                    name="subscriptionType"
+                                                    id="subtype2"
+                                                    value="silver"
+                                                />
+                                            </div>
+                                            <div class="flex p-1 mx-1">
+                                                <label
+                                                    for="subtype3"
+                                                    class="text-sm sm:text-base lg:text-lg text-emerald-700 ml-2"
+                                                >
+                                                    معمولی
+                                                </label>
+                                                <input
+                                                    type="radio"
+                                                    name="subscriptionType"
+                                                    id="subtype3"
+                                                    value="normal"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col sm:flex-row items-center my-2"
+                                    >
+                                        <label
+                                            for="subscriptionTitle"
+                                            class="ml-2 text-sm sm:text-base lg:text-lg"
+                                        >
+                                            عنوان اشتراک را وارد کنید:
+                                        </label>
+                                        <input
+                                            type="text"
+                                            placeholder=" عنوان اشتراک "
+                                            name="subscriptionTitle"
+                                            id="subscriptionTitle"
+                                            class="input-btn"
+                                        />
+                                    </div>
+                                    <div class="my-4">
+                                        <div
+                                            class="flex flex-col xl:flex-row items-center"
+                                        >
+                                            <textarea
+                                                name=""
+                                                id=""
+                                                placeholder=" متن مورد نظر را اینجا وارد کنید "
+                                                class="input-btn w-full xl:w-1/2 h-1/6"
+                                            ></textarea>
+                                            <div class="flex items-center mx-2">
+                                                <p
+                                                    class="text-sm sm:text-base lg:text-lg text-primary mx-2"
+                                                >
+                                                    این ویژگی را دارد؟
+                                                </p>
+                                                <div
+                                                    class="flex items-center my-2"
+                                                >
+                                                    <div class="mx-1 p-1">
+                                                        <label
+                                                            for=""
+                                                            class="text-green-600 text-sm sm:text-base lg:text-lg ml-2"
+                                                        >
+                                                            بله
+                                                        </label>
+                                                        <input
+                                                            type="radio"
+                                                            name="hasFeature"
+                                                            value="yes"
+                                                        />
+                                                    </div>
+                                                    <div class="mx-1 p-1">
+                                                        <label
+                                                            for=""
+                                                            class="text-red-600 text-sm sm:text-base lg:text-lg ml-2"
+                                                        >
+                                                            خیر
+                                                        </label>
+                                                        <input
+                                                            type="radio"
+                                                            name="hasFeature"
+                                                            value="no"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="py-1 px-3 md:py-2 md:px-4 my-1 text-slate-50 transition-all duration-300 bg-primary bg-opacity-80 hover:bg-primary rounded-sm"
+                                            >
+                                                افزودن
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-col xl:flex-row items-center justify-around my-2"
+                                    >
+                                        <div
+                                            class="flex flex-col sm:flex-row justify-center"
+                                        >
+                                            <div
+                                                class="flex flex-col my-4 sm:flex-row items-center"
+                                            >
+                                                <label
+                                                    for="subscriptionPrice"
+                                                    class="ml-2 text-sm md:text-base lg:text-lg"
+                                                >
+                                                    قیمت اصلی
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    placeholder=" قیمت اصلی: "
+                                                    name="subscriptionPrice"
+                                                    id="subscriptionPrice"
+                                                    class="input-btn"
+                                                />
+                                            </div>
+                                            <div
+                                                class="flex flex-col sm:flex-row items-center mx-3"
+                                            >
+                                                <label
+                                                    for="subscriptionDiscount"
+                                                    class="ml-2 text-sm md:text-base lg:text-lg"
+                                                >
+                                                    مقدار تخفیف
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    placeholder=" تخفیف: "
+                                                    name="subscriptionDiscount"
+                                                    id="subscriptionDiscount"
+                                                    class="input-btn"
+                                                />
+                                            </div>
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            class="py-1 px-4 md:py-2 md:px-5 my-4 text-slate-50 transition-all duration-300 bg-primary bg-opacity-80 hover:bg-primary rounded-sm"
+                                        >
+                                            ساختن
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
