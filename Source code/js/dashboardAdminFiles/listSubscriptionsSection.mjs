@@ -35,8 +35,8 @@ function deleteSubscriptionItem(e) {
     });
 }
 
-function validateTitleSubscription(e) {
-    let input = e.target;
+function validateTitleSubscription() {
+    let input = addItemForm.subscriptionTitle;
     let regexForTitle =
         /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]+[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC])+$/;
     if (regexForTitle.test(input.value)) {
@@ -61,8 +61,8 @@ function validateContentSubscription() {
     }
 }
 
-function validatePrice(e) {
-    let input = e.target;
+function validatePrice() {
+    let input = addItemForm.subscriptionPrice;
 
     if (input.value.length >= 2 && input.value >= 0) {
         input.classList.remove("input-incorrect");
@@ -73,8 +73,9 @@ function validatePrice(e) {
     }
 }
 
-function validateDiscount(e) {
-    let input = e.target;
+function validateDiscount() {
+    let input = addItemForm.subscriptionDiscount;
+
     if (
         input.value >= 0 &&
         (input.value.length === 2 || input.value.length === 1)
@@ -105,7 +106,6 @@ function addToContentItem(value, choice) {
 
 function addContentItem() {
     // validate content and if yes button was clicked
-    console.log(addItemForm.subscriptionContent);
     if (validateContentSubscription() && addItemForm.hasFeature[0].checked) {
         addToContentItem(addItemForm.subscriptionContent.value, "green");
     } else if (
@@ -117,6 +117,115 @@ function addContentItem() {
     }
 }
 
+function createSubscription() {
+    let sign;
+    // determine sign base on user selection
+    addItemForm.subscriptionType.forEach((type) => {
+        if (type.checked) {
+            sign = type.value;
+        }
+    });
+
+    // create required element
+    let div1 = document.createElement("div");
+    let i1 = document.createElement("i");
+    let h1 = document.createElement("h3");
+    if (sign === "silver") {
+        i1.className =
+            "fa-solid fa-dollar-sign text-slate-500 text-3xl lg:text-5xl";
+    } else if (sign === "gold") {
+        i1.className =
+            "fa-solid fa-dollar-sign text-yellow-500 text-3xl lg:text-5xl";
+    } else {
+        i1.className =
+            "fa-solid fa-dollar-sign text-emerald-700 text-3xl lg:text-5xl";
+    }
+    div1.className = "flex flex-col items-center";
+    h1.className = "font-bold text-center mt-2";
+    h1.innerHTML = addItemForm.subscriptionTitle.value;
+    div1.append(i1);
+    div1.append(h1);
+
+    let div2 = document.createElement("div");
+    div2.className = "p-1 my-4";
+
+    let tempChild = [...contentItems.children];
+    for (let feature of tempChild) {
+        div2.append(feature);
+    }
+
+    let div3 = document.createElement("div");
+    div3.className = "flex justify-between items-center p-2";
+    let span1 = document.createElement("span");
+    let span2 = document.createElement("span");
+    let span3 = document.createElement("span");
+    let span4 = document.createElement("span");
+    span2.className =
+        "text-xs sm:text-sm bg-red-600 text-slate-100 px-3 py-1 rounded-full";
+    span2.innerHTML = addItemForm.subscriptionDiscount.value + "%";
+    span3.className = "text-xs sm:text-sm line-through opacity-50 ml-3";
+    span3.innerHTML = addItemForm.subscriptionPrice.value;
+    span4.className = "text-base xl:text-lg font-bold";
+    span4.innerHTML = `${
+        addItemForm.subscriptionPrice.value -
+        (addItemForm.subscriptionPrice.value *
+            addItemForm.subscriptionDiscount.value) /
+            100
+    } تومان`;
+    span1.append(span2);
+    span1.append(span3);
+    div3.append(span1);
+    div3.append(span4);
+
+    let btn = document.createElement("button");
+    btn.className =
+        "border border-secondary text-secondary hover:text-slate-100 hover:bg-secondary transition ease-in duration-300 py-2 px-6 rounded-md mx-auto mt-3";
+    btn.innerHTML = " خرید ";
+
+    let mainDiv = document.createElement("div");
+    mainDiv.className =
+        "flex flex-col hover:-translate-y-2 transition-all ease-out duration-300 border border-gray-200 rounded-sm p-1 lg:p-3 hover:shadow-xl text-sm";
+    mainDiv.append(div1);
+    mainDiv.append(div2);
+    mainDiv.append(div3);
+    mainDiv.append(btn);
+
+    let parentOfSubscriptionItems =
+        document.querySelector("#subscriptionItems");
+    parentOfSubscriptionItems.append(mainDiv);
+}
+
+function CanAddItem() {
+    subscriptionItem = document.querySelectorAll("#subscriptionItems > div");
+    if (subscriptionItem.length !== 3) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateForm(e) {
+    e.preventDefault();
+
+    if (!CanAddItem()) {
+        Swal.fire({
+            title: "هشدار",
+            text: " تعداد اشتراک ها می تواند حداکثر ۳ عدد باشد. ",
+            icon: "warning",
+            confirmButtonText: "باشه",
+            confirmButtonColor: "#66bb6a",
+        });
+    } else {
+        if (
+            validateTitleSubscription() &&
+            validatePrice() &&
+            validateDiscount()
+        ) {
+            createSubscription();
+        }
+    }
+}
+
 // حذف button
 buttons[0].addEventListener("click", () => {
     buttons[0].classList.remove("bg-opacity-20");
@@ -124,6 +233,7 @@ buttons[0].addEventListener("click", () => {
     buttons[1].classList.add("hidden");
     buttons[2].classList.remove("hidden");
 
+    subscriptionItem = document.querySelectorAll("#subscriptionItems > div");
     subscriptionItem.forEach((item) => {
         item.classList.add("cursor-pointer");
         item.addEventListener("click", deleteSubscriptionItem);
@@ -145,9 +255,8 @@ buttons[2].addEventListener("click", () => {
 // افزودن button
 buttons[1].addEventListener("click", () => {
     // update items if one of them was deleted
-    subscriptionItem = document.querySelectorAll("#subscriptionItems > div");
 
-    if (subscriptionItem.length !== 3) {
+    if (CanAddItem()) {
         buttons[1].classList.remove("bg-opacity-20");
         buttons[1].classList.add("text-slate-100");
         buttons[0].classList.add("hidden");
@@ -197,4 +306,4 @@ addItemForm.subscriptionDiscount.addEventListener("input", validateDiscount);
 addsubscriptionItemButton.addEventListener("click", addContentItem);
 
 // when form submits
-addItemForm.addEventListener("submit", () => {});
+addItemForm.addEventListener("submit", validateForm);
