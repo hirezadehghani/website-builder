@@ -131,13 +131,14 @@ function editUsersListTableItem(e) {
                 tableItemContent.getAttribute("data-lastName")
             ) {
                 // if our target is name of user
-                let regexForName = /^[آ-ی]{4,}\s*[آ-ی]*/;
+                let regexForName =
+                    /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
                 if (regexForName.test(result.value)) {
                     e.target.innerHTML = result.value;
                 } else {
                     Swal.fire({
                         title: " اخطار ",
-                        text: " مقدار وارد شده معتبر نمی باشد.\nباید مقدار وارد شده شامل فقط حروف فارسی و حداقل ۴ حرف باشد.",
+                        text: " مقدار وارد شده معتبر نمی باشد.\nباید مقدار وارد شده شامل فقط حروف فارسی و حداقل ۳ حرف باشد.",
                         icon: "warning",
                         confirmButtonText: "باشه",
                         confirmButtonColor: "#65bb6a",

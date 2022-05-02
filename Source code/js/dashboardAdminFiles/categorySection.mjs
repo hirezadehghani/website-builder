@@ -59,10 +59,11 @@ function editCategoryItemFunc(label) {
             */
             if (result.isConfirmed) {
                 /* this regex is all standard persian
-                   letter that contains at least 4 letter
+                   letter that contains at least 3 letter
                    and no English letter,special character,digits,and so on
                 */
-                let regexForEditCategoryItems = /^[آ-ی]{4,}\s*[آ-ی]*/;
+                let regexForEditCategoryItems =
+                    /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
                 if (regexForEditCategoryItems.test(inputCategory.value)) {
                     label.nextElementSibling.nextElementSibling.setAttribute(
                         "disabled",
@@ -81,7 +82,7 @@ function editCategoryItemFunc(label) {
                 } else {
                     Swal.fire({
                         title: " اخطار ",
-                        text: " مقدار وارد شده معتبر نمی باشد.\nباید مقدار وارد شده شامل فقط حروف فارسی و حداقل ۴ حرف باشد.",
+                        text: " مقدار وارد شده معتبر نمی باشد.\nباید مقدار وارد شده شامل فقط حروف فارسی و حداقل ۳ حرف باشد.",
                         icon: "warning",
                         confirmButtonText: "باشه",
                         confirmButtonColor: "#65bb6a",
@@ -114,10 +115,11 @@ function addCategoryItemFunc() {
             if (result.isConfirmed) {
                 tempValue = result.value;
                 /* this regex is all standard persian
-                   letter that contains at least 4 letter
+                   letter that contains at least 3 letter
                    and no English letter,special character,digits,and so on
                 */
-                let regexForAddCategoryItem = /^[آ-ی]{4,}\s*[آ-ی]*/;
+                let regexForAddCategoryItem =
+                    /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
                 if (regexForAddCategoryItem.test(tempValue)) {
                     // create new category item
                     let divParent = document.createElement("div");
@@ -189,7 +191,7 @@ function addCategoryItemFunc() {
                 } else {
                     Swal.fire({
                         title: " اخطار ",
-                        text: " مقدار وارد شده معتبر نمی باشد.\nباید مقدار وارد شده شامل فقط حروف فارسی و حداقل ۴ حرف باشد.",
+                        text: " مقدار وارد شده معتبر نمی باشد.\nباید مقدار وارد شده شامل فقط حروف فارسی و حداقل ۳ حرف باشد.",
                         icon: "warning",
                         confirmButtonText: "باشه",
                         confirmButtonColor: "#65bb6a",

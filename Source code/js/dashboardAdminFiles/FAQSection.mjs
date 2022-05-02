@@ -131,10 +131,12 @@ function addAccordionItem() {
                 cancelButtonColor: "#d33",
             }).then((result2) => {
                 if (result2.isConfirmed) {
-                    // this regex supports all persian letter plus space and ؟ at the end
-                    let titleRegex = /^[آ-ی\s]+؟$/;
-                    // this regex supports all persian letter plus space and . at the end
-                    let textRegex = /^[آ-ی\s]+\.$/;
+                    // this regex supports all persian letter
+                    let titleRegex =
+                        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{1,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
+                    // this regex supports all persian letter
+                    let textRegex =
+                        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{1,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
 
                     let title = result1.value;
                     let text = result2.value;
@@ -182,7 +184,7 @@ function addAccordionItem() {
                         if (!titleRegex.test(title)) {
                             Swal.fire({
                                 title: " اخطار ",
-                                text: " عنوان اکوردیون معتبر نیست\nباید عنوان اکوردیون فقط شامل حروف فارسی و علامت سوال در انتهای آن باشد.",
+                                text: " عنوان اکوردیون معتبر نیست\nباید عنوان اکوردیون فقط شامل حروف فارسی باشد",
                                 icon: "warning",
                                 confirmButtonText: "باشه",
                                 confirmButtonColor: "#65bb6a",
@@ -192,7 +194,7 @@ function addAccordionItem() {
                         if (!textRegex.test(text)) {
                             Swal.fire({
                                 title: " اخطار ",
-                                text: " متن اکوردیون معتبر نیست\nباید متن اکوردیون فقط شامل حروف فارسی و علامت نقطه در پایان آن باشد.",
+                                text: " متن اکوردیون معتبر نیست\nباید متن اکوردیون فقط شامل حروف فارسی باشد",
                                 icon: "warning",
                                 confirmButtonText: "باشه",
                                 confirmButtonColor: "#65bb6a",
