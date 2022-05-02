@@ -1885,8 +1885,8 @@
                                             class="flex flex-col xl:flex-row items-center"
                                         >
                                             <textarea
-                                                name=""
-                                                id=""
+                                                name="subscriptionContent"
+                                                id="subscriptionContent"
                                                 placeholder=" متن مورد نظر را اینجا وارد کنید "
                                                 class="input-btn w-full xl:w-1/2 h-1/6"
                                             ></textarea>
@@ -1901,7 +1901,7 @@
                                                 >
                                                     <div class="mx-1 p-1">
                                                         <label
-                                                            for=""
+                                                            for="hasFeatureContent"
                                                             class="text-green-600 text-sm sm:text-base lg:text-lg ml-2"
                                                         >
                                                             بله
@@ -1909,12 +1909,13 @@
                                                         <input
                                                             type="radio"
                                                             name="hasFeature"
+                                                            id="hasFeatureContent1"
                                                             value="yes"
                                                         />
                                                     </div>
                                                     <div class="mx-1 p-1">
                                                         <label
-                                                            for=""
+                                                            for="hasFeatureContent"
                                                             class="text-red-600 text-sm sm:text-base lg:text-lg ml-2"
                                                         >
                                                             خیر
@@ -1922,17 +1923,23 @@
                                                         <input
                                                             type="radio"
                                                             name="hasFeature"
+                                                            id="hasFeatureContent2"
                                                             value="no"
                                                         />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button
-                                                class="py-1 px-3 md:py-2 md:px-4 my-1 text-slate-50 transition-all duration-300 bg-primary bg-opacity-80 hover:bg-primary rounded-sm"
+                                            <a
+                                                class="py-1 px-3 md:py-2 md:px-4 my-1 text-slate-50 transition-all duration-300 bg-primary bg-opacity-80 hover:bg-primary rounded-sm cursor-pointer"
+                                                id="addsubscriptionItemButton"
                                             >
                                                 افزودن
-                                            </button>
+                                            </a>
                                         </div>
+                                        <div
+                                            class="flex flex-col p-2 my-2 border border-gray-300 rounded-sm"
+                                            id="contentItems"
+                                        ></div>
                                     </div>
                                     <div
                                         class="flex flex-col xl:flex-row items-center justify-around my-2"
@@ -1947,11 +1954,11 @@
                                                     for="subscriptionPrice"
                                                     class="ml-2 text-sm md:text-base lg:text-lg"
                                                 >
-                                                    قیمت اصلی
+                                                    قیمت اصلی:
                                                 </label>
                                                 <input
                                                     type="number"
-                                                    placeholder=" قیمت اصلی: "
+                                                    placeholder=" قیمت اصلی(به تومان):"
                                                     name="subscriptionPrice"
                                                     id="subscriptionPrice"
                                                     class="input-btn"
@@ -1964,11 +1971,11 @@
                                                     for="subscriptionDiscount"
                                                     class="ml-2 text-sm md:text-base lg:text-lg"
                                                 >
-                                                    مقدار تخفیف
+                                                    تخفیف:
                                                 </label>
                                                 <input
                                                     type="number"
-                                                    placeholder=" تخفیف: "
+                                                    placeholder=" مقدار تخفیف(به درصد): "
                                                     name="subscriptionDiscount"
                                                     id="subscriptionDiscount"
                                                     class="input-btn"
