@@ -14,6 +14,10 @@ let listUsersButtons = document.querySelector("#listUsersButtons");
 let transactionDeleteButtons = document.querySelectorAll(
     "#transactionDeleteButtons > div"
 );
+// subscription variables
+let SubscriptionButtons = document.querySelectorAll(
+    "#subscriptionsbuttons > div"
+);
 
 /* when click on one item of panel, that item should get
    background-color secondary and related information to
@@ -97,6 +101,21 @@ function handleDisplayOfSections() {
                         faqBtn.children[1].classList.contains("hidden") ==
                             false &&
                         faqBtn.children[2].classList.contains("hidden")
+                    )) ||
+                /* if section subscription have been displayed already,
+                   then we should check if some process in subscription
+                   section is happening or not.If all default buttons
+                   are displayed to user and others are hidden then
+                   we haven't any process happening
+                */
+                (!sections[6].classList.contains("hidden") &&
+                    !(
+                        SubscriptionButtons[0].classList.contains("hidden") ==
+                            false &&
+                        SubscriptionButtons[1].classList.contains("hidden") ==
+                            false &&
+                        SubscriptionButtons[2].classList.contains("hidden") &&
+                        SubscriptionButtons[3].classList.contains("hidden")
                     ))
             ) {
                 Swal.fire({

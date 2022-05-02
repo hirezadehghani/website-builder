@@ -274,7 +274,7 @@ buttons[1].addEventListener("click", () => {
     }
 });
 
-// حذف button
+// انصراف button
 buttons[3].addEventListener("click", () => {
     buttons[1].classList.add("bg-opacity-20");
     buttons[1].classList.remove("text-slate-100");
