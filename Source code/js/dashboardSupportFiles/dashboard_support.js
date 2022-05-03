@@ -4,4 +4,5 @@ import "../dashboardAdminFiles/exitFromPanel.mjs";
 import "../dashboardAdminFiles/deleteAccount.mjs";
 import "../dashboardAdminFiles/formValidationFromUserInfo.mjs";
 // **********************************************************
-import "../dashboardSupportFiles/handleDisplayOfSections.mjs";
+import "./handleDisplayOfSections.mjs";
+import "./ticketSection.mjs";
