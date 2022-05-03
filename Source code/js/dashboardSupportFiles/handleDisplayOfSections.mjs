@@ -4,6 +4,9 @@ let panel = document.querySelector("#panel");
 let changeInfoSection = document.querySelector("#changeInfoSection");
 let changeInfoBtn = document.querySelector("#changeInfoButton");
 
+// ticket variable
+let ticketButtons = document.querySelectorAll("#ticketDeleteButtons > div");
+
 /* when click on one item of panel, that item should get
    background-color secondary and related information to
    that section will display and other section should be
@@ -20,7 +23,13 @@ function handleDisplayOfSections() {
 
     for (let i = 2; i < panelListTag.length; i++) {
         panelListTag[i].addEventListener("click", () => {
-            if (false) {
+            if (
+                !sections[1].classList.contains("hidden") &&
+                !(
+                    ticketButtons[0].classList.contains("hidden") == false &&
+                    ticketButtons[1].classList.contains("hidden")
+                )
+            ) {
                 Swal.fire({
                     title: "اخطار",
                     text: "شما در حال حاضر در حال انجام یک فرایند دیگر هستید!",
