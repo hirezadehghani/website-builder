@@ -167,7 +167,148 @@
                     </div>
                 </div>
                 <!-- section about change user info -->
-                <div class="hidden" id="changeInfoSection"></div>
+                <div class="hidden" id="changeInfoSection">
+                    <div
+                        class="p-2 cursor-pointer hidden md:block md:float-left"
+                    >
+                        <i
+                            class="fa-solid fa-circle-arrow-left text-primary md:text-2xl lg:text-3xl"
+                        ></i>
+                    </div>
+                    <div>
+                        <form action="#" class="flex flex-col mr-3 p-3">
+                            <div
+                                class="flex flex-col justify-center items-center p-3"
+                            >
+                                <img
+                                    class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 transform-none md:hover:scale-105"
+                                    src="../../images/user_profile.png"
+                                    alt="user_profile"
+                                />
+                                <label
+                                    for="userPhoto"
+                                    class="text-sm sm:text-base lg:text-lg cursor-pointer transition-all text-secondary text-opacity-80 hover:text-secondary text-center mt-2 underline"
+                                >
+                                    آپلود عکس جدید (jpeg,jpg,png)
+                                </label>
+                                <input
+                                    type="file"
+                                    name="userPhoto"
+                                    id="userPhoto"
+                                    class="hidden"
+                                    accept="image/png, image/jpeg, image/jpg"
+                                />
+                            </div>
+                            <div
+                                class="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 p-3"
+                            >
+                                <div class="flex flex-col">
+                                    <label
+                                        for="firstName"
+                                        class="text-md md:text-lg"
+                                    >
+                                        نام
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="firstName"
+                                        id="firstName"
+                                        placeholder="نام با حروف تماماً فارسی وارد کنید"
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="lastName"
+                                        class="text-md md:text-lg"
+                                    >
+                                        نام خانوادگی
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="lastName"
+                                        id="lastName"
+                                        placeholder="نام خانوادگی با حروف تماماً فارسی وارد کنید"
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="nationalCode"
+                                        class="text-md md:text-lg"
+                                    >
+                                        کد ملی
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="nationalCode"
+                                        id="nationalCode"
+                                        placeholder=" کد ملی خود را وارد کنید "
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="mail"
+                                        class="text-md md:text-lg"
+                                    >
+                                        ایمیل
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="mail"
+                                        id="mail"
+                                        placeholder="example@example.com"
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="phoneNumber"
+                                        class="text-md md:text-lg"
+                                    >
+                                        شماره تماس
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="phoneNumber"
+                                        id="phoneNumber"
+                                        placeholder=" شماره تماس را بدون احتساب صفر وارد کنید "
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="password"
+                                        class="text-md md:text-lg"
+                                    >
+                                        رمز عبور
+                                    </label>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        placeholder="حداقل ۸ رقم و شامل حروف بزرگ و کوچک و اعداد باشد."
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="self-center w-24 py-2 px-6 transition duration-300 bg-secondary bg-opacity-80 hover:bg-secondary rounded text-slate-50"
+                            >
+                                تایید
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </section>
         </div>
     </body>
