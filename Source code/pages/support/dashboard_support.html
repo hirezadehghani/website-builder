@@ -165,6 +165,112 @@
                             </div>
                         </div>
                     </div>
+                    <div class="hidden">
+                        <div class="flex items-center justify-between p-5">
+                            <div class="flex">
+                                <label
+                                    for="filterTicket"
+                                    class="bg-primary text-slate-100 py-1 px-3 rounded ml-1 text-xs md:text-sm lg:text-base"
+                                >
+                                    فیلتر کردن بر اساس
+                                </label>
+                                <select
+                                    class="flex items-center cursor-pointer transition duration-300 bg-secondary text-slate-100 text-xs md:text-sm lg:text-base text-center py-1 px-3 rounded"
+                                    name="filterTicket"
+                                    id="filterTicket"
+                                >
+                                    <option value="..." selected>...</option>
+                                    <option value="openStatus">
+                                        وضعیت های موفق
+                                    </option>
+                                    <option value="failStatus">
+                                        وضعیت های ناموفق
+                                    </option>
+                                </select>
+                            </div>
+                            <div
+                                class="flex flex-row-reverse"
+                                id="ticketDeleteButtons"
+                            >
+                                <div
+                                    class="flex items-center cursor-pointer transition duration-300 bg-secondary bg-opacity-20 hover:bg-secondary hover:text-slate-100 text-sm md:text-base lg:text-base py-1 px-3 rounded"
+                                >
+                                    <span> حذف </span>
+                                    <i
+                                        class="fa-solid fa-trash text-red-600 mr-3"
+                                    ></i>
+                                </div>
+                                <div
+                                    class="cursor-pointer transition duration-300 bg-red-600 hover:bg-red-800 text-slate-100 py-1 px-3 ml-2 rounded hidden"
+                                >
+                                    <span> انصراف </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="h-auto overflow-y-visible md:overflow-y-scroll md:h-96"
+                        >
+                            <div class="table p-7 w-full h-auto">
+                                <div
+                                    class="table-header-group p-2 text-center font-bold text-xs md:text-sm lg:text-lg"
+                                >
+                                    <div class="table-row p-1">
+                                        <div class="table-cell p-1">
+                                            ایدی مشتری
+                                        </div>
+                                        <div class="table-cell p-1">موضوع</div>
+                                        <div class="table-cell p-1">
+                                            توضیحات
+                                        </div>
+                                        <div class="table-cell p-1">وضعیت</div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="table-row-group p-4 text-center text-xs md:text-base cursor-pointer"
+                                    id="ticketListContent"
+                                >
+                                    <div
+                                        class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                    >
+                                        <div class="table-cell p-1">10</div>
+                                        <div class="table-cell p-1">
+                                            مشکل در لاگین
+                                        </div>
+                                        <div class="table-cell p-1">
+                                            چرا من نمی توانم به داشبورد وارد
+                                            شوم؟ من...
+                                        </div>
+                                        <div class="table-cell p-2">
+                                            <span
+                                                class="bg-red-600 text-slate-100 p-1 rounded-sm"
+                                            >
+                                                بسته
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="table-row odd:bg-secondary odd:bg-opacity-20 hover:bg-blue-500 transition-all duration-200"
+                                    >
+                                        <div class="table-cell p-1">11</div>
+                                        <div class="table-cell p-1">
+                                            مشکل در لاگین
+                                        </div>
+                                        <div class="table-cell p-1">
+                                            چرا من نمی توانم به داشبورد وارد
+                                            شوم؟ من ....
+                                        </div>
+                                        <div class="table-cell p-2">
+                                            <span
+                                                class="bg-green-500 text-slate-100 p-1 rounded-sm"
+                                            >
+                                                باز
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- section about change user info -->
                 <div class="hidden" id="changeInfoSection">
