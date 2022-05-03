@@ -10,7 +10,6 @@ function deleteTicketItem(e) {
     if (tableItem.classList.contains("table-cell")) {
         tableItem = tableItem.parentElement;
     }
-    console.log(tableItem);
 
     Swal.fire({
         title: "حذف",
@@ -27,6 +26,37 @@ function deleteTicketItem(e) {
             tableItem.remove();
         }
     });
+}
+
+function showBaseOnStatus(tableItem, value) {
+    if (value == "openStatus") {
+        // if ticket is open
+        if (tableItem.children[3].getAttribute("data-open")) {
+            tableItem.classList.remove("hidden");
+        } else {
+            tableItem.classList.add("hidden");
+        }
+    } else {
+        // if ticket is closed
+        if (!tableItem.children[3].getAttribute("data-open")) {
+            tableItem.classList.remove("hidden");
+        } else {
+            tableItem.classList.add("hidden");
+        }
+    }
+}
+
+function filterTicketsItem(e) {
+    let option = e.target.value;
+    if (option == "...") {
+        ticketListContent.forEach((tableItem) => {
+            tableItem.classList.remove("hidden");
+        });
+    } else if (option == "openStatus" || option == "closeStatus") {
+        ticketListContent.forEach((tableItem) => {
+            showBaseOnStatus(tableItem, option);
+        });
+    }
 }
 
 // حذف button
@@ -50,3 +80,6 @@ ticketButtons[1].addEventListener("click", () => {
         tableItem.removeEventListener("click", deleteTicketItem);
     });
 });
+
+// filter ticket
+filterTicket.addEventListener("change", filterTicketsItem);
