@@ -728,10 +728,6 @@ body {
   width: 24rem;
 }
 
-.w-10 {
-  width: 2.5rem;
-}
-
 .w-12 {
   width: 3rem;
 }
@@ -1430,6 +1426,64 @@ input[type="range"]:nth-child(1)::-ms-track {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.after\:absolute::after {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.after\:top-\[45\%\]::after {
+  content: var(--tw-content);
+  top: 45%;
+}
+
+.after\:-left-2::after {
+  content: var(--tw-content);
+  left: -0.5rem;
+}
+
+.after\:-right-2::after {
+  content: var(--tw-content);
+  right: -0.5rem;
+}
+
+.after\:h-0::after {
+  content: var(--tw-content);
+  height: 0px;
+}
+
+.after\:w-0::after {
+  content: var(--tw-content);
+  width: 0px;
+}
+
+.after\:border-y-8::after {
+  content: var(--tw-content);
+  border-top-width: 8px;
+  border-bottom-width: 8px;
+}
+
+.after\:border-r-8::after {
+  content: var(--tw-content);
+  border-right-width: 8px;
+}
+
+.after\:border-l-8::after {
+  content: var(--tw-content);
+  border-left-width: 8px;
+}
+
+.after\:border-primary::after {
+  content: var(--tw-content);
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 81 / var(--tw-border-opacity));
+}
+
+.after\:border-y-transparent::after {
+  content: var(--tw-content);
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
 .odd\:bg-secondary:nth-child(odd) {
   --tw-bg-opacity: 1;
   background-color: rgb(114 0 202 / var(--tw-bg-opacity));
@@ -1644,12 +1698,8 @@ input[type="range"]:nth-child(1)::-ms-track {
     height: 24rem;
   }
 
-  .md\:h-\[40rem\] {
-    height: 40rem;
-  }
-
-  .md\:w-24 {
-    width: 6rem;
+  .md\:h-\[37rem\] {
+    height: 37rem;
   }
 
   .md\:w-16 {
