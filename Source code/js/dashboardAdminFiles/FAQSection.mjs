@@ -5,6 +5,7 @@ let redCirclesDelete = document.querySelector("#redCirclesDelete");
 function createAccordion(item, accordion) {
     item.classList.toggle("active");
     if (item.classList.contains("active")) {
+        item.children[0].classList.remove("bg-primary");
         item.children[0].classList.add("bg-blue-500");
         item.children[0].children[1].classList.add("rotate-180");
         item.children[1].style.maxHeight =
@@ -12,6 +13,7 @@ function createAccordion(item, accordion) {
         item.children[1].style.padding = "8px";
         item.children[1].classList.remove("max-h-0");
     } else {
+        item.children[0].classList.add("bg-primary");
         item.children[0].classList.remove("bg-blue-500");
         item.children[0].children[1].classList.remove("rotate-180");
         item.children[1].style.maxHeight = null;
@@ -22,6 +24,7 @@ function createAccordion(item, accordion) {
     accordion.querySelectorAll(".active").forEach((activeItem) => {
         if (activeItem.children[0] != item.children[0]) {
             activeItem.classList.remove("active");
+            activeItem.children[0].classList.add("bg-primary");
             activeItem.children[0].classList.remove("bg-blue-500");
             activeItem.children[0].children[1].classList.remove("rotate-180");
             activeItem.children[1].style.maxHeight = null;
