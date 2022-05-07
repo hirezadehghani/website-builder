@@ -1079,6 +1079,11 @@ body {
   line-height: 1.5rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1585,6 +1590,10 @@ input[type="range"]:nth-child(1)::-ms-track {
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-\[30\%_30\%_30\%\] {
+    grid-template-columns: 30% 30% 30%;
   }
 
   .sm\:grid-cols-\[30\%_30\%\] {

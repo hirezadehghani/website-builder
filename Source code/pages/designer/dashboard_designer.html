@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard Designer</title>
+        <link rel="stylesheet" href="../../tailwind/style.css" />
+        <script
+            src="https://kit.fontawesome.com/cf36ff6fd8.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div class="flex justify-between md:hidden">
+            <div id="hamburger_menu">
+                <i class="fa-solid fa-bars p-5 text-base sm:text-lg"></i>
+            </div>
+
+            <div class="flex items-center">
+                <div class="hidden md:hidden" id="returnButtonMobile">
+                    <i
+                        class="fa-solid fa-circle-arrow-left text-primary sm:text-lg"
+                    ></i>
+                </div>
+
+                <div class="p-5" id="exitButtonMobile">
+                    <a
+                        class="block text-slate-50 transition-all ease-out duration-300"
+                        href="#"
+                    >
+                        <i
+                            class="fa-solid fa-power-off text-red-600 text-base sm:text-lg"
+                        ></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2">
+            <div
+                class="col-end-1 h-screen w-44 bg-primary fixed md:static invisible md:visible"
+                id="panel"
+            >
+                <div class="h-full right-panel grid grid-cols-1">
+                    <!-- main list -->
+                    <ul
+                        class="flex flex-col text-slate-50 text-xs md:text-sm lg:text-md relative"
+                    >
+                        <li class="py-2.5 mt-3">
+                            <i class="fa-solid fa-gauge ml-2 mr-3"></i>
+                            داشبورد طراح
+                        </li>
+                        <hr class="bg-slate-100 opacity-50 my-1" />
+                        <li class="py-2.5">
+                            <i class="fa-solid fa-user ml-2 mr-3"></i>
+                            عباس شجاع
+                        </li>
+                        <hr class="bg-slate-100 opacity-50 my-1" />
+                        <li class="py-2.5 cursor-pointer hover:bg-secondary">
+                            <i class="fa-solid fa-envelope ml-2 mr-3"></i>
+                            اطلاعات شخصی
+                        </li>
+                        <li class="py-2.5 cursor-pointer hover:bg-secondary">
+                            <i class="fa-solid fa-circle-info ml-2 mr-3"></i>
+                            فرم ایجاد قالب
+                        </li>
+                        <li class="py-2.5 cursor-pointer hover:bg-secondary">
+                            <i class="fa-solid fa-copy ml-2 mr-3"></i>
+                            لیست قالب ها
+                        </li>
+                        <div
+                            class="close-arrow-btn absolute top-3/4 right-40 bg-secondary p-2 rounded-l-sm hidden"
+                        >
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                        </div>
+                    </ul>
+                    <!-- log out part -->
+                    <div
+                        class="mb-5 py-2.5 w-full self-end hidden md:block group"
+                    >
+                        <a
+                            class="block text-slate-50 cursor-pointer text-center group-hover:text-red-600 transition"
+                            id="exitButton"
+                            href="#"
+                        >
+                            <i
+                                class="fa-solid fa-arrow-right-from-bracket ml-2 text-red-600"
+                            ></i>
+                            خروج
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <section class="col-start-1 col-end-3">
+                <div class="sections">
+                    <!-- section about user info -->
+                    <div class="hidden">
+                        <div
+                            class="flex justify-between items-center md:mr-3 lg:p-4"
+                        >
+                            <div
+                                class="flex flex-col p-1 text-sm lg:text-base xl:text-lg"
+                            >
+                                <h1 class="mb-6 font-bold">عباس شجاع</h1>
+                                <span class="p-1 my-2"
+                                    ><b> شماره تماس: </b>09100000000</span
+                                >
+                                <span class="p-1 my-2"
+                                    ><b> ایمیل: </b>example@example.com</span
+                                >
+                                <span class="p-1 my-2"
+                                    ><b> کد ملی: </b>0990000000</span
+                                >
+                            </div>
+                            <div
+                                class="flex flex-col p-3 text-sm lg:text-base xl:text-lg"
+                            >
+                                <img
+                                    class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 md:hover:scale-105 sm:transform-none"
+                                    src="../../images/user_profile.png"
+                                    alt="user_profile"
+                                />
+                                <a
+                                    class="mt-2 underline cursor-pointer text-center text-secondary text-sm sm:text-base md:text-lg"
+                                    id="changeInfoButton"
+                                >
+                                    تغییر جزئیات
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="bg-slate-100 my-1" />
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-[30%_30%_30%] gap-10 justify-center items-center text-xs sm:text-sm xl:text-base p-3 sm:p-2 lg:p-4 my-14"
+                        >
+                            <div class="card">
+                                <i
+                                    class="fa-solid fa-file-circle-check m-1 text-2xl"
+                                ></i>
+                                <h3 class="m-1">12</h3>
+                                <p>تمام قالب های تایید شده</p>
+                            </div>
+                            <div class="card">
+                                <i
+                                    class="fa-solid fa-file-circle-question m-1 text-2xl"
+                                ></i>
+                                <h3 class="m-1">100</h3>
+                                <p>تمام قالب های مورد انتظار</p>
+                            </div>
+                            <div class="card">
+                                <i
+                                    class="fa-solid fa-file-pen m-1 text-2xl"
+                                ></i>
+                                <h3 class="m-1">12</h3>
+                                <p>تمام قالب های ساخته شده</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex flex-col sm:grid sm:grid-cols-2 sm:justify-between p-2 bg-secondary bg-opacity-25 rounded text-xs sm:text-sm lg:text-sm xl:text-base"
+                        >
+                            <div class="flex flex-col">
+                                <h2 class="font-semibold text-black md:mb-2">
+                                    حذف دائمی حساب کاربری
+                                </h2>
+                                <p class="sm:text-xs lg:text-sm">
+                                    در حذف دائمی حساب کاربری،حساب شما به همراه
+                                    تمام تاریخچه کاری شما حذف خواهد شد.
+                                </p>
+                            </div>
+                            <div
+                                class="justify-self-end self-center cursor-pointer mt-3 md:mt-0"
+                                id="deleteAccountButton"
+                            >
+                                <a
+                                    class="transition text-red-600 hover:text-red-900 font-bold"
+                                >
+                                    حذف حساب کاربری
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- section about change user info -->
+                <div class="hidden" id="changeInfoSection">
+                    <div
+                        class="p-2 cursor-pointer hidden md:block md:float-left"
+                    >
+                        <i
+                            class="fa-solid fa-circle-arrow-left text-primary md:text-2xl lg:text-3xl"
+                        ></i>
+                    </div>
+                    <div>
+                        <form action="#" class="flex flex-col mr-3 p-3">
+                            <div
+                                class="flex flex-col justify-center items-center p-3"
+                            >
+                                <img
+                                    class="w-44 sm:w-48 lg:w-52 xl:w-56 rounded-full transition duration-200 transform-none md:hover:scale-105"
+                                    src="../../images/user_profile.png"
+                                    alt="user_profile"
+                                />
+                                <label
+                                    for="userPhoto"
+                                    class="text-sm sm:text-base lg:text-lg cursor-pointer transition-all text-secondary text-opacity-80 hover:text-secondary text-center mt-2 underline"
+                                >
+                                    آپلود عکس جدید (jpeg,jpg,png)
+                                </label>
+                                <input
+                                    type="file"
+                                    name="userPhoto"
+                                    id="userPhoto"
+                                    class="hidden"
+                                    accept="image/png, image/jpeg, image/jpg"
+                                />
+                            </div>
+                            <div
+                                class="grid grid-cols-1 gap-y-7 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 p-3"
+                            >
+                                <div class="flex flex-col">
+                                    <label
+                                        for="firstName"
+                                        class="text-md md:text-lg"
+                                    >
+                                        نام
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="firstName"
+                                        id="firstName"
+                                        placeholder="نام با حروف تماماً فارسی وارد کنید"
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="lastName"
+                                        class="text-md md:text-lg"
+                                    >
+                                        نام خانوادگی
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="lastName"
+                                        id="lastName"
+                                        placeholder="نام خانوادگی با حروف تماماً فارسی وارد کنید"
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="nationalCode"
+                                        class="text-md md:text-lg"
+                                    >
+                                        کد ملی
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="nationalCode"
+                                        id="nationalCode"
+                                        placeholder=" کد ملی خود را وارد کنید "
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="mail"
+                                        class="text-md md:text-lg"
+                                    >
+                                        ایمیل
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="mail"
+                                        id="mail"
+                                        placeholder="example@example.com"
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="phoneNumber"
+                                        class="text-md md:text-lg"
+                                    >
+                                        شماره تماس
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="phoneNumber"
+                                        id="phoneNumber"
+                                        placeholder=" شماره تماس را بدون احتساب صفر وارد کنید "
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="password"
+                                        class="text-md md:text-lg"
+                                    >
+                                        رمز عبور
+                                    </label>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        placeholder="حداقل ۸ رقم و شامل حروف بزرگ و کوچک و اعداد باشد."
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="self-center w-24 py-2 px-6 transition duration-300 bg-secondary bg-opacity-80 hover:bg-secondary rounded text-slate-50"
+                            >
+                                تایید
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+    <script src="../../js/sweetalert2.all.min.js"></script>
+    <script
+        type="module"
+        src="../../js/dashboardDesignerFiles/dashboard_designer.js"
+    ></script>
+</html>
