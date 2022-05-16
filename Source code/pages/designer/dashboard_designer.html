@@ -178,6 +178,187 @@
                             </div>
                         </div>
                     </div>
+                    <!-- section about template's creation -->
+                    <div class="hidden">
+                        <div class="p-5">
+                            <h2
+                                class="text-center md:text-right text-xl md:text-2xl text-secondary"
+                            >
+                                فرم ایجاد قالب
+                            </h2>
+                            <form
+                                action=""
+                                class="flex flex-col md:grid md:grid-cols-2 gap-5 mr-3 sm:p-1 md:p-3"
+                                id="templateCreationFrom"
+                            >
+                                <div class="flex flex-col">
+                                    <label
+                                        for="templateName"
+                                        class="text-md md:text-lg"
+                                    >
+                                        نام قالب
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="templateName"
+                                        id="templateName"
+                                        placeholder="نام با حروف تماماً فارسی وارد کنید"
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="templateVersion"
+                                        class="text-md md:text-lg"
+                                    >
+                                        ورژن
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="templateVersion"
+                                        id="templateVersion"
+                                        placeholder=" ورژن مانند (1.2)"
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label
+                                        for="templateExplanation"
+                                        class="text-md md:text-lg"
+                                    >
+                                        توضیحات
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="templateExplanation"
+                                        id="templateExplanation"
+                                        placeholder=" توضیحات "
+                                        class="input-btn placeholder:text-xs md:placeholder:text-sm"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex items-end justify-around">
+                                    <h2 class="text-md md:text-lg">نوع قالب</h2>
+                                    <div class="flex justify-center">
+                                        <div
+                                            class="flex items-center justify-between mx-5"
+                                        >
+                                            <label
+                                                for="freetemplateInput"
+                                                class="text-md md:text-lg mx-3"
+                                            >
+                                                رایگان
+                                            </label>
+                                            <input
+                                                type="radio"
+                                                name="selectTypeTemplateInput"
+                                                id="freetemplateInput"
+                                            />
+                                        </div>
+                                        <div
+                                            class="flex items-center justify-between"
+                                        >
+                                            <label
+                                                for="protemplateInput"
+                                                class="text-md md:text-lg mx-3"
+                                            >
+                                                پولی
+                                            </label>
+                                            <input
+                                                type="radio"
+                                                name="selectTypeTemplateInput"
+                                                id="protemplateInput"
+                                                checked
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center justify-around p-3"
+                                >
+                                    <div
+                                        class="grid grid-cols-1 justify-around"
+                                    >
+                                        <label
+                                            for="templatePhoto"
+                                            class="text-sm sm:text-base lg:text-lg cursor-pointer transition-all text-secondary text-opacity-80 hover:text-secondary text-center mt-2 underline"
+                                        >
+                                            آپلود عکس جدید (jpeg,jpg,png)
+                                        </label>
+                                        <input
+                                            type="file"
+                                            name="templatePhoto"
+                                            id="templatePhoto"
+                                            class="hidden"
+                                            accept="image/png, image/jpeg, image/jpg"
+                                        />
+                                    </div>
+                                    <img
+                                        class="w-28 sm:w-32 md:w-36 lg:w-44 rounded-full"
+                                        src="../../images/user_profile.png"
+                                        alt="user_profile"
+                                    />
+                                </div>
+
+                                <div
+                                    class="flex flex-row gap-x-3 md:gap-x-0 md:flex-col md:self-center"
+                                >
+                                    <label
+                                        for="templateExplanation"
+                                        class="text-md md:text-lg"
+                                    >
+                                        دسته بندی
+                                    </label>
+                                    <select
+                                        class="flex items-center cursor-pointer transition duration-300 w-60 md:w-full bg-secondary bg-opacity-20 text-xs md:text-sm lg:text-base text-center py-1 px-3 rounded"
+                                        name="filterTransaction"
+                                        id="filterTransaction"
+                                    >
+                                        <option value="..." selected>
+                                            ...
+                                        </option>
+                                        <option value="shopping">
+                                            فروشگاهی
+                                        </option>
+                                        <option value="personal">شخصی</option>
+                                        <option value="general">عمومی</option>
+                                        <option value="entertainment">
+                                            سرگرمی
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div
+                                    class="flex items-center justify-around p-3"
+                                >
+                                    <label
+                                        for="templateCode"
+                                        class="w-auto cursor-pointer py-2 px-4 text-slate-100 transition-all duration-300 bg-secondary rounded-lg"
+                                    >
+                                        آپلود کد قالب
+                                    </label>
+                                    <input
+                                        type="file"
+                                        name="templateCode"
+                                        id="templateCode"
+                                        placeholder=" انتخاب فایل zip ج"
+                                        class="hidden"
+                                        accept=".zip, .rar, .7zip"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="md:col-start-1 md:col-end-3 self-center w-24 md:justify-self-center py-2 px-6 transition duration-300 bg-secondary bg-opacity-80 hover:bg-secondary rounded text-slate-50"
+                                >
+                                    تایید
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- section about template's list-->
+                    <div class="hidden"></div>
                 </div>
                 <!-- section about change user info -->
                 <div class="hidden" id="changeInfoSection">

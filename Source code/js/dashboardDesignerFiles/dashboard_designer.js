@@ -5,3 +5,4 @@ import "../dashboardAdminFiles/deleteAccount.mjs";
 import "../dashboardAdminFiles/formValidationFromUserInfo.mjs";
 // **********************************************************
 import "./handleDisplayOfSections.mjs";
+import "./templateCreationValidate.mjs";
