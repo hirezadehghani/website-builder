@@ -736,16 +736,12 @@ body {
   width: 15rem;
 }
 
-.w-32 {
-  width: 8rem;
+.w-auto {
+  width: auto;
 }
 
 .w-12 {
   width: 3rem;
-}
-
-.w-auto {
-  width: auto;
 }
 
 .rotate-180 {
@@ -1767,6 +1763,10 @@ input[type="range"]:nth-child(1)::-ms-track {
 
   .md\:h-\[37rem\] {
     height: 37rem;
+  }
+
+  .md\:h-72 {
+    height: 18rem;
   }
 
   .md\:w-36 {
