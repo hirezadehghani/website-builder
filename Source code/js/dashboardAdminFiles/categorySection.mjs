@@ -59,11 +59,11 @@ function editCategoryItemFunc(label) {
             */
             if (result.isConfirmed) {
                 /* this regex is all standard persian
-                   letter that contains at least 3 letter
+                   letter that contains at least 2 letter
                    and no English letter,special character,digits,and so on
                 */
                 let regexForEditCategoryItems =
-                    /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
+                    /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{2,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
                 if (regexForEditCategoryItems.test(inputCategory.value)) {
                     label.nextElementSibling.nextElementSibling.setAttribute(
                         "disabled",
@@ -115,11 +115,11 @@ function addCategoryItemFunc() {
             if (result.isConfirmed) {
                 tempValue = result.value;
                 /* this regex is all standard persian
-                   letter that contains at least 3 letter
+                   letter that contains at least 2 letter
                    and no English letter,special character,digits,and so on
                 */
                 let regexForAddCategoryItem =
-                    /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
+                    /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{2,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
                 if (regexForAddCategoryItem.test(tempValue)) {
                     // create new category item
                     let divParent = document.createElement("div");

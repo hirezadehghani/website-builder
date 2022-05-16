@@ -22,11 +22,11 @@ function formValidationFromUserInfo(e) {
 function firstNameValidation() {
     let firstName = form.firstName;
     /* this regex is all standard persian
-       letter that contains at least 3 letter
+       letter that contains at least 2 letter
        and no English letter,special character,digits,and so on
     */
     let regexForFirstName =
-        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
+        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{2,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
 
     if (regexForFirstName.test(firstName.value)) {
         firstName.classList.remove("input-incorrect");
@@ -41,11 +41,11 @@ function lastNameValidation() {
     let lastName = form.lastName;
 
     /* this regex is all standard persian
-       letter that contains at least 3 letter
+       letter that contains at least 2 letter
        and no English letter,special character,digits,and so on
     */
     let regexForLastName =
-        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
+        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{2,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
 
     if (regexForLastName.test(lastName.value)) {
         lastName.classList.remove("input-incorrect");

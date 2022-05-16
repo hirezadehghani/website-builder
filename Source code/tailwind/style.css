@@ -1757,16 +1757,16 @@ input[type="range"]:nth-child(1)::-ms-track {
     height: 2.25rem;
   }
 
+  .md\:h-72 {
+    height: 18rem;
+  }
+
   .md\:h-96 {
     height: 24rem;
   }
 
   .md\:h-\[37rem\] {
     height: 37rem;
-  }
-
-  .md\:h-72 {
-    height: 18rem;
   }
 
   .md\:w-36 {

@@ -18,7 +18,7 @@ function validateForm(e) {
 function validatetemplateName() {
     let templateName = form.templateName;
     let regexForTemplateName =
-        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
+        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{2,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
     if (regexForTemplateName.test(templateName.value)) {
         templateName.classList.remove("input-incorrect");
         return true;
@@ -78,7 +78,7 @@ function validatetemplateVersion() {
 function validateExplanation() {
     let explanation = form.templateExplanation;
     let regexForExplanation =
-        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{3,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
+        /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{2,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
 
     if (regexForExplanation.test(explanation.value)) {
         explanation.classList.remove("input-incorrect");
@@ -123,7 +123,6 @@ function validateTemplatePhoto() {
 function validatetemplateSourceCode() {
     let templateCode = form.templateCode;
     let label = templateCode.parentElement.children[0];
-    console.log(label);
 
     if (templateCode === "") {
         label.innerHTML = " آپلود کد قالب ";
