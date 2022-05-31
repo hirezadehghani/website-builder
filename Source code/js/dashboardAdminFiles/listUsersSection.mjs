@@ -127,8 +127,8 @@ function editUsersListTableItem(e) {
     }).then((result) => {
         if (result.isConfirmed) {
             if (
-                tableItemContent.getAttribute("data-firstName") ||
-                tableItemContent.getAttribute("data-lastName")
+                tableItemContent.hasAttribute("data-firstName") ||
+                tableItemContent.hasAttribute("data-lastName")
             ) {
                 // if our target is name of user
                 let regexForName =
@@ -144,7 +144,7 @@ function editUsersListTableItem(e) {
                         confirmButtonColor: "#65bb6a",
                     });
                 }
-            } else if (tableItemContent.getAttribute("data-phone")) {
+            } else if (tableItemContent.hasAttribute("data-phone")) {
                 // if our target is phone number of user
                 if (phoneNumberValidation(result.value)) {
                     e.target.innerHTML = phoneNumberValidation(result.value);
@@ -157,7 +157,7 @@ function editUsersListTableItem(e) {
                         confirmButtonColor: "#65bb6a",
                     });
                 }
-            } else if (tableItemContent.getAttribute("data-mail")) {
+            } else if (tableItemContent.hasAttribute("data-mail")) {
                 // if our target is email of user
                 let regexFormail =
                     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

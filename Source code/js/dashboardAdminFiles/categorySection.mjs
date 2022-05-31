@@ -20,9 +20,10 @@ function editCategoryItemFunc(label) {
     /* if user click on 'منصرف شدن' then two button should be
        disappeared
     */
+
     editCategoryBtn.children[1].addEventListener("click", () => {
         if (
-            !label.nextElementSibling.nextElementSibling.getAttribute(
+            !label.nextElementSibling.nextElementSibling.hasAttribute(
                 "disabled"
             )
         ) {
