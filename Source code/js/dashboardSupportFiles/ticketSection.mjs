@@ -33,14 +33,14 @@ function deleteTicketItem(e) {
 function showBaseOnStatus(tableItem, value) {
     if (value == "openStatus") {
         // if ticket is open
-        if (tableItem.children[3].getAttribute("data-open")) {
+        if (tableItem.children[3].hasAttribute("data-open")) {
             tableItem.classList.remove("hidden");
         } else {
             tableItem.classList.add("hidden");
         }
     } else {
         // if ticket is closed
-        if (!tableItem.children[3].getAttribute("data-open")) {
+        if (!tableItem.children[3].hasAttribute("data-open")) {
             tableItem.classList.remove("hidden");
         } else {
             tableItem.classList.add("hidden");
