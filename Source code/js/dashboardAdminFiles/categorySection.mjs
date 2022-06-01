@@ -143,10 +143,7 @@ function addCategoryItemFunc() {
                         "px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50";
                     span3.innerHTML = " قالب ها ";
 
-                    divFirstChild.append(i);
-                    divFirstChild.append(span1);
-                    divFirstChild.append(span2);
-                    divFirstChild.append(span3);
+                    divFirstChild.append(i, span1, span2, span3);
                     divParent.append(divFirstChild);
 
                     let secondDivChild = document.createElement("div");
@@ -176,10 +173,7 @@ function addCategoryItemFunc() {
                     span5.innerHTML = "0";
 
                     label.append(i2);
-                    secondDivChild.append(label);
-                    secondDivChild.append(span4);
-                    secondDivChild.append(inp);
-                    secondDivChild.append(span5);
+                    secondDivChild.append(label, span4, inp, span5);
                     divParent.append(secondDivChild);
 
                     categoryItems.append(divParent);

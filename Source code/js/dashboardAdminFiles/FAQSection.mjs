@@ -165,10 +165,8 @@ function addAccordionItem() {
                         accordion.children[
                             accordion.children.length - 1
                         ].classList.remove("rounded-b-sm");
-                        div1.append(h2);
-                        div1.append(i);
-                        divParent.append(div1);
-                        divParent.append(p);
+                        div1.append(h2, i);
+                        divParent.append(div1, p);
                         divParent.addEventListener("click", () =>
                             createAccordion(divParent, accordion)
                         );

@@ -99,8 +99,7 @@ function addToContentItem(value, choice) {
     } else {
         i.className = "fa-solid fa-xmark text-red-600 text-sm lg:text-2xl";
     }
-    div.append(p);
-    div.append(i);
+    div.append(p, i);
     contentItems.append(div);
 }
 
@@ -143,8 +142,7 @@ function createSubscription() {
     div1.className = "flex flex-col items-center";
     h1.className = "font-bold text-center mt-2";
     h1.innerHTML = addItemForm.subscriptionTitle.value;
-    div1.append(i1);
-    div1.append(h1);
+    div1.append(i1, h1);
 
     let div2 = document.createElement("div");
     div2.className = "p-1 my-4";
@@ -172,10 +170,8 @@ function createSubscription() {
             addItemForm.subscriptionDiscount.value) /
             100
     } تومان`;
-    span1.append(span2);
-    span1.append(span3);
-    div3.append(span1);
-    div3.append(span4);
+    span1.append(span2, span3);
+    div3.append(span1, span4);
 
     let btn = document.createElement("button");
     btn.className =
@@ -185,10 +181,7 @@ function createSubscription() {
     let mainDiv = document.createElement("div");
     mainDiv.className =
         "flex flex-col hover:-translate-y-2 transition-all ease-out duration-300 border border-gray-200 rounded-sm p-1 lg:p-3 hover:shadow-xl text-sm";
-    mainDiv.append(div1);
-    mainDiv.append(div2);
-    mainDiv.append(div3);
-    mainDiv.append(btn);
+    mainDiv.append(div1, div2, div3, btn);
 
     let parentOfSubscriptionItems =
         document.querySelector("#subscriptionItems");
