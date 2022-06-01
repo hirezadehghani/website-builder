@@ -148,25 +148,19 @@ function addAccordionItem() {
                         let divParent = document.createElement("div");
                         divParent.className =
                             "overflow-hidden rounded-b-sm text-white";
-                        let div1 = document.createElement("div");
-                        div1.className =
-                            "bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center";
-                        let h2 = document.createElement("h2");
-                        h2.className = "test-sm";
-                        h2.innerHTML = title;
-                        let i = document.createElement("i");
-                        i.className =
-                            "fa-solid fa-arrow-up text-xs transition-all";
-                        let p = document.createElement("p");
-                        p.className =
-                            "text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200";
-                        p.innerHTML = text;
-
+                        divParent.insertAdjacentHTML(
+                            "beforeend",
+                            `
+                            <div class="bg-primary cursor-pointer p-2 transition-all linear duration-300 hover:bg-blue-500 flex justify-between items-center">
+                                <h2 class="test-sm">${title}</h2>
+                                <i class="fa-solid fa-arrow-up text-xs transition-all"></i>
+                            </div>
+                            <p class="text-black text-xs transition-all linear duration-300 m-0 max-h-0 border-x border-x-gray-200 border-b border-b-gray-200">${text}</p>
+                        `
+                        );
                         accordion.children[
                             accordion.children.length - 1
                         ].classList.remove("rounded-b-sm");
-                        div1.append(h2, i);
-                        divParent.append(div1, p);
                         divParent.addEventListener("click", () =>
                             createAccordion(divParent, accordion)
                         );
@@ -178,7 +172,6 @@ function addAccordionItem() {
                             "rounded-full bg-red-600 text-white p-1";
                         span.innerHTML = accordion.children.length - 1;
                         span.addEventListener("click", deleteAccordionItems);
-
                         redCirclesDelete.append(span);
                     } else {
                         // warn user to modify title of accordion if it's not correct

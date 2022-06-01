@@ -123,61 +123,36 @@ function addCategoryItemFunc() {
                     /^([\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]{2,}[ ]{0,}[\u0621-\u0628\u062A-\u063A\u0641-\u0642\u0644-\u0648\u064E-\u0651\u0655\u067E\u0686\u0698\u06A9-\u06AF\u06BE\u06CC]*)+$/;
                 if (regexForAddCategoryItem.test(tempValue)) {
                     // create new category item
-                    let divParent = document.createElement("div");
-                    divParent.className = "grid grid-rows-2 text-center group";
-                    let divFirstChild = document.createElement("div");
-                    divFirstChild.className =
-                        "flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300";
-                    let i = document.createElement("i");
-                    i.className = "fa-solid fa-gear py-1 px-2 opacity-0";
-                    let span1 = document.createElement("span");
-                    span1.className =
-                        "px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50";
-                    span1.innerHTML = " ایدی ";
-                    let span2 = document.createElement("span");
-                    span2.className =
-                        "px-1 py-1 w-3/6 bg-primary bg-opacity-50";
-                    span2.innerHTML = " عنوان ";
-                    let span3 = document.createElement("span");
-                    span3.className =
-                        "px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50";
-                    span3.innerHTML = " قالب ها ";
-
-                    divFirstChild.append(i, span1, span2, span3);
-                    divParent.append(divFirstChild);
-
-                    let secondDivChild = document.createElement("div");
-                    secondDivChild.className = "flex items-center";
-                    let label = document.createElement("label");
-                    label.htmlFor =
-                        "category-input" + (categoryItems.children.length + 1);
-                    let i2 = document.createElement("i");
-                    i2.className =
-                        "fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100";
-                    let span4 = document.createElement("span");
-                    span4.className =
-                        "px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r";
-                    span4.innerHTML = categoryItems.children.length + 1;
-                    let inp = document.createElement("input");
-                    inp.className =
-                        "px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0";
-                    inp.type = "text";
-                    inp.placeholder = tempValue;
-                    inp.value = tempValue;
-                    inp.id =
-                        "category-input" + (categoryItems.children.length + 1);
-                    inp.setAttribute("disabled", true);
-                    let span5 = document.createElement("span");
-                    span5.className =
-                        "px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50";
-                    span5.innerHTML = "0";
-
-                    label.append(i2);
-                    secondDivChild.append(label, span4, inp, span5);
-                    divParent.append(secondDivChild);
-
-                    categoryItems.append(divParent);
-                    // add event listener for every new label separately
+                    categoryItems.insertAdjacentHTML(
+                        "beforeend",
+                        `
+                        <div class="grid grid-rows-2 text-center group">
+                            <div class="flex items-center text-xs md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                                <i class="fa-solid fa-gear py-1 px-2 opacity-0"></i>
+                                <span class="px-1 py-1 w-1/6 rounded-r bg-primary bg-opacity-50"> آیدی </span>
+                                <span class="px-1 py-1 w-3/6 bg-primary bg-opacity-50"> عنوان </span>
+                                <span class="px-1 py-1 w-2/6 rounded-l bg-primary bg-opacity-50"> قالب ها </span>
+                            </div>
+                            <div class="flex items-center">
+                                <label for="${
+                                    "category-input" +
+                                    (categoryItems.children.length + 1)
+                                }">
+                                    <i class="fa-solid fa-gear px-1 py-1 text-black ml-1 cursor-pointer transition-all duration-300 hover:text-secondary md:opacity-0 md:group-hover:opacity-100"></i>
+                                </label>
+                                <span class="px-1 py-1 bg-secondary bg-opacity-20 w-1/6 text-black rounded-r">${
+                                    categoryItems.children.length + 1
+                                }</span>
+                                <input type="text" placeholder="${tempValue}" value="${tempValue}" id="${
+                            "category-input" +
+                            (categoryItems.children.length + 1)
+                        }" class="px-1 py-1 w-3/6 text-sm text-center bg-primary outline-none border-none h-97 placeholder:text-white placeholder:focus:opacity-0" disabled />
+                                <span class="px-1 py-1 w-2/6 bg-primary rounded-l border-r border-slate-100 border-opacity-50">0</span
+                            </div>
+                        </div>
+                    `
+                    );
+                    let label = categoryItems.lastChild.querySelector("label");
                     label.addEventListener("click", () => {
                         editCategoryItemFunc(label);
                     });

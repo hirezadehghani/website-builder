@@ -89,18 +89,32 @@ function validateDiscount() {
 }
 
 function addToContentItem(value, choice) {
-    let div = document.createElement("div");
-    div.className = "flex justify-between my-2";
-    let p = document.createElement("p");
-    p.innerHTML = value;
-    let i = document.createElement("i");
-    if (choice === "green") {
-        i.className = "fa-solid fa-check text-green-600 text-sm lg:text-2xl";
-    } else {
-        i.className = "fa-solid fa-xmark text-red-600 text-sm lg:text-2xl";
-    }
-    div.append(p, i);
-    contentItems.append(div);
+    contentItems.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div class="flex justify-between my-2">
+            <p>${value}</p>
+            <i class="${
+                choice === "green"
+                    ? "fa-solid fa-check text-green-600 text-sm lg:text-2xl"
+                    : "fa-solid fa-xmark text-red-600 text-sm lg:text-2xl"
+            }"></i>
+        </div>
+    `
+    );
+
+    // let div = document.createElement("div");
+    // div.className = "flex justify-between my-2";
+    // let p = document.createElement("p");
+    // p.innerHTML = value;
+    // let i = document.createElement("i");
+    // if (choice === "green") {
+    //     i.className = "fa-solid fa-check text-green-600 text-sm lg:text-2xl";
+    // } else {
+    //     i.className = "fa-solid fa-xmark text-red-600 text-sm lg:text-2xl";
+    // }
+    // div.append(p, i);
+    // contentItems.append(div);
 }
 
 function addContentItem() {
