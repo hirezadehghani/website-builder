@@ -150,13 +150,13 @@ function validatetemplateSourceCode() {
 form.addEventListener("submit", validateForm);
 
 // when template's name input changes
-form.templateName.addEventListener("keyup", validatetemplateName);
+form.templateName.addEventListener("input", validatetemplateName);
 
 // when template's version input changes
-form.templateVersion.addEventListener("keyup", validatetemplateVersion);
+form.templateVersion.addEventListener("input", validatetemplateVersion);
 
 // when template's explanation input changes
-form.templateExplanation.addEventListener("keyup", validateExplanation);
+form.templateExplanation.addEventListener("input", validateExplanation);
 
 // when template's photo was uploaded
 form.templatePhoto.addEventListener("change", validateTemplatePhoto);

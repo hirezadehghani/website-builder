@@ -217,12 +217,12 @@ function passwordValidation() {
     }
 }
 
-form.firstName.addEventListener("keyup", firstNameValidation);
-form.lastName.addEventListener("keyup", lastNameValidation);
+form.firstName.addEventListener("input", firstNameValidation);
+form.lastName.addEventListener("input", lastNameValidation);
 form.userPhoto.addEventListener("change", userPhotoValidation);
-form.nationalCode.addEventListener("keyup", nationalCodeValidation);
-form.mail.addEventListener("keyup", emailValidation);
-form.phoneNumber.addEventListener("keyup", phoneNumberValidation);
-form.password.addEventListener("keyup", passwordValidation);
+form.nationalCode.addEventListener("input", nationalCodeValidation);
+form.mail.addEventListener("input", emailValidation);
+form.phoneNumber.addEventListener("input", phoneNumberValidation);
+form.password.addEventListener("input", passwordValidation);
 
 form.addEventListener("submit", formValidationFromUserInfo);

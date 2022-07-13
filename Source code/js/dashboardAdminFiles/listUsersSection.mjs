@@ -84,13 +84,13 @@ function searchUsersListTable(e) {
         userLastName.push(tableItem.children[1].innerHTML.trim());
     });
 
-    // selecting user names that scorresponds to admin search
+    // selecting user names that corresponds to admin search
     userName.filter((Name) => {
         if (Name.includes(inputValue)) {
             result.push(Name);
         }
     });
-    // selecting user family that scorresponds to admin search
+    // selecting user family that corresponds to admin search
     userLastName.filter((Family) => {
         if (Family.includes(inputValue)) {
             result.push(Family);
@@ -203,7 +203,7 @@ listUsersButtons.children[3].addEventListener("click", () => {
 
 // 'جستجوی کاربر' button in users list section
 listUsersButtons.children[2].children[0].addEventListener(
-    "keyup",
+    "input",
     searchUsersListTable
 );
 
